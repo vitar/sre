@@ -6,7 +6,7 @@ Executed v0.2 (2026-03-27)
 
 ## Scope and Method
 
-This document executes the full sequence defined in **310 Model Assumptions Test Plan** against the current combined reference set in **000 Tri-Contour Dynamics of Limited Resource Allocation model reference combined**.
+This document executes the full sequence defined in **310 Model Assumptions Test Plan** against the current reference set files.
 
 Execution method: adversarial analytical testing with cross-domain counterexample pressure (biological, technical/computational, organizational/economic, social/political, multi-unit work systems, and shared-system/portfolio contexts).
 
