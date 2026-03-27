@@ -94,7 +94,7 @@ Defines:
 * main excluded externalities,
 * and intended analytical boundary.
 
-This is the first required artifact for all serious applications.
+This is a required artifact for all serious applications.
 
 ### 4.2 Horizon Declaration
 
@@ -104,7 +104,7 @@ Defines:
 * medium-term,
 * and/or long-term time horizon relevant to the case.
 
-A single case may include more than one horizon, but they must be declared explicitly.
+A single case may include more than one horizon, but at least one declared horizon is required.
 
 ### 4.3 Use Mode Declaration
 
@@ -136,8 +136,10 @@ Minimum fields:
 * time horizon,
 * mediator-first yes/no,
 * primary contour,
-* secondary effects,
+* rationale trace for primary assignment,
+* secondary effects (tagged),
 * proxy support,
+* linked supporting artifacts,
 * confidence,
 * notes.
 
@@ -153,9 +155,13 @@ Minimum fields:
 * contour being estimated,
 * proxy set,
 * observed indicators,
-* interpretive logic,
+* triangulation logic,
+* known proxy failure modes,
+* mediator fields where relevant (type, channel, direction, strength, lag),
 * known limitations,
-* confidence,
+* confidence band,
+* uncertainty notes,
+* drift-check cadence,
 * comparison basis,
 * notes.
 
@@ -175,9 +181,10 @@ Minimum fields:
 * time horizon,
 * estimated contour posture,
 * mediator notes,
-* confidence,
+* confidence band,
 * evidence basis,
-* uncertainty notes.
+* uncertainty notes,
+* estimate status: stable / provisional / fragile.
 
 ### 5.4 Distortion Assessment
 
@@ -196,6 +203,19 @@ Minimum fields:
 * likely structural consequences,
 * confidence,
 * supporting artifacts referenced.
+
+### 5.5 Multi-Unit Extension Contract
+
+Used when analysis depends on interactions across multiple units in a shared system.
+
+Minimum fields:
+
+* unit state map,
+* coupling type,
+* propagation pathway,
+* recovery mode assumptions,
+* shared-boundary risk notes,
+* confidence and unknowns.
 
 ---
 

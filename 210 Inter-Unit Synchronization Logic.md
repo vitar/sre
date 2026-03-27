@@ -428,6 +428,10 @@ This example demonstrates why the model needs an inter-unit layer: neither local
 * **Synchronization object:**
 * **Inter-unit state relation:** aligned / compatible but tense / partially conflicting / structurally misaligned / mutually blocking
 * **Mediator issues present:**
+* **Coupling type:** loose / sequential / reciprocal / tightly coupled
+* **Propagation pathway assumptions:**
+* **Recovery mode assumptions:**
+* **Monitoring triggers for escalation:**
 * **Selected synchronization mode:**
 * **Expected trade-off:**
 * **Reassessment trigger:**

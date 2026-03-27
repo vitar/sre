@@ -223,8 +223,12 @@ Typical reasons:
 
 Use when:
 
-* some structural similarity exists,
-* but comparison should remain illustrative rather than decisive.
+* core alignment conditions are materially different,
+* proxy equivalence is partial or uncertain,
+* mediator contexts differ strongly,
+* or confidence asymmetry is high.
+
+Weakly comparable cases may still be contrasted for exploratory learning, but should not support strong ranking or causal claims.
 
 ### 5.4 Not Comparable
 
@@ -374,7 +378,10 @@ A comparison should therefore record:
 
 * confidence in case A,
 * confidence in case B,
-* and confidence in the comparison itself.
+* confidence in the comparison itself,
+* residual uncertainty,
+* proxy-confidence compatibility across compared cases,
+* and drift risk in longer time-span comparisons.
 
 High-confidence cases can still produce a low-confidence comparison if their analytical conditions are misaligned.
 
@@ -427,6 +434,9 @@ Comparing cases that do not leave behind equivalent or sufficiently complete art
 * **Mediator comparability:** strong / partial / weak
 * **Overall validity level:** strongly comparable / conditionally comparable / weakly comparable / not comparable
 * **Comparison confidence:** high / medium / low
+* **Residual uncertainty statement:**
+* **Proxy-confidence compatibility:**
+* **Drift risk notes (time-series/longitudinal use):**
 * **Main limitations:**
 * **Notes:**
 
