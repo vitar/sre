@@ -1,9 +1,5 @@
 # Metrics and Proxies
 
-## Status
-
-Draft v0.2
-
 ## Purpose
 
 This document defines how the core model may be supported through observable indicators, proxy measures, and disciplined state description.
@@ -19,7 +15,6 @@ This document is a companion to **Core Model Definition v0.2.1** and **Classific
 * serious use should leave behind structured artifacts,
 * and comparison requires explicit validity checks rather than assumed equivalence.
 
-This draft maintains the logic of the prior version while updating its documentation context after the introduction of the broader companion set. It should now be read alongside:
 
 * **Failure and Breakdown Definition**
 * **Intervention Logic**

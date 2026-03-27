@@ -1,9 +1,5 @@
 # Multi-Unit Failure and Breakdown
 
-## Status
-
-Draft v0.1
-
 ## Purpose
 
 This document defines how failure, breakdown, degradation, and collapse should be interpreted when multiple units, each with their own local contour state, participate in a shared system.

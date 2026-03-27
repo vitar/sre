@@ -1,9 +1,5 @@
 # Application Artifact Suite
 
-## Status
-
-Draft v0.1
-
 ## Purpose
 
 This document defines the standard artifact suite for applying the model in a repeatable, reviewable, and comparable way.

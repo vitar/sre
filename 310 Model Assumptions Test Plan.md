@@ -1,9 +1,5 @@
 # Model Assumptions Test Plan
 
-## Status
-
-Draft v0.2
-
 ## Purpose
 
 This document defines the updated assumption-testing approach for the current documentation set of **Tri-Contour Dynamics of Limited Resource Allocation**.

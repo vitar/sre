@@ -1,9 +1,5 @@
 # Intervention Logic
 
-## Status
-
-Draft v0.1
-
 ## Purpose
 
 This document defines how the model moves from diagnosis to action.

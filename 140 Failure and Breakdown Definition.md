@@ -1,9 +1,5 @@
 # Failure and Breakdown Definition
 
-## Status
-
-Draft v0.1
-
 ## Purpose
 
 This document defines how the model should describe failure, breakdown, and degradation.

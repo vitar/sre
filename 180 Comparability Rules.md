@@ -1,9 +1,5 @@
 # Comparability Rules
 
-## Status
-
-Draft v0.1
-
 ## Purpose
 
 This document defines when and how states, cases, periods, subsystems, or portfolios may be compared using the model.

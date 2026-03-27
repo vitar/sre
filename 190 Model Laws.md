@@ -1,9 +1,5 @@
 # Model Laws
 
-## Status
-
-Draft v0.1
-
 ## Purpose
 
 This document defines the first law-like statements of the system currently named **Tri-Contour Dynamics of Limited Resource Allocation**.
