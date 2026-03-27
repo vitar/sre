@@ -531,6 +531,7 @@ Minimum metadata:
 * artifact type,
 * date,
 * author or analyst,
+* version,
 * linked artifacts,
 * use mode,
 * system boundary,

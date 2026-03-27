@@ -2,7 +2,7 @@
 
 ## Scope and Method
 
-This document executes the full sequence defined in **310 Model Assumptions Test Plan** against the current reference set files.
+This document executes the full sequence defined in **Model Assumptions Test Plan** against the current reference set files.
 
 Execution method: adversarial analytical testing with cross-domain counterexample pressure (biological, technical/computational, organizational/economic, social/political, multi-unit work systems, and shared-system/portfolio contexts).
 

@@ -370,6 +370,7 @@ A Software Engineer may be locally oriented toward **Evolution** and/or **Surviv
 * reliability,
 * reduction of fragility.
 
+### 11.2 Misread Version
 
 This configuration is often misread as:
 
