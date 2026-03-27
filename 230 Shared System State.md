@@ -366,16 +366,20 @@ This means:
 
 * **Shared system boundary:**
 * **Participating units:**
-* **Local state of each unit:**
+* **Unit state inventory:**
 * **Time horizon:**
+* **Coupling topology:**
 * **Synchronization quality:**
-* **Mediator conditions:**
+* **Mediator map with directional effects:**
 * **Compensation pattern:**
+* **Failure propagation pathways:**
+* **Recovery and re-synchronization modes:**
 * **Estimated shared Survival posture:**
 * **Estimated shared Reproduction posture:**
 * **Estimated shared Evolution posture:**
 * **Shared state type:** coherent / tense but viable / compensated / distorted / degrading / failing
 * **Confidence level:** high / medium / low
+* **Observability gaps:**
 * **Notes:**
 
 This record should be treated as part of the broader **Application Artifact Suite**.

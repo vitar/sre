@@ -401,9 +401,14 @@ Calling the shared system collapsed when it is still degraded or failing but pot
 * **Issue type:** local breakdown / relational breakdown / shared-system degradation / shared-system failure / cross-unit collapse
 * **Primary failure condition:**
 * **Mediator issues present:**
+* **Coupling type and strength:**
+* **Propagation pathway:**
+* **Compensation dependency map:**
+* **Recovery modes and preconditions:**
 * **Compensation margin status:** intact / shrinking / exhausted
 * **Formal survival vs shared functional survival:**
 * **Confidence level:** high / medium / low
+* **Unknowns:**
 * **Notes:**
 
 This record should be treated as part of the broader **Application Artifact Suite**.

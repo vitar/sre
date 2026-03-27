@@ -243,6 +243,8 @@ Examples:
 
 Do not infer contour allocation from a single proxy when a stronger proxy set is available.
 
+For contested or high-impact claims, use at least two independent proxy classes and record how they converge or diverge.
+
 Single indicators are often misleading.
 
 Example:
@@ -279,11 +281,13 @@ If proxies contradict intuitive classification, the contradiction must be stated
 
 ### 7.5 Confidence Rule
 
-Every proxy-supported estimate should include a confidence level:
+Every proxy-supported estimate should include a confidence level and uncertainty statement:
 
 * **high** — multiple aligned proxies with clear boundary and horizon,
 * **medium** — some proxy support with moderate ambiguity,
 * **low** — weak or conflicting proxies, major uncertainty, or unstable boundary.
+
+Confidence statements should also note major observability gaps and whether the estimate is stable, provisional, or fragile.
 
 ### 7.6 Artifact Traceability Rule
 
@@ -291,7 +295,17 @@ Proxy-supported interpretation should leave behind enough structured record to s
 
 In practice, this means proxy use should normally produce or update a **Proxy Record** and contribute to a **State Estimate** within the **Application Artifact Suite**.
 
-### 7.7 Comparison Caution Rule
+### 7.7 Drift Check Rule
+
+For repeated measurement or trend use, declare how proxy drift will be detected and handled.
+
+Minimum drift handling should state:
+
+* recalibration trigger,
+* replacement criteria,
+* and comparability impact when proxy sets change.
+
+### 7.8 Comparison Caution Rule
 
 Proxy-supported estimates should not be treated as comparable across cases or over time unless comparison conditions have been checked explicitly.
 
@@ -458,9 +472,14 @@ The following template should be used in practical applications.
 * **Contour being estimated:** Survival / Reproduction / Evolution / Mediator
 * **Proxy set:**
 * **Observed indicators:**
-* **Interpretive logic:**
+* **Triangulation logic:**
+* **Known proxy failure modes:**
+* **Mediator instrumentation (if used):** type / channel / directional effect / strength / lag
 * **Known limitations:**
 * **Confidence level:** high / medium / low
+* **Uncertainty notes and observability gaps:**
+* **Estimate status:** stable / provisional / fragile
+* **Drift-check cadence (for repeated use):**
 * **Comparison basis:** baseline / prior period / peer system / target state
 * **Notes:**
 
