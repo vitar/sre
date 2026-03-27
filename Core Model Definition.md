@@ -2,16 +2,20 @@
 
 ## Status
 
-Draft v0.1
+Draft v0.2
 
 ## Purpose
 
-This document defines the core of the model as it currently stands. It captures the minimum stable structure, terminology, and logic needed to describe the model consistently and extend it later. The model is intended to serve both as:
+This document defines the core of the model at its current stage. It captures the minimum stable structure, terminology, and logic needed to describe the model consistently, challenge it rigorously, and extend it later.
+
+The model is intended to serve both as:
 
 1. a standalone systems model for describing dynamic behavior under constraints, and
-2. a complementary model that can extend other frameworks by adding resource dynamics, tensions, and consequences of change.
+2. a complementary model that can extend other frameworks by adding resource dynamics, tensions, mediators, and consequences of change.
 
-This document focuses only on the core model. Applications, metrics, examples, and derived laws are intentionally left for separate documents.
+This document focuses only on the core model. Applications, metrics, examples, laws, and domain-specific integrations are intentionally left for separate documents.
+
+This draft supersedes the earlier core definition by incorporating the required revisions identified through the first executed assumption test cycle. It retains the three-contour core while tightening classification rules, operational discipline, and framing boundaries.
 
 ---
 
@@ -23,7 +27,7 @@ The model describes any dynamic system as a constrained allocation of limited re
 * **Reproduction**
 * **Evolution**
 
-The state and behavior of the system depend on how resources are distributed across these three contours under pressure from the environment.
+The state and behavior of a system depend on how resources are distributed across these three contours under pressure from the environment.
 
 The model is intentionally general. It can be applied to biological, technical, organizational, economic, and social systems, provided the system has:
 
@@ -31,7 +35,7 @@ The model is intentionally general. It can be applied to biological, technical, 
 * competing demands for those resources,
 * and non-static behavior over time.
 
-The model does not assume moral value, political orientation, or a preferred outcome. It is descriptive first, diagnostic second, and potentially prescriptive only after context is made explicit.
+The model does not assume moral value, political orientation, or a preferred outcome. It is descriptive first, diagnostic second, and potentially prescriptive only after context, boundaries, and mediating conditions are made explicit.
 
 ---
 
@@ -47,7 +51,7 @@ A system may exist at multiple levels of scale, from simple biological systems t
 
 A **resource** is any limited input that can be allocated among competing system functions.
 
-Resources may be physical, temporal, energetic, informational, economic, social, or institutional. The model does not require resources to be of a single type, only that scarcity and trade-offs exist.
+Resources may be physical, temporal, energetic, informational, economic, social, institutional, or symbolic. The model does not require resources to be of a single type, only that scarcity and trade-offs exist at some relevant level of analysis.
 
 ### 2.3 Environment
 
@@ -55,11 +59,36 @@ The **environment** is the set of external conditions that shape resource availa
 
 The environment may be stable or volatile, permissive or hostile, abundant or scarce. It influences both what the system can do and what it must do to continue.
 
+### 2.4 Mediator
+
+A **mediator** is any cross-cutting factor that shapes allocation, signaling, constraint, coordination, or feedback across the three contours without itself being treated as an additional core contour.
+
+Typical mediators may include:
+
+* governance,
+* coordination,
+* meaning,
+* legitimacy,
+* power,
+* trust,
+* information structure,
+* and institutional rules.
+
+Mediators are not peripheral. They may be decisive in complex systems. The model treats them as cross-cutting because they modify how the three contours operate rather than replacing the contours themselves.
+
 ---
 
 ## 3. The Three Functional Contours
 
-### 3.1 Survival
+### 3.1 Contour Interpretation Rule
+
+The three contours should be interpreted as **primary functional intents**, not as claims that every system activity has only one effect.
+
+A single intervention may produce secondary effects across multiple contours. That does not invalidate the model, but it requires disciplined classification.
+
+The contours remain analytically distinct at the level of primary function, while allowing real-world cross-effects, mixed consequences, and mediated interactions.
+
+### 3.2 Survival
 
 **Survival** is the contour responsible for preserving the current viability and continuity of the system.
 
@@ -74,9 +103,9 @@ Typical expressions of Survival include:
 * control,
 * operational reliability.
 
-If Survival is underfunded, the system becomes fragile. If excessively dominant, the system tends toward stagnation and suppression of change.
+If Survival is underfunded, the system becomes fragile. If excessively dominant, the system tends toward stagnation, defensive rigidity, and suppression of change.
 
-### 3.2 Reproduction
+### 3.3 Reproduction
 
 **Reproduction** is the contour responsible for copying, scaling, extending, or propagating the system’s existing form, patterns, or outputs.
 
@@ -91,9 +120,9 @@ Typical expressions of Reproduction include:
 * throughput,
 * propagation.
 
-If Reproduction is underfunded, the system may fail to continue beyond its current instance. If excessively dominant, the system tends toward brittle growth, quality dilution, and scaling of unresolved weaknesses.
+If Reproduction is underfunded, the system may fail to continue beyond its current instance. If excessively dominant, the system tends toward brittle growth, quality dilution, and the scaling of unresolved weaknesses.
 
-### 3.3 Evolution
+### 3.4 Evolution
 
 **Evolution** is the contour responsible for changing the system’s form, behavior, structure, or capabilities in response to opportunity, pressure, or variation.
 
@@ -112,11 +141,39 @@ If Evolution is underfunded, the system loses adaptive capacity. If excessively 
 
 ---
 
-## 4. Structural Principle
+## 4. Classification Discipline
+
+### 4.1 Primary Intent Rule
+
+Contour classification should begin by asking: **What is the primary function this allocation is meant to serve?**
+
+The same action may support multiple contours, but classification should first identify the dominant intended function rather than all possible downstream effects.
+
+### 4.2 Time Horizon Rule
+
+Contour classification should also state the relevant **time horizon**.
+
+This is required because some interventions preserve short-term viability while enabling long-term adaptation, or reduce short-term flexibility while increasing long-term reproducibility.
+
+At minimum, applications should distinguish among:
+
+* short-term,
+* medium-term,
+* and long-term contour effects.
+
+### 4.3 Secondary Effects Rule
+
+Secondary contour effects should be recorded when they materially shape interpretation, but they do not replace the need to classify a primary contour.
+
+This discipline is necessary to preserve contour distinctness in complex systems where mixed interventions are common.
+
+---
+
+## 5. Structural Principle
 
 The model assumes that Survival, Reproduction, and Evolution are not optional features but structurally competing contours.
 
-A system cannot maximize all three simultaneously because resources are limited and allocation to one contour reduces availability for the others.
+A system cannot sustainably maximize all three simultaneously because resources are limited and allocation to one contour reduces availability for the others over relevant planning horizons.
 
 This creates persistent tension rather than permanent equilibrium.
 
@@ -125,11 +182,12 @@ The model therefore treats system behavior as the result of:
 * constrained allocation,
 * contour competition,
 * environmental pressure,
+* mediator effects,
 * and feedback over time.
 
 ---
 
-## 5. System State
+## 6. System State
 
 The **state** of a system is defined by the current distribution of resources across Survival, Reproduction, and Evolution.
 
@@ -141,13 +199,28 @@ This state may be:
 
 The model does not define balance as equal distribution. A balanced system is one whose allocation remains viable for its context and does not create destructive distortion across contours.
 
+At this stage, state description should be treated as primarily **qualitative unless supported by explicit allocation proxies**.
+
+In practical use, contour allocation should be inferred through observable indicators such as:
+
+* budget allocation,
+* headcount distribution,
+* time investment,
+* throughput focus,
+* risk posture,
+* innovation share,
+* operational load,
+* or other context-appropriate proxy measures.
+
+The model does not assume that all allocations are directly measurable. In opaque or symbolically mediated systems, state description should include uncertainty and avoid false precision.
+
 ---
 
-## 6. Tensions and Trade-offs
+## 7. Tensions and Trade-offs
 
-The model includes three primary structural tensions:
+The model includes three primary structural tensions.
 
-### 6.1 Survival ↔ Evolution
+### 7.1 Survival ↔ Evolution
 
 This tension reflects the trade-off between stability and change.
 
@@ -156,7 +229,7 @@ This tension reflects the trade-off between stability and change.
 
 An excess of Survival suppresses adaptive change. An excess of Evolution destabilizes operational continuity.
 
-### 6.2 Survival ↔ Reproduction
+### 7.2 Survival ↔ Reproduction
 
 This tension reflects the trade-off between quality and quantity, or robustness and scale.
 
@@ -165,7 +238,7 @@ This tension reflects the trade-off between quality and quantity, or robustness 
 
 An excess of Reproduction can weaken the quality or resilience of what is being scaled. An excess of Survival can prevent propagation or expansion.
 
-### 6.3 Reproduction ↔ Evolution
+### 7.3 Reproduction ↔ Evolution
 
 This tension reflects the trade-off between copying the current form and changing it.
 
@@ -176,9 +249,9 @@ An excess of Reproduction can lock the system into repeated forms that no longer
 
 ---
 
-## 7. Distortions and Typical Failure Modes
+## 8. Distortions and Typical Failure Modes
 
-### 7.1 Survival-Dominant Distortion
+### 8.1 Survival-Dominant Distortion
 
 When Survival becomes structurally dominant, the system prioritizes preservation over adaptation and propagation.
 
@@ -190,7 +263,7 @@ Typical outcomes:
 * low adaptability,
 * suppression of variation.
 
-### 7.2 Reproduction-Dominant Distortion
+### 8.2 Reproduction-Dominant Distortion
 
 When Reproduction becomes structurally dominant, the system prioritizes scaling over integrity and adaptation.
 
@@ -202,7 +275,7 @@ Typical outcomes:
 * rising coordination cost,
 * shallow continuity.
 
-### 7.3 Evolution-Dominant Distortion
+### 8.3 Evolution-Dominant Distortion
 
 When Evolution becomes structurally dominant, the system prioritizes change over continuity and sustainable scaling.
 
@@ -216,11 +289,11 @@ Typical outcomes:
 
 ---
 
-## 8. Feedback Dynamics
+## 9. Feedback Dynamics
 
 The model assumes that systems are shaped by feedback.
 
-### 8.1 Reinforcing Feedback
+### 9.1 Reinforcing Feedback
 
 Allocation to a contour may strengthen conditions that pull still more resources into the same contour.
 
@@ -230,21 +303,22 @@ Examples include:
 * defensive threat perception increasing control,
 * experimentation generating more change.
 
-### 8.2 Balancing Feedback
+### 9.2 Balancing Feedback
 
-Environmental limits, resource scarcity, or systemic friction may counter a dominant contour and push the system back toward a different configuration.
+Environmental limits, resource scarcity, systemic friction, or mediator effects may counter a dominant contour and push the system back toward a different configuration.
 
 Examples include:
 
 * resource exhaustion limiting growth,
 * instability forcing a return to operational control,
-* stagnation creating adaptation pressure.
+* stagnation creating adaptation pressure,
+* governance bottlenecks reducing unbounded change.
 
 The model does not assume that feedback will naturally restore healthy balance. Systems may remain trapped in distorted configurations for long periods.
 
 ---
 
-## 9. Scale and Nested Systems
+## 10. Scale and Nested Systems
 
 The model is scale-independent in structure, but not scale-blind in observation.
 
@@ -258,13 +332,21 @@ The same core logic may describe:
 * a state,
 * or a civilization.
 
-However, complex systems contain many nested subsystems. Local nodes may operate with their own strategies, constraints, and distributions while still participating in a larger system-wide configuration.
+However, complex systems contain many nested subsystems. Local nodes may operate with their own strategies, constraints, mediators, and contour distributions while still participating in a larger system-wide configuration.
 
 This does not invalidate the model. It means that complexity increases through the number and interaction of local allocations, not through a change in the core structure itself.
 
+In application, the chosen level of analysis must be stated explicitly. Different boundary choices may produce different contour interpretations.
+
+For this reason, any practical use of the model should declare:
+
+* the focal system boundary,
+* the nesting level being analyzed,
+* and the most relevant excluded externalities.
+
 ---
 
-## 10. Scope and Boundaries
+## 11. Scope and Boundaries
 
 The model is applicable where all of the following are present:
 
@@ -282,11 +364,15 @@ The model becomes weak or non-informative when:
 
 The model is not a total explanation of all human, social, or natural complexity. It is a structural lens for identifying persistent dynamics beneath that complexity.
 
+In some domains, especially complex social and political systems, important factors such as governance, coordination, meaning, legitimacy, and power may appear irreducible. At the current stage of the model, these should be treated as **cross-cutting mediators** that shape allocation, constraint, signaling, and feedback across the three contours rather than as additional core contours.
+
+This is a disciplined interpretive choice, not a claim that such mediators are unimportant.
+
 ---
 
-## 11. Independent and Complementary Uses
+## 12. Independent and Complementary Uses
 
-### 11.1 Independent Use
+### 12.1 Independent Use
 
 As a standalone model, it can be used to:
 
@@ -295,20 +381,21 @@ As a standalone model, it can be used to:
 * identify likely failure modes,
 * and reason about long-term viability.
 
-### 11.2 Complementary Use
+### 12.2 Complementary Use
 
 As a companion model, it can extend other frameworks by adding:
 
 * resource logic,
 * contour tensions,
+* mediator effects,
 * feedback interpretation,
 * and the likely consequences of directional moves.
 
-For example, when applied alongside a mapping or strategy framework, this model can help explain not only where a system or component is positioned, but why it behaves that way and what resource consequences follow from movement.
+For example, when applied alongside a mapping or strategy framework, this model can help explain not only where a system or component is positioned, but why it behaves that way, what resource consequences follow from movement, and which mediators may alter the path.
 
 ---
 
-## 12. Compact Formulation
+## 13. Compact Formulation
 
 A dynamic system can be described as a bounded entity operating under environmental pressure, allocating limited resources across three competing functional contours:
 
@@ -316,11 +403,11 @@ A dynamic system can be described as a bounded entity operating under environmen
 * Reproduction: copy or scale current form,
 * Evolution: change form or capability.
 
-Its behavior emerges from the tensions among these contours, the constraints imposed by the environment, and the feedback generated over time.
+Its behavior emerges from the tensions among these contours, the constraints imposed by the environment, the mediators that shape allocation and signaling, and the feedback generated over time.
 
 ---
 
-## 13. Current Maturity of the Model
+## 14. Current Maturity of the Model
 
 At this stage, the model should be treated as:
 
@@ -330,11 +417,23 @@ At this stage, the model should be treated as:
 
 It is currently strong as a reasoning and diagnostic model. It is not yet fully formalized as a quantitative model with stable metrics, thresholds, or laws.
 
+Its current posture is best understood as:
+
+* **structurally retained**,
+* **operationally conditional**,
+* and **scope-sensitive at framing boundaries**.
+
+This means that:
+
+* the three-contour core remains intact,
+* operational use should rely on explicit proxy-supported allocation where possible,
+* and applications should declare system boundaries clearly, especially in complex social domains.
+
 Those belong to future documents.
 
 ---
 
-## 14. Open Follow-on Documents
+## 15. Open Follow-on Documents
 
 The following documents are expected to evolve from this core:
 
@@ -344,10 +443,13 @@ The following documents are expected to evolve from this core:
 4. **Applied Cases** — standalone examples across domains.
 5. **Framework Integrations** — use with models such as Wardley Maps.
 6. **Boundary Conditions** — where the model does and does not apply.
+7. **Mediator Layer** — governance, coordination, meaning, legitimacy, power, and other cross-cutting mediators.
+8. **Classification Protocol** — practical rules for assigning primary contour and time horizon.
+9. **Boundary Declaration Template** — required framing fields for real-world application.
 
 ---
 
-## 15. Working Summary
+## 16. Working Summary
 
 This model defines a minimal dynamic structure for understanding systems under constraint.
 
@@ -359,4 +461,4 @@ It assumes that every viable dynamic system must continually negotiate:
 
 while allocating limited resources under pressure from its environment.
 
-The model’s central claim is that the deep behavior of systems can often be understood by examining how resources are distributed across these three contours, what tensions arise from that distribution, and how feedback and environmental pressure reinforce or correct the resulting configuration.
+The model’s central claim is that the deep behavior of systems can often be understood by examining how resources are distributed across these three contours, what tensions arise from that distribution, how mediators shape that distribution, and how feedback and environmental pressure reinforce or correct the resulting configuration.
