@@ -1,9 +1,5 @@
 # Application Artifact Suite
 
-## Status
-
-Draft v0.1
-
 ## Purpose
 
 This document defines the standard artifact suite for applying the model in a repeatable, reviewable, and comparable way.
@@ -535,7 +531,6 @@ Minimum metadata:
 * artifact type,
 * date,
 * author or analyst,
-* version,
 * linked artifacts,
 * use mode,
 * system boundary,

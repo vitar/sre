@@ -1,9 +1,5 @@
 # Inter-Unit Synchronization Logic
 
-## Status
-
-Draft v0.1
-
 ## Purpose
 
 This document defines how the model should be applied when two or more units, each with their own contour state, must operate within a shared system.
@@ -374,7 +370,6 @@ A Software Engineer may be locally oriented toward **Evolution** and/or **Surviv
 * reliability,
 * reduction of fragility.
 
-### 11.2 Misread Version
 
 This configuration is often misread as:
 

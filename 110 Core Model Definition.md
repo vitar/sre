@@ -1,9 +1,5 @@
 # Core Model Definition
 
-## Status
-
-Draft v0.2.1
-
 ## Purpose
 
 This document defines the core of the model at its current stage. It captures the minimum stable structure, terminology, and logic needed to describe the model consistently, challenge it rigorously, and extend it later.

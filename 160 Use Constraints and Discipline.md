@@ -1,9 +1,5 @@
 # Use Constraints and Discipline
 
-## Status
-
-Draft v0.1
-
 ## Purpose
 
 This document consolidates the practical constraints, usage rules, and interpretive discipline required for the model to be applied consistently.

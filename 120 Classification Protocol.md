@@ -1,9 +1,5 @@
 # Classification Protocol
 
-## Status
-
-Draft v0.2
-
 ## Purpose
 
 This document defines the practical protocol for classifying observed allocations, interventions, behaviors, or system activities across the three core contours:
@@ -25,7 +21,6 @@ This document is a companion to **Core Model Definition v0.2.1**. It assumes tha
 * intervention selection belongs to a separate intervention document,
 * and serious application should leave behind structured artifacts rather than free-form interpretation alone.
 
-This draft maintains the core logic of the prior version while updating its documentation context after the introduction of the broader companion set. It should now be read alongside:
 
 * **Metrics and Proxies**
 * **Failure and Breakdown Definition**

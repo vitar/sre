@@ -1,9 +1,5 @@
 # Model Assumptions Test Results
 
-## Status
-
-Executed v0.2 (2026-03-27)
-
 ## Scope and Method
 
 This document executes the full sequence defined in **310 Model Assumptions Test Plan** against the current reference set files.

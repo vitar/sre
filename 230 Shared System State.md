@@ -1,9 +1,5 @@
 # Shared System State
 
-## Status
-
-Draft v0.1
-
 ## Purpose
 
 This document defines how the model should describe the state of an enclosing system when multiple units, each with their own local contour posture, operate within it.
