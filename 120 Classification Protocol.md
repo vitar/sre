@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft v0.1
+Draft v0.2
 
 ## Purpose
 
@@ -16,7 +16,24 @@ Its purpose is to make application of the core model more disciplined, more repe
 
 The protocol does not redefine the contours. It defines how they should be used in analysis.
 
-This document is a companion to **Core Model Definition v0.2**. It assumes that the three-contour core remains structurally valid, that mediators may shape contour behavior, and that state description is often qualitative unless supported by explicit proxies.
+This document is a companion to **Core Model Definition v0.2.1**. It assumes that:
+
+* the three-contour core remains structurally valid,
+* mediators may shape contour behavior,
+* state description is often qualitative unless supported by explicit proxies,
+* failure-related judgments belong to a separate failure document,
+* intervention selection belongs to a separate intervention document,
+* and serious application should leave behind structured artifacts rather than free-form interpretation alone.
+
+This draft maintains the core logic of the prior version while updating its documentation context after the introduction of the broader companion set. It should now be read alongside:
+
+* **Metrics and Proxies**
+* **Failure and Breakdown Definition**
+* **Intervention Logic**
+* **Use Constraints and Discipline**
+* **Application Artifact Suite**
+* **Comparability Rules**
+* **Model Assumptions Test Plan**
 
 ---
 
@@ -212,7 +229,7 @@ When the main function of the object is to shape how contour behavior is organiz
 
 ### 6.1 Mediator-First Rule
 
-Do not force every object into S, R, or E if its primary function is cross-cutting structural mediation.
+Do not force every object into Survival, Reproduction, or Evolution if its primary function is cross-cutting structural mediation.
 
 ### 6.2 Contour Consequence Rule
 
@@ -340,6 +357,12 @@ If proxies are available, use them to support, challenge, or refine intuitive cl
 
 If proxies are weak, noisy, or unavailable, the classification should remain qualitative and state its uncertainty.
 
+### 10.3 Comparison Caution Rule
+
+Classification records should not be treated as comparable across cases unless boundary, horizon, and classification discipline are sufficiently aligned.
+
+Detailed validity conditions for comparison belong to **Comparability Rules**, not to this document alone.
+
 ---
 
 ## 11. Common Misclassification Patterns
@@ -374,6 +397,12 @@ Forcing cross-cutting structures into a contour when they are better handled as 
 
 Example: treating governance itself as a contour instead of a mediator shaping all three.
 
+### 11.6 Artifact-Free Classification
+
+Producing contour assignments without leaving behind enough structured context to review the claim later.
+
+This weakens repeatability, comparability, and intervention traceability.
+
 ---
 
 ## 12. Minimal Classification Template
@@ -393,6 +422,8 @@ The following template should be used in real applications.
 * **Proxy support:**
 * **Confidence level:** high / medium / low
 * **Notes:**
+
+This template should be treated as part of the broader **Application Artifact Suite** rather than as a standalone note pattern.
 
 ---
 
@@ -445,13 +476,29 @@ Good classification is:
 * explicit about time horizon,
 * explicit about primary intent,
 * honest about secondary effects,
-* and honest about uncertainty.
+* honest about uncertainty,
+* and structured enough to support later review.
 
-The protocol is working well when different analysts can reproduce similar classifications for the same object and explain disagreements using boundary, horizon, mediator, or evidence differences rather than intuition alone.
+The protocol is working well when different analysts can reproduce similar classifications for the same object and explain disagreements using boundary, horizon, mediator, evidence, or proxy differences rather than intuition alone.
 
 ---
 
-## 15. Working Summary
+## 15. Relationship to Other Documents
+
+This protocol should be used together with the other companion documents rather than as a complete application method by itself.
+
+In particular:
+
+* **Metrics and Proxies** supports evidence-backed classification,
+* **Failure and Breakdown Definition** defines how classification findings should and should not escalate into failure claims,
+* **Intervention Logic** defines how classification and diagnosis connect to action,
+* **Use Constraints and Discipline** defines the minimum rules that make classification trustworthy,
+* **Application Artifact Suite** defines how classification records fit into repeatable application,
+* and **Comparability Rules** defines when classifications can be validly compared across cases or over time.
+
+---
+
+## 16. Working Summary
 
 This protocol defines how to classify real-world objects into the model without collapsing into ambiguity.
 
@@ -463,6 +510,7 @@ It does so by requiring:
 * a primary-intent assignment,
 * mediator handling where appropriate,
 * secondary-effect recording,
+* proxy support where available,
 * and uncertainty discipline.
 
 Its central claim is practical rather than theoretical:

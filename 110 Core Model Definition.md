@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft v0.2
+Draft v0.2.1
 
 ## Purpose
 
@@ -16,6 +16,17 @@ The model is intended to serve both as:
 This document focuses only on the core model. Applications, metrics, examples, laws, and domain-specific integrations are intentionally left for separate documents.
 
 This draft supersedes the earlier core definition by incorporating the required revisions identified through the first executed assumption test cycle. It retains the three-contour core while tightening classification rules, operational discipline, and framing boundaries.
+
+This core should now be read together with its current companion documents, especially:
+
+* **Classification Protocol**
+* **Metrics and Proxies**
+* **Failure and Breakdown Definition**
+* **Intervention Logic**
+* **Use Constraints and Discipline**
+* **Application Artifact Suite**
+* **Comparability Rules**
+* **Model Assumptions Test Plan**
 
 ---
 
@@ -393,6 +404,20 @@ As a companion model, it can extend other frameworks by adding:
 
 For example, when applied alongside a mapping or strategy framework, this model can help explain not only where a system or component is positioned, but why it behaves that way, what resource consequences follow from movement, and which mediators may alter the path.
 
+### 12.3 Current Documentation Context
+
+This core definition should not be used in isolation for serious application.
+
+At minimum:
+
+* **Classification Protocol** should be used for contour assignment,
+* **Metrics and Proxies** should be used for proxy-supported state estimation,
+* **Failure and Breakdown Definition** should be used for failure-related judgments,
+* **Intervention Logic** should be used for action selection,
+* **Use Constraints and Discipline** should be used to enforce valid use,
+* **Application Artifact Suite** should be used for repeatable application records,
+* and **Comparability Rules** should be used before drawing cross-case or over-time comparisons.
+
 ---
 
 ## 13. Compact Formulation
@@ -427,25 +452,35 @@ This means that:
 
 * the three-contour core remains intact,
 * operational use should rely on explicit proxy-supported allocation where possible,
-* and applications should declare system boundaries clearly, especially in complex social domains.
+* applications should declare system boundaries clearly, especially in complex social domains,
+* and serious use should rely on the companion protocol documents rather than the core alone.
 
-Those belong to future documents.
+Further formalization belongs to future documents.
 
 ---
 
 ## 15. Open Follow-on Documents
 
-The following documents are expected to evolve from this core:
+The following documents remain expected as future extensions beyond the current companion set:
 
 1. **Model Laws** — invariants, constraints, and predictable consequences.
-2. **Metrics and Proxies** — observable indicators for each contour.
-3. **Distortion Patterns** — recurring system failures and signatures.
-4. **Applied Cases** — standalone examples across domains.
-5. **Framework Integrations** — use with models such as Wardley Maps.
-6. **Boundary Conditions** — where the model does and does not apply.
-7. **Mediator Layer** — governance, coordination, meaning, legitimacy, power, and other cross-cutting mediators.
-8. **Classification Protocol** — practical rules for assigning primary contour and time horizon.
-9. **Boundary Declaration Template** — required framing fields for real-world application.
+2. **Distortion Patterns** — recurring system failures and signatures.
+3. **Applied Cases** — standalone examples across domains.
+4. **Framework Integrations** — use with models such as Wardley Maps.
+5. **Boundary Conditions** — where the model does and does not apply.
+6. **Mediator Layer** — governance, coordination, meaning, legitimacy, power, and other cross-cutting mediators.
+7. **Boundary Declaration Template** — required framing fields for real-world application.
+
+The following companion documents now already exist and should be treated as part of the active documentation set rather than future follow-ons:
+
+* **Model Assumptions Test Plan**
+* **Classification Protocol**
+* **Metrics and Proxies**
+* **Failure and Breakdown Definition**
+* **Intervention Logic**
+* **Use Constraints and Discipline**
+* **Application Artifact Suite**
+* **Comparability Rules**
 
 ---
 

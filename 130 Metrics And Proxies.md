@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft v0.1
+Draft v0.2
 
 ## Purpose
 
@@ -10,12 +10,23 @@ This document defines how the core model may be supported through observable ind
 
 Its purpose is not to convert the model into false precision. Its purpose is to make application more rigorous, more comparable, and more operationally useful where direct observation of contour allocation is not possible.
 
-This document is a companion to **Core Model Definition v0.2** and **Classification Protocol**. It assumes that:
+This document is a companion to **Core Model Definition v0.2.1** and **Classification Protocol v0.2**. It assumes that:
 
 * the three-contour core remains intact,
 * contour classification should follow primary intent and time horizon,
 * mediators may shape allocation and feedback,
-* and system state is often qualitative unless supported by explicit allocation proxies.
+* system state is often qualitative unless supported by explicit allocation proxies,
+* serious use should leave behind structured artifacts,
+* and comparison requires explicit validity checks rather than assumed equivalence.
+
+This draft maintains the logic of the prior version while updating its documentation context after the introduction of the broader companion set. It should now be read alongside:
+
+* **Failure and Breakdown Definition**
+* **Intervention Logic**
+* **Use Constraints and Discipline**
+* **Application Artifact Suite**
+* **Comparability Rules**
+* **Model Assumptions Test Plan**
 
 ---
 
@@ -38,7 +49,8 @@ The role of metrics in this model is therefore limited and disciplined:
 * to support interpretation,
 * to improve repeatability,
 * to compare states over time,
-* and to challenge intuitive classification where observable evidence points elsewhere.
+* to challenge intuitive classification where observable evidence points elsewhere,
+* and to support later failure, intervention, and comparison judgments without replacing them.
 
 Metrics are used to strengthen reasoning, not replace it.
 
@@ -61,6 +73,8 @@ The protocol therefore prefers:
 * directional estimates over false precision,
 * relative comparison over absolute scoring,
 * and explicit confidence statements over hidden assumptions.
+
+This document should be read as support for disciplined estimation, not as a license for premature quantification.
 
 ---
 
@@ -103,7 +117,10 @@ For that reason, metrics should be used mainly for:
 * direction,
 * comparison,
 * trend detection,
-* and contradiction testing.
+* contradiction testing,
+* and evidence-backed support for diagnosis.
+
+Where stronger judgments are made, they should be linked to the relevant companion documents rather than inferred from metrics alone.
 
 ---
 
@@ -268,6 +285,18 @@ Every proxy-supported estimate should include a confidence level:
 * **medium** — some proxy support with moderate ambiguity,
 * **low** — weak or conflicting proxies, major uncertainty, or unstable boundary.
 
+### 7.6 Artifact Traceability Rule
+
+Proxy-supported interpretation should leave behind enough structured record to support later review, intervention logic, and comparison.
+
+In practice, this means proxy use should normally produce or update a **Proxy Record** and contribute to a **State Estimate** within the **Application Artifact Suite**.
+
+### 7.7 Comparison Caution Rule
+
+Proxy-supported estimates should not be treated as comparable across cases or over time unless comparison conditions have been checked explicitly.
+
+Detailed validity conditions for this belong to **Comparability Rules**, not to this document alone.
+
 ---
 
 ## 8. State Estimation Modes
@@ -350,6 +379,10 @@ State uncertainty explicitly.
 
 Use the same proxy logic again later to detect movement, trend, or distortion.
 
+### Step 9 — Connect forward only through proper artifacts
+
+If the proxy-supported estimate is later used for failure judgment, intervention selection, or comparison, it should be passed through the relevant companion records rather than treated as sufficient on its own.
+
 ---
 
 ## 10. What Good Metrics Use Looks Like
@@ -362,14 +395,16 @@ A good proxy-supported estimate should be:
 * explicit about time horizon,
 * explicit about what each proxy is standing in for,
 * explicit about mediator effects where relevant,
-* and explicit about confidence and limitations.
+* explicit about confidence and limitations,
+* and structured enough to support downstream review.
 
 Metrics are being used well when they help an analyst say:
 
 * why a system appears Survival-heavy,
 * why Reproduction has accelerated,
 * why Evolution is constrained,
-* or why an intuitive reading is probably wrong.
+* why an intuitive reading is probably wrong,
+* or why later failure/intervention claims should be treated cautiously.
 
 ---
 
@@ -401,6 +436,14 @@ Using official labels, budgets, or declared intent as if they automatically refl
 
 Declared innovation spending, for example, may function operationally as Survival preservation or symbolic legitimacy rather than genuine Evolution.
 
+### 11.7 Comparison Drift
+
+Treating proxy-supported estimates as directly comparable when alignment conditions have not been checked.
+
+### 11.8 Artifact-Free Quantification
+
+Creating numeric-looking state estimates without enough supporting record to reconstruct the inference path later.
+
 ---
 
 ## 12. Minimal Proxy Recording Template
@@ -420,6 +463,8 @@ The following template should be used in practical applications.
 * **Confidence level:** high / medium / low
 * **Comparison basis:** baseline / prior period / peer system / target state
 * **Notes:**
+
+This template should be treated as part of the broader **Application Artifact Suite** rather than as a standalone note pattern.
 
 ---
 
@@ -465,7 +510,7 @@ Proxies help identify which contour is dominant, underfunded, or unstable.
 
 ### 14.2 Comparative Use
 
-Proxies help compare states across teams, periods, products, or institutions.
+Proxies help compare states across teams, periods, products, or institutions only where comparability conditions are met.
 
 ### 14.3 Trend Use
 
@@ -479,6 +524,10 @@ Proxies help challenge intuitive or rhetorical narratives.
 
 Proxies help connect this model to other frameworks by grounding abstract interpretation in observable evidence.
 
+### 14.6 Failure and Intervention Support Use
+
+Proxies may support later failure judgments or intervention selection, but they should not replace the dedicated logic of those documents.
+
 ---
 
 ## 15. Relationship to Future Quantification
@@ -490,7 +539,8 @@ Those may emerge later, but only after:
 * repeated use across cases,
 * stronger classification discipline,
 * boundary handling maturity,
-* and better evidence about which proxies are consistently useful.
+* better evidence about which proxies are consistently useful,
+* and stronger comparability discipline.
 
 At this stage, the model should resist premature mathematization.
 
@@ -498,12 +548,27 @@ The immediate priority is disciplined proxy-supported interpretation, not numeri
 
 ---
 
-## 16. Working Summary
+## 16. Relationship to Other Documents
+
+This document should be used together with the other companion documents rather than as a complete application method by itself.
+
+In particular:
+
+* **Classification Protocol** defines how contour assignment should be made,
+* **Failure and Breakdown Definition** defines how proxy-supported diagnosis should and should not escalate into failure claims,
+* **Intervention Logic** defines how diagnosis connects to action,
+* **Use Constraints and Discipline** defines the minimum rules that make proxy use trustworthy,
+* **Application Artifact Suite** defines how proxy records fit into repeatable application,
+* and **Comparability Rules** defines when proxy-supported estimates can be validly compared across cases or over time.
+
+---
+
+## 17. Working Summary
 
 This document defines how metrics and proxies should support the model without distorting it.
 
 Its central claim is practical:
 
-**system state is usually not directly measurable, but it can often be estimated credibly through explicit proxy sets, clear boundaries, stated time horizons, and disciplined confidence handling.**
+**system state is usually not directly measurable, but it can often be estimated credibly through explicit proxy sets, clear boundaries, stated time horizons, disciplined confidence handling, and traceable analytical records.**
 
 Used this way, metrics strengthen the model’s operational usefulness while preserving its structural humility.
