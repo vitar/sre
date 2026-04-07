@@ -1,8 +1,8 @@
-# Dynamics
+# System Dynamics
 
 The previous chapters defined what the model describes and what the system is made of. This chapter defines what happens when the system operates — how allocation behaves under pressure, and how the system's own structure changes over time.
 
-Dynamics are divided into two categories:
+System Dynamics are divided into two categories:
 
 **Allocation Dynamics** govern how resources move between contours under environmental pressure and internal tension. These mechanisms operate within the system's existing structure — they do not change what the system is, they change where resources go.
 
