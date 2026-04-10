@@ -144,44 +144,100 @@ This pattern — a system sustaining itself by metabolizing its own accumulated 
 
 ---
 
-## Metabolic Equilibration in Embedded Systems
+## Metabolic Signatures
 
-The dynamics defined above apply to autonomous systems — systems whose metabolic trajectory is determined by their own allocation and environmental conditions. When a system is embedded within a containing system — an acquired unit within a parent organization, a subsidiary within a holding company, a region within a national structure — the trajectory is modified by the containing system's metabolic influence.
+The accumulation dynamics defined above — debt, potential, overhead, and their interactions — produce characteristic observable patterns when sustained over time. These patterns recur across domains and are recognizable without formal quantitative measurement. They are defined here as metabolic signatures.
 
-An autonomous system under the debt-overhead reinforcing loop can spiral toward failure — no external floor prevents the loop from consuming all available capacity. An embedded system under the same loop converges toward an asymptote: the containing system's metabolic baseline.
+A metabolic signature is a recognizable configuration of contour dominance and accumulation profile that recurs across systems and predicts a characteristic trajectory. Signatures are identified through two axes: which contour dominates allocation (or whether allocation is balanced), and which accumulation type is primary (what is growing, decaying, or being consumed).
 
-The containing system provides a floor on allocation. Evolution allocation does not reach zero — it settles at whatever level the containing system's operating model permits. Reproduction demand does not disappear — it stabilizes at the containing system's standard throughput expectations. The embedded system does not die. It equilibrates downward.
+Contour dominance alone does not uniquely identify a signature. Two systems may both be Survival-dominant but exhibit structurally different metabolic states depending on what is accumulating beneath the surface. The accumulation profile is required as a secondary axis to complete the identification.
 
-The equilibration trajectory follows approximately exponential decay toward the containing system's baseline. The rate of convergence is influenced by four factors:
+Six signatures are defined below. These represent the most common configurations arising from the model's accumulation dynamics. They are not exhaustive — additional signatures can be constructed by extending the same two-axis logic with additional dimensions, as described in the Application layer of the model.
 
-How aggressively the containing system's regulatory mechanisms impose its own operating model — the more aggressive, the faster the convergence.
+### Starvation
 
-How many legacy relationships or commitments demand the embedded system's original metabolic signature — more legacy demand slows convergence by maintaining a context that requires the original metabolism.
+Contour profile: Survival-dominant. Accumulation profile: Evolution debt accumulating without buffer.
 
-How much Evolution allocation the containing system's model permits — a higher floor produces a higher asymptote.
+The system produces using only existing capability. No resources are allocated to adaptation, learning, or capability change. Output is sustained through the repetition of known patterns.
 
-The attrition rate of actors whose personal metabolic needs do not match the new regime — higher attrition accelerates convergence, because the population that remains is progressively more metabolically compatible with the containing system's baseline.
+Starvation is not a temporary crisis response — it is a sustained metabolic regime in which Evolution-contour allocation has ceased without a restoration trajectory. The system is not deferring Evolution investment — it has stopped making it.
 
-Attrition in this context is not merely a staffing phenomenon. It is the equilibration mechanism itself. The system sheds units whose metabolic needs — whose personal allocation expectations across Survival, Reproduction, and Evolution — do not match the containing system's allocation pattern. The actors who leave first are characteristically those with the strongest Evolution-contour orientation: they have the highest sensitivity to contour mismatch and the most alternatives available. The actors who remain are those whose personal metabolic needs are satisfied by the new regime — or whose Survival-contour constraints (financial obligations, geographic limitations) prevent departure regardless of mismatch.
+The characteristic trajectory is the debt-overhead reinforcing loop defined in Accumulation Interactions. Evolution debt grows exponentially (compounding environment, degrading sensing capacity, exhausting buffers). Overhead increases as maintaining commitments with degrading capability requires more effort. The loop accelerates toward degradation and breakdown.
 
-The terminal state of equilibration is a system that is metabolically indistinguishable from any other unit of the containing system. The embedded system may retain its original name, its original boundary, and some of its original actors — but its metabolic signature has converged to the parent's baseline. Whatever distinctive capability the containing system acquired has been metabolized into the parent's standard operating pattern and dissipated.
+Observable indicators: delivery conversations reference only known solutions; technical decisions default to precedent without awareness that alternatives exist; no latency-type activity is visible — no one is doing anything whose return is uncertain or distant; when environmental change demands adaptation, the system's response is slow and expensive because no adaptive infrastructure exists.
 
-### Measurement Artifact
+### Borrowed Life
 
-Metabolic equilibration in embedded systems produces a characteristic measurement artifact: lagging indicators improve as the system converges toward its new baseline. Retention rates stabilize (because the remaining population is metabolically compatible). Delivery predictability improves (because the system operates within the containing system's standard patterns). Satisfaction metrics may rise (because the actors who would report dissatisfaction have departed).
+Contour profile: Survival-dominant. Accumulation profile: Evolution debt masked by consumption of accumulated potential.
 
-These improving indicators do not reflect system health in the original sense. They reflect metabolic homogeneity — the system has shed the variation that produced the dissatisfaction signals. The system is stable. It is not the system that was acquired.
+The system sustains output levels that its current allocation cannot support. The gap between actual allocation and observable output is absorbed by specific actors whose historically accumulated potential functions as a compensation buffer. The system is Survival-dominant in its allocation but does not appear to be — because the buffer actors maintain output quality that exceeds what the system's current investment would produce.
 
-The leading indicator of equilibration is contour mismatch — the divergence between what the system's actors expect in terms of S/R/E allocation and what the system actually delivers. Contour mismatch signals precede population change. Population change precedes lagging indicator stabilization. The measurement sequence is: mismatch → attrition → metric normalization.
+Borrowed Life is structurally distinct from Starvation. In Starvation, Evolution debt is visible in degrading output. In Borrowed Life, the same debt is invisible because stored potential masks it. The distinction matters because the diagnostic path is different: Starvation is identifiable from output quality; Borrowed Life requires identifying the buffer actors and recognizing that the system's viability depends on their finite, non-replenished capacity.
+
+The characteristic trajectory is apparent stability followed by sudden transition. While buffer actors are present, the system appears functional. When they depart — or when their potential is fully consumed — the accumulated debt becomes visible simultaneously, producing a rapid shift to visible Starvation or direct entry to degradation. The transition speed is the diagnostic marker: a system that degrades suddenly after specific departures was in Borrowed Life, not in health.
+
+Observable indicators: a small number of individuals are disproportionately referenced in decisions and problem-solving; knowledge is concentrated rather than distributed; output quality varies in patterns that map to individual involvement; succession planning is absent or produces anxiety when raised; the buffer actors themselves exhibit stress signals disproportionate to their formal role scope.
+
+### Fermentation
+
+Contour profile: Evolution-loaded. Accumulation profile: potential accumulated without conversion context.
+
+The system has invested in Evolution — learning has occurred, capability has been developed, adaptive capacity has been built. But the investment has not converted to Reproduction-contour output because no Reproduction context exists that matches the accumulated potential.
+
+Fermentation is not pathological by default. It is a pre-conversion state that may be productive — potential will convert when context arrives — or may be wasteful — potential will decay without ever converting. The signature describes the metabolic state, not the outcome.
+
+The characteristic trajectory has two exits. Conversion: a Reproduction-contour opportunity appears that matches accumulated potential, producing rapid and disproportionate output — the investment was gradual, the conversion is sudden. Decay: no context appears within the potential's half-life, and the system transitions toward reduced metabolic activity as accumulated learning degrades without activation.
+
+The critical variable is context readiness, which is external to the fermenting system. The system cannot force conversion — it can only sustain potential until a matching context arrives or accept decay if none does.
+
+Observable indicators: actors describe high engagement with learning and frustration with application; prototypes and experiments are abundant, shipped products are scarce; conversations are rich in possibility and thin on commitment; no delivery rhythm is present — activity is internally motivated and open-ended; the system feels intellectually alive but organizationally inert.
+
+### Flow
+
+Contour profile: balanced — no single contour dominant. Accumulation profile: debts minimal, feedback functional.
+
+All three contours receive allocation sufficient to maintain their functional capacity. Evolution investment converts to Reproduction output within recognizable cycles. Survival maintenance is adequate without crowding out the other contours. Feedback loops are open — signals about all three contours reach the system's allocation logic.
+
+Flow is a specific metabolic state, not a generic description of health. It requires active conditions: functional feedback across all contours, Evolution investment that converts regularly, Survival maintenance that remains proportional, and allocation trade-offs that are explicit and managed. These conditions are demanding. Most systems are not in Flow most of the time.
+
+The characteristic trajectory is sustained viability with adaptive capacity. Flow does not prevent degradation — it provides the adaptive capacity to respond to pressure without immediately entering the debt-overhead reinforcing loop. The most common exit from Flow is through environmental shock that forces Survival-dominant allocation, displacing Evolution first. A system that was in Flow before a shock has more capacity to recover than a system that was already in Starvation or Borrowed Life.
+
+Observable indicators: Evolution investment is visible in Reproduction output within the same operational cycle — learning translates to improved delivery in real time; actors describe challenge without overwhelm; feedback operates bidirectionally — Survival concerns are heard, Reproduction commitments are realistic, Evolution investment is protected but accountable; the temporal signature is layered — Survival maintenance rhythms, Reproduction delivery cycles, and Evolution investment latency coexist without one crowding out the others; trade-offs are explicit and discussed, not hidden or denied.
+
+### Proliferation
+
+Contour profile: Reproduction-dominant. Accumulation profile: Survival debt and Evolution debt accumulating simultaneously.
+
+The system scales its existing form — expanding reach, increasing quantity, replicating patterns — without maintaining what it has or developing new capability. Growth proceeds without proportional investment in integrity or adaptation.
+
+Proliferation maps to Reproduction-Dominant Distortion defined in System Course. The metabolic dimension adds what is accumulating beneath the growth: dual debt in both Survival and Evolution contours. The distortion pattern describes the posture; the metabolic signature describes the cost that is building.
+
+The characteristic trajectory is deceptively stable. Growth metrics reinforce the allocation pattern through the feedback loop described in System Course — visible success metrics encourage further Reproduction allocation. Survival debt accumulates linearly until a threshold. Evolution debt accumulates exponentially. When either threshold is crossed — an infrastructure failure, a quality crisis, a market shift that demands adaptation the system cannot produce — the accumulated dual debt surfaces across multiple dimensions simultaneously. The system that was growing enters degradation or breakdown rapidly because it has no adaptive capacity and its maintenance infrastructure has been neglected.
+
+Observable indicators: growth metrics dominate all reporting and conversation — headcount, revenue, market share, output volume; quality signals are present but deferred — "we'll address that after we scale"; new units replicate existing patterns including their weaknesses — no differentiation, no local adaptation; the temporal signature is accelerating Reproduction cyclicality without corresponding Survival maintenance rhythms or Evolution latency; infrastructure complaints increase but are treated as operational noise.
+
+### Churn
+
+Contour profile: Evolution-dominant. Accumulation profile: no stable potential — each capability investment is replaced before it matures.
+
+The system transforms constantly. Architecture changes, methodology shifts, strategic pivots, technology replacements — all occur at high frequency. But no investment is sustained long enough to stabilize into usable capability. Potential does not accumulate because each Evolution cycle resets rather than builds on the previous one.
+
+Churn is structurally distinct from Fermentation. In Fermentation, potential accumulates and awaits a conversion context. In Churn, potential does not accumulate because no investment persists long enough to mature. The system is Evolution-dominant but Evolution-unproductive.
+
+The characteristic trajectory is chronic underperformance without acute failure. Survival is adequate — the system does not collapse. Reproduction is intermittent and below the system's potential. Evolution activity is high-energy but low-yield. The system can sustain Churn for extended periods because it does not accumulate debt in the catastrophic patterns of Starvation or Proliferation. What it accumulates is opportunity cost — the growing gap between what the system could have achieved with sustained investment and what it actually achieved through constant reset.
+
+The exit from Churn requires a Code-level intervention: the system's operating logic must be rewritten to value consolidation and sustained investment. This is difficult because Churn-culture actors often have high personal Evolution-contour orientation and interpret consolidation as stagnation.
+
+Observable indicators: architecture, technology stack, or methodology changes with high frequency — each change justified by compelling reasoning, none sustained long enough to prove or disprove its value; actors describe fatigue rather than excitement about change; institutional knowledge is thin because nothing persists long enough to become institutional; the temporal signature is characterized by absence of both Reproduction cyclicality and Evolution latency — activity is intense but each cycle resets; the system cannot answer "what have we learned?" because each learning is overwritten by the next initiative.
 
 ---
 
 ## Open Questions
 
-This chapter establishes the foundational dynamics of accumulation and their interaction. Several areas require further development and are acknowledged as open.
+This chapter establishes the foundational dynamics of accumulation and their metabolic signatures. Several areas require further development and are acknowledged as open.
 
-**Synchronization dynamics.** Multi-Unit Behavior defines synchronization as a state — whether units' contour postures are compatible. Metabolism implies that synchronization has a temporal dimension: how frequently units resynchronize their allocation, and how rapidly desynchronization debt accumulates between resynchronization events. The relationship between resynchronization frequency and system coherence requires formalization.
-
-**Metabolic signatures.** The accumulation dynamics defined in this chapter produce characteristic observable patterns — recognizable configurations of debt, potential, and overhead that recur across domains. Cataloging and naming these signatures would provide diagnostic shorthand for practitioners. This catalog is not yet developed.
+**Additional signatures.** The six signatures defined above are the most common configurations. Additional signatures can be constructed from the same two-axis logic — contour dominance and accumulation profile — extended with additional dimensions such as relational context, temporal oscillation patterns, or metabolic intensity. The construction of domain-specific signatures belongs in the Application layer.
 
 **Quantification.** The accumulation curves defined in this chapter have specified shapes (exponential, linear, logarithmic, threshold-regime) but not specified parameters. The shapes hold cross-domain; the rates are domain-specific. Establishing measurement approaches for specific application domains — particularly human organizations — is required for the model to move from qualitative diagnosis to quantitative prediction.
+
+**Signature transitions.** The signatures describe metabolic states. The transitions between signatures — how a system moves from Flow to Starvation, or from Fermentation to Flow — are implied by the trajectory descriptions but not formalized as transition dynamics. Whether predictable transition sequences exist, and under what conditions transitions are reversible, requires further development.
