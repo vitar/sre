@@ -1,10 +1,10 @@
 # System Course
 
-The previous chapters defined what the system is made of and how it behaves under pressure. This chapter defines what happens over time — how systems degrade, how they fail, and how they recover or transform.
+The previous chapters defined what the system is made of, how it behaves under pressure, and what accumulates when those behaviors are sustained over time. This chapter defines the trajectories that result — how systems degrade, how they fail, and how they recover or transform.
 
 System course is not predetermined. A system under stress may correct and return to its prior balance. It may reorganize around a new balance. It may transform into a structurally different system. Or it may collapse. The model does not predict which outcome occurs — it describes the structural conditions that make each outcome more or less available.
 
-The degradation sequence defined in this chapter is a diagnostic tool, not a prophecy. It names the stages a system passes through under sustained distortion, and at each stage identifies the structural choices available — correction, adaptation, transformation, or continued deterioration.
+The degradation sequence defined in this chapter is a diagnostic tool, not a prophecy. It names the stages a system passes through under sustained distortion, and at each stage identifies the structural choices available — correction, adaptation, transformation, or continued deterioration. System Metabolism provides the accumulation dynamics that drive progression through these stages — what is building beneath the surface at each point, and what determines how rapidly the system moves from one stage to the next.
 
 ---
 
@@ -13,6 +13,8 @@ The degradation sequence defined in this chapter is a diagnostic tool, not a pro
 Distortion is the state where allocation between contours deviates from the system's prior balance. It is the entry point for all subsequent system course trajectories.
 
 Distortion is produced by displacement — one contour receiving less allocation to serve another, as defined in System Dynamics. Distortion is not inherently pathological. A system may distort deliberately, accepting temporary imbalance to address a specific pressure. Distortion becomes consequential when it persists without a restoration trajectory.
+
+At the metabolic level, distortion is the point at which debt begins to accumulate in the under-allocated contour. The accumulation is below observable threshold — the system's output has not visibly changed. But the temporal record has begun: the gap between current capability and environmental demand is growing, even if no actor in the system can yet detect it.
 
 At distortion, the system's structural choice is: **correct the allocation or continue**. If corrected — through reallocation, environmental change, or deliberate intervention — the system returns to its prior balance or establishes a new one. If uncorrected, distortion produces stress.
 
@@ -24,7 +26,9 @@ Stress is the state where sustained distortion begins to produce observable tens
 
 Stress manifests through the element infrastructure defined in System Structure. Signals about contour imbalance increase in frequency and intensity. Receivers oriented toward the under-allocated contour activate more often. Actors within the system begin to experience trade-offs as recurring rather than occasional.
 
-Stress may be masked by compensation — buffer expenditure absorbing the gap between expected and actual contour output. When compensation is active, the system may appear less stressed than it is. The stress is present; its visibility is reduced.
+At the metabolic level, debt accumulation has crossed a detection threshold — the system's signals now carry information about contour imbalance. Overhead may begin to increase as maintaining existing commitments with reduced capability requires additional effort. The debt-overhead reinforcing loop defined in System Metabolism may be initiating, though its effects are not yet dominant.
+
+Stress may be masked by compensation — buffer expenditure absorbing the gap between expected and actual contour output. When compensation is active, the system may appear less stressed than it is. The stress is present; its visibility is reduced. Accumulated potential in experienced actors may function as a compensation buffer, producing the Borrowed Life metabolic signature — apparent stability sustained by finite, non-replenished capacity.
 
 At stress, the system's structural choice is: **reallocate or compensate**. Reallocation addresses the underlying distortion. Compensation defers its consequences. Both are viable responses — but they lead to different trajectories. Reallocation can resolve stress. Compensation sustains it at the cost of buffer margin.
 
@@ -35,6 +39,8 @@ At stress, the system's structural choice is: **reallocate or compensate**. Real
 Degradation is the state where sustained stress has begun to reduce the system's functional capacity. The system is not merely imbalanced — it is losing capability in the under-allocated contour.
 
 The distinction between stress and degradation is: stress produces tension within a functioning system; degradation produces loss of function. A stressed system can still perform across all contours, though not at its prior level. A degrading system is losing the ability to perform in one or more contours.
+
+At the metabolic level, the debt-overhead reinforcing loop defined in System Metabolism is active. Accumulated debt is producing measurable capability loss, and maintaining commitments with degrading capability drives Survival overhead higher, which further reduces the allocation available for the under-invested contour. The loop accelerates itself. If potential-as-buffer masking was present during the stress stage, it may be approaching exhaustion — the actors whose stored potential was absorbing the gap are departing or depleting.
 
 Degradation is often the first stage visible to external observers. Internal actors may have experienced stress for an extended period — making trade-off decisions, watching signals escalate, feeling compensation pressure. External observers see degradation when output quality, system coherence, or adaptive capacity visibly decline.
 
@@ -47,6 +53,8 @@ At degradation, the system's structural choice is: **restructure or persist**. R
 Breakdown is the state where the system can no longer sustain its prior contour balance under any reallocation. The capacity lost during degradation cannot be restored through redistribution of existing resources.
 
 Breakdown is a threshold — the point where return to the prior state ceases to be available. Before breakdown, the system can recover its earlier balance through sufficient reallocation. After breakdown, the prior balance is structurally unavailable. The resources, capabilities, or conditions that sustained it have been consumed, lost, or irreversibly altered.
+
+At the metabolic level, accumulated debt has exceeded the system's recovery capacity. The reinforcing loop has consumed the system's adaptive margin — the overhead required to maintain Survival under degraded capability now structurally prevents the reallocation that recovery would require. Overhead has ratcheted to a new regime and will not return to its prior level without active dismantling.
 
 Breakdown does not mean the system ceases to function. It means the system cannot function as it did before. The system that continues past breakdown is operating under a different set of constraints than the system that entered the degradation sequence.
 
@@ -78,6 +86,8 @@ The degradation sequence is not a one-way path. At each stage, the system has st
 
 **Recovery** is the return to a prior or comparable contour balance. Recovery is available at distortion, stress, and degradation — the stages where the system's prior capacity has not yet been irreversibly lost. Recovery becomes progressively more costly at each stage: correcting distortion requires reallocation; resolving stress may require reallocation plus unwinding compensation patterns; arresting degradation may require restructuring established patterns.
 
+The progressive cost of recovery is driven by accumulation dynamics defined in System Metabolism. At each stage, the system carries more accumulated debt, has consumed more potential as buffer, and may have ratcheted Survival overhead to a higher regime. These accumulations do not reverse automatically when the decision to recover is made — they must be actively addressed. Debt must be closed through renewed investment. Consumed potential must be rebuilt. Ratcheted overhead must be deliberately dismantled. The later the stage, the greater the accumulated burden and the more costly the recovery.
+
 **Rebalancing** is the establishment of a new contour balance that differs from the prior one but is viable under current conditions. Rebalancing is available at any stage, including breakdown. A system that cannot return to its prior balance may stabilize around a different one — allocating differently across contours, operating at a different scale, or serving different functions. Rebalancing is not failure — it is adaptation to changed conditions.
 
 **Transformation** is structural change to the system itself — Code rewrite, Boundary redefinition, fundamental change to the system's operating logic. Transformation is distinct from recovery (which restores the prior system) and from rebalancing (which adjusts allocation within the existing system). Transformation produces a different system — one that shares elements with its predecessor but operates on different Code.
@@ -91,6 +101,8 @@ Transformation is most available during breakdown and boundary dissolution — s
 ## Distortion Patterns
 
 When displacement persists and one contour chronically receives disproportionate allocation, the system develops a characteristic distortion pattern. Three patterns correspond to the three contours.
+
+These patterns describe the allocation posture — which contour dominates and what structural consequences follow. The metabolic consequences of sustained distortion — what accumulates beneath the posture, at what rate, and with what observable indicators — are defined as metabolic signatures in System Metabolism. Distortion patterns and metabolic signatures are complementary: the pattern names the posture; the signature names what is building as a result.
 
 ### Survival-Dominant Distortion
 
