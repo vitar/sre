@@ -1,6 +1,6 @@
 # Multi-Unit Behavior
 
-The previous chapters defined the model for a single unit — its structure, dynamics, and course. This chapter extends the same logic to systems composed of multiple units operating within a shared boundary.
+The previous chapters defined the model for a single unit — its structure, dynamics, metabolism, and course. This chapter extends the same logic to systems composed of multiple units operating within a shared boundary.
 
 The model applies to single units of any size. A person, a team, an organization, a country — each can be analyzed as a single unit with its own contour allocation, element infrastructure, and system course. Multi-unit analysis becomes necessary when the analyst needs to understand the relationships between units, not just the units themselves.
 
@@ -10,6 +10,8 @@ This chapter follows the same progression as the single-unit theory:
 - **Inter-Unit Relations and Shared State** extends System Structure — defining how units connect and what the enclosing system looks like.
 - **Multi-Unit Dynamics** extends System Dynamics — defining how allocation mechanisms operate across unit boundaries.
 - **Multi-Unit Course** extends System Course — defining how composed systems degrade, recover, and transform.
+
+The extension of System Metabolism to multi-unit behavior — how accumulation dynamics operate across unit boundaries, how metabolic signatures interact between units, and how composed systems equilibrate metabolically — requires dedicated treatment and is not yet developed. The current chapter addresses structure, dynamics, and course at the multi-unit level. Metabolic extension will follow the same logic: the accumulation types are the same; what changes is that accumulation can occur across unit boundaries, and the metabolic state of one unit can shape the metabolic trajectory of another.
 
 The model itself does not change at the multi-unit level. The contours are the same. The elements are the same. The dynamics are the same. What changes is that the system under analysis contains internal boundaries — and what happens at those boundaries determines whether the composed system is coherent, strained, or failing.
 
@@ -48,6 +50,8 @@ Synchronization describes whether units' contour postures are compatible within 
 **Desynchronized units** have contour postures that create structural conflict. Their respective allocations work against each other. One unit's Reproduction emphasis may consume resources that another unit requires for Survival. One unit's Evolution efforts may destabilize conditions that another unit depends on for continuity.
 
 Synchronization is not a binary state. Units may be synchronized on some contours and desynchronized on others. The degree and pattern of synchronization determines the enclosing system's structural viability.
+
+Synchronization also has a temporal dimension. Units do not maintain static contour postures — their allocations shift over time in response to local pressures, environmental change, and internal dynamics. Synchronization is therefore not a one-time achievement but a process that requires periodic recalibration. How frequently units resynchronize — how often they recalibrate their respective allocations to restore compatibility — affects the enclosing system's coherence. Units that resynchronize frequently can tolerate greater individual variation in contour posture, because divergence is corrected before it accumulates into structural conflict. Units that resynchronize rarely allow desynchronization to build over time, and the accumulated divergence may exceed the system's capacity to correct when recalibration is eventually attempted. The temporal dynamics of synchronization — how desynchronization accumulates between recalibration events, and what determines the minimum viable resynchronization frequency — are closely related to the accumulation dynamics defined in System Metabolism and require further formalization.
 
 ### Shared State
 
