@@ -34,7 +34,7 @@ A resource is any limited input that can be allocated among competing system fun
 
 Scarcity is the driver of the model. When resources are unlimited, allocation produces no trade-offs, contours do not compete, and the model has no explanatory value. The model becomes relevant precisely where allocation to one contour reduces what is available to others.
 
-Allocation is the central observable. The model does not ask what a system intends or values — it asks where resources go.
+Allocation is the central observable. The model does not ask what a system intends or values — it asks where resources go. Among the resource types listed above, time has a specific role: it is the medium through which all allocation is enacted. Every act of allocation requires duration, and the pattern of allocation sustained over time produces cumulative effects — debt, potential, overhead — that shape the system's trajectory. The temporal dynamics of allocation are treated in System Metabolism.
 
 ---
 
