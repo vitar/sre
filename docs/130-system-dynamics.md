@@ -46,6 +46,8 @@ Compensation is not inherently pathological. It is an adaptive mechanism with a 
 
 Without Compensation, the model can describe distortion but predicts that distortion produces visible consequences immediately. This does not match observed system behavior. Compensation explains the temporal gap between the onset of contour distortion and the emergence of observable failure — why systems hold longer than their allocation profile predicts, and why failure often appears sudden to external observers.
 
+The temporal dynamics of compensation — how buffers accumulate, how they deplete under sustained load, what curve shapes govern their exhaustion, and how different buffer types produce different temporal profiles — are formalized in System Metabolism. Compensation as defined here is the mechanism; its behavior over time is an accumulation dynamic.
+
 Detailed treatment — buffer typology, compensation margin, dynamics, failure modes, and formal propositions — belongs in the dedicated Compensation chapter.
 
 ### Feedback
@@ -63,6 +65,8 @@ Feedback operates in two modes.
 Whether feedback reaches the system's allocation logic depends on the element infrastructure defined in the previous chapter. Feedback signals must cross Gates, match Receiver Legibility Range, exceed Receiver Threshold, and be parsed within the system's Code context. A system may generate feedback signals that never reach its own allocation logic — because Gates block them, because Receivers are not configured to parse them, or because Code defines them as irrelevant.
 
 This structural dependency explains why some systems self-correct and others do not. Self-correction requires not only that balancing feedback exists, but that the system's element infrastructure permits it to reach allocation decisions. A system with functioning feedback loops and open signal paths is structurally capable of self-correction. A system with blocked or distorted feedback paths is not — regardless of whether balancing signals are being generated.
+
+The most consequential reinforcing feedback pattern in the model — the loop between accumulating Evolution debt and increasing Survival overhead, in which capability degradation drives higher maintenance effort which further reduces Evolution investment — is formalized as an accumulation interaction in System Metabolism. Feedback as defined here is the mechanism; its sustained operation over time produces the accumulation dynamics that determine system trajectory.
 
 ### Mediator Dynamics
 
@@ -115,6 +119,8 @@ Divergence is not rare. It is a common system state, particularly in human organ
 Divergence has diagnostic value. A system whose narrative and Code are aligned produces behavior consistent with its stated intent. A system whose narrative and Code have diverged produces behavior that contradicts its stated intent — and the contradiction is often visible to actors inside the system before it is visible to observers outside.
 
 Divergence is not inherently pathological. A system may deliberately adopt narrative that leads its Code — stating aspirational intent before the operating logic has caught up. This is coherent if the system is actively pursuing Code rewrite toward the stated narrative. It becomes pathological when the divergence is permanent and unacknowledged — the system sustains a false story about itself without any trajectory toward alignment.
+
+The temporal dynamics of divergence — why it occurs so readily and why it persists — have a structural explanation. Narrative operates at Signal speed: it can propagate through the system nearly instantaneously. Code changes at metabolic rates: constrained by the actual transformation of operating logic, practices, and institutional behavior. The speed difference between Narrative and Code is not incidental — it is a consequence of their different relationships to time. This temporal relationship, and its diagnostic implications, is treated in System Metabolism.
 
 ### Boundary Dissolution
 
