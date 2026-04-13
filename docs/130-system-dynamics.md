@@ -132,6 +132,30 @@ Mediators can conflict. When two or more mediators push in opposing directions �
 
 The consequences of mediator dynamics depend on mediator strength, persistence, and alignment. Aligned mediators produce coherent allocation behavior. Conflicting mediators produce erratic or contradictory allocation — the system appears to pursue incompatible strategies simultaneously. Detailed treatment of mediator interaction patterns belongs in a dedicated chapter.
 
+### Mediator Reciprocity
+
+The preceding section describes mediators acting on mechanisms — amplifying, blocking, or redirecting displacement, compensation, feedback, and the other allocation dynamics. The relationship is not one-directional. Allocation mechanisms act back on mediators, modifying their configuration properties over time.
+
+Mediator Reciprocity is the structural claim that sustained allocation patterns alter the mediators that shape them. A mediator that shapes allocation is itself shaped by the allocation outcomes it produces. The relationship is bidirectional: mediator configuration → allocation pattern → mediator reconfiguration.
+
+Reciprocity operates through the mediator's configuration properties defined in System Structure — selectivity, resolution, and temporal behavior. Sustained allocation outcomes modify these properties, not the mediator's existence. The mediator persists, but its structural character changes.
+
+Three reciprocal pathways are defined.
+
+**Allocation-driven selectivity shift.** Sustained displacement in one direction alters the mediator's selectivity pattern over time. A mediator that initially shapes allocation with smooth selectivity may sharpen under sustained Survival-dominant distortion — as the system's allocation logic increasingly treats resource flows as binary (critical/non-critical), the mediator's discrimination pattern narrows to match. Conversely, a mediator operating with sharp selectivity under balanced allocation may soften if the system enters a period of exploratory Evolution investment — the governance structures that previously enforced binary approval may gradually shift toward continuous influence as the system's Code incorporates experimentation as legitimate.
+
+The mechanism is Code-mediated. The mediator's selectivity is configured by Code (as defined in System Structure). Sustained allocation patterns produce Code drift (as defined in Structural Dynamics). Code drift modifies the configuration under which the mediator operates. The mediator's selectivity shifts not because the mediator itself "decides" to change, but because the Code substrate it operates on has drifted.
+
+**Allocation-driven resolution shift.** Sustained allocation patterns may alter the scale at which a mediator differentiates. Under sustained overhead ratchet (defined in System Metabolism), governance mediators often lose fine resolution — the elevated Survival allocation produces reporting, approval, and compliance structures that operate at aggregate scale, while individual-level or team-level resource flows become unmediated. The mediator's resolution coarsens as a consequence of the allocation pattern it is embedded in.
+
+The reverse also occurs. A system that sustains balanced allocation with active Evolution investment may develop finer mediator resolution over time — trust, for instance, may differentiate at increasingly specific levels as actors accumulate shared experience across diverse contexts.
+
+**Allocation-driven temporal shift.** The temporal behavior of a mediator — whether it is static or dynamic — may change as a consequence of sustained allocation patterns. A mediator that was static under balanced allocation may become dynamic under sustained distortion. Trust, for instance, may oscillate under chronic Survival-dominant allocation — periodically restored by crisis-response solidarity, then eroded by the ongoing displacement of Evolution and Reproduction investment. The oscillation is not inherent to trust as a mediator — it is produced by the allocation pattern that trust is embedded in.
+
+Reciprocity produces a characteristic diagnostic challenge. When a system's allocation behavior changes, the change may originate in the allocation dynamics (a new displacement pressure, a compensation buffer exhausting, a feedback loop activating) or in the mediator configuration (selectivity shifting, resolution coarsening, temporal behavior changing). Because the two are reciprocally linked, the causal direction may be ambiguous. Diagnostic discipline requires identifying whether the allocation change preceded and caused the mediator reconfiguration, or whether the mediator reconfiguration preceded and caused the allocation change. The temporal sequence is the primary diagnostic tool: what changed first determines the causal direction. When both appear to change simultaneously, the system is likely in an active reciprocal loop — the allocation pattern is modifying the mediator that is modifying the allocation pattern. Intervening on either side of the loop can arrest it, but the choice of intervention target determines what changes and what persists.
+
+Reciprocity is the structural mechanism that explains why mediators in long-lived systems rarely maintain their original configuration. Governance, trust, power, legitimacy — all are shaped by the allocation history of the system they operate within. A mediator's current configuration is a product of both its initial design and the cumulative allocation patterns it has experienced. Diagnosing a mediator's configuration without accounting for its allocation history produces a snapshot that misses the trajectory.
+
 ---
 
 ## Structural Dynamics
