@@ -1,0 +1,9 @@
+# Ordered list of Markdown files to include in gpt_knowledge.txt
+# Paths are relative to the repository root.
+docs/110-the-model.md
+docs/120-system-structure.md
+docs/130-system-dynamics.md
+docs/140-system-metabolism.md
+docs/150-system-course.md
+docs/160-multi-unit-behavior.md
+docs/170-application.md
