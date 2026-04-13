@@ -1,5 +1,3 @@
-Below is a draft for the first experiment document.
-
 # TC Biological Stress Test: Problems, Questions, Evidence
 
 ## Experiment 1 — Cell / Multicellular Development
