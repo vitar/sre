@@ -16,7 +16,7 @@ Each mechanism defined below is introduced at the level necessary to establish i
 
 ## Allocation Dynamics
 
-Allocation dynamics describe the mechanisms through which contour balance shifts, distortion is masked, and allocation decisions are reinforced or corrected over time. Four mechanisms are defined.
+Allocation dynamics describe the mechanisms through which contour balance shifts, distortion is masked, and allocation decisions are reinforced or corrected over time. Six mechanisms are defined.
 
 ### Displacement
 
@@ -50,6 +50,32 @@ The temporal dynamics of compensation — how buffers accumulate, how they deple
 
 Detailed treatment — buffer typology, compensation margin, dynamics, failure modes, and formal propositions — belongs in the dedicated Compensation chapter.
 
+### Contour Saturation
+
+Contour Saturation is the state where one contour's allocation reaches the system's physical limit, eliminating the allocation space for the other two contours entirely.
+
+Saturation is structurally distinct from dominance. Under dominance, one contour receives a disproportionate share of resources while the others receive reduced but nonzero allocation. The system is imbalanced but retains degrees of freedom — reallocation remains structurally possible. Under Saturation, the dominant contour has consumed the entire allocation space. The other contours receive not merely less, but nothing — their allocation is not reduced, it is structurally impossible. The system has no remaining degrees of freedom within which to reallocate.
+
+Saturation is the terminal state of displacement. It is what displacement becomes when the pressure driving it is absolute — when the demand on one contour is not merely greater than the others, but has absorbed the system's full resource capacity. In this sense, Saturation is not a separate mechanism from displacement but the boundary condition that displacement reaches under extreme pressure.
+
+Three conditions define Saturation:
+
+**Allocation collapse** — the total available resource is bound to a single contour. This is not a matter of priority or preference — it is a physical state in which the system's resources are structurally committed and unavailable for redistribution.
+
+**Demand persistence on displaced contours** — the functional demands that Reproduction and Evolution represent do not disappear because their allocation has been eliminated. They persist as unmet structural requirements. The gap between zero allocation and nonzero demand is the maximum displacement the model can describe.
+
+**Compensation impossibility** — no buffer exists that can absorb the gap between zero allocation and the persistent demand on the displaced contours. Compensation requires a finite resource outside the primary allocation logic. At Saturation, no such resource remains — the saturating contour has absorbed everything that could serve as a buffer.
+
+The consequence of Saturation is that the system's allocation logic ceases to function. Allocation logic operates by distributing resources among competing demands — it requires a space of possible distributions. When that space collapses to a single point (all resources to one contour), the logic has no decisions left to make. The system is not making a bad allocation — it is no longer allocating at all.
+
+Saturation produces a characteristic exit dynamic. Because the displaced contours' demands persist at nonzero levels while their allocation is zero, the displacement pressure does not resolve — it accumulates without bound. No compensation buffer can absorb it. No feedback mechanism can redirect it, because there are no resources to redirect. The system reaches a state where the internal pressure from unmet demand exceeds the structural capacity of the system to contain it.
+
+The exit from Saturation is not reallocation — reallocation requires degrees of freedom that Saturation has eliminated. The exit is system reconstitution: the current system's Boundary fails, its resources disperse, and a new system forms under different allocation conditions. Reconstitution dynamics — what persists across this transition, what resets, and what determines the new system's initial allocation — are defined in System Course.
+
+Saturation is rare in human systems because resource pools are diverse enough and boundaries permeable enough that total allocation collapse is difficult to achieve. A human organization can always, in principle, reallocate some fraction of attention, time, or effort — the allocation space does not fully collapse. Saturation is more characteristic of physical systems where resource pools are singular and conservation laws are absolute — where the entire available resource can, under sufficient pressure, be bound to a single functional demand with no remainder.
+
+The model's theoretical generality claim — that its structural logic holds across systems where scarcity, competing demands, and non-static behavior are present — requires that it can describe what happens at the boundary conditions of its own logic. Saturation is that description. It is the state where the model's central mechanism (allocation among competing contours) reaches its limit, and the model must hand off to a different dynamic (reconstitution) to describe what follows.
+
 ### Feedback
 
 Feedback is the mechanism by which allocation outcomes modify future allocation decisions.
@@ -68,15 +94,37 @@ This structural dependency explains why some systems self-correct and others do 
 
 The most consequential reinforcing feedback pattern in the model — the loop between accumulating Evolution debt and increasing Survival overhead, in which capability degradation drives higher maintenance effort which further reduces Evolution investment — is formalized as an accumulation interaction in System Metabolism. Feedback as defined here is the mechanism; its sustained operation over time produces the accumulation dynamics that determine system trajectory.
 
+### Endogenous Phase Transition
+
+Endogenous Phase Transition is displacement triggered not by external pressure or environmental change, but by the system's internal state crossing a critical threshold at which the current allocation pattern becomes unstable.
+
+Displacement, as defined above, is triggered by a gap between available resources and required allocation — typically produced by environmental change, demand intensification, or resource reduction. These are exogenous triggers: something outside the system's current allocation pattern changes, and the system responds.
+
+Endogenous Phase Transition describes a different causal path. The system's environment may be stable. Demands may be constant. Resources may be unchanged. But the system's internal accumulation — debt, potential, overhead, or structural complexity — reaches a threshold at which the current allocation pattern can no longer sustain itself. The transition is triggered by what has accumulated inside, not by what has changed outside.
+
+Three conditions define an Endogenous Phase Transition:
+
+**Accumulation threshold** — a quantitative change in the system's internal state has reached a critical level. The threshold is not a single value but a boundary in the system's state space beyond which the current allocation regime is no longer self-sustaining. Below the threshold, the system's allocation pattern is stable under its current conditions. Above it, the same pattern becomes structurally unstable — small perturbations that would previously have been absorbed now trigger cascading reallocation.
+
+**Absence of external trigger** — the transition is not caused by environmental change, demand shift, or resource shock. These may coincide with the transition — and when they do, the external event is typically credited as the cause. But the structural claim is that the transition would have occurred without the external event, because the internal state had already crossed the threshold. The external event, if present, is a catalyst for a transition that was already structurally inevitable.
+
+**Discontinuous allocation shift** — the resulting displacement is not gradual. It is a rapid, qualitative change in allocation pattern — a shift from one allocation regime to a different one. The system does not smoothly adjust; it transitions. Before the threshold, incremental internal changes produce no visible allocation effect. After the threshold, a small additional increment produces a large allocation shift. The transition is discontinuous in the same sense that a phase change in physics is discontinuous — the underlying variable (temperature, accumulation) changes continuously, but the system's macro-state (liquid/gas, allocation regime) changes abruptly.
+
+Endogenous Phase Transition has diagnostic value because it explains a class of system failures and transformations that appear to have no external cause. When a system that has been stable under constant conditions suddenly shifts its allocation pattern, the standard diagnostic — what changed in the environment? — may find nothing. The change was internal. Accumulated debt crossed a self-sustaining threshold. Accumulated complexity exceeded coordination capacity. Accumulated overhead reached a regime boundary. The system transitioned because its own metabolic state made the prior regime untenable, not because anything pushed it.
+
+The relationship to other mechanisms is specific. Displacement describes what happens (allocation shifts between contours). Compensation may mask the accumulation that is approaching the threshold. Feedback may accelerate or delay the approach. The Endogenous Phase Transition describes the trigger condition — the moment when accumulated internal state converts from a quantitative change to a qualitative one.
+
+The temporal dynamics of Endogenous Phase Transitions — what accumulation curves produce them, what threshold shapes are characteristic, and how the transition point can be estimated — are treated in System Metabolism. The mechanism is defined here; its temporal behavior is an accumulation dynamic.
+
 ### Mediator Dynamics
 
 Mediator dynamics describe how mediators — the cross-cutting factors defined in the model and architecturally positioned in the previous chapter — actively shape allocation mechanisms in motion.
 
-Mediators do not merely exist as structural features. They participate in allocation dynamics by amplifying, blocking, or redirecting the other three mechanisms.
+Mediators do not merely exist as structural features. They participate in allocation dynamics by amplifying, blocking, or redirecting the other five mechanisms.
 
-A mediator may **amplify** a mechanism — accelerating displacement, extending compensation, or strengthening feedback. Trust, for instance, amplifies feedback: in a high-trust system, signals from actors experiencing displacement are more likely to be received, parsed, and acted upon. In a low-trust system, the same signals are discounted or ignored.
+A mediator may **amplify** a mechanism — accelerating displacement, extending compensation, strengthening feedback, lowering the threshold for Endogenous Phase Transition, or hastening the approach to Contour Saturation. Trust, for instance, amplifies feedback: in a high-trust system, signals from actors experiencing displacement are more likely to be received, parsed, and acted upon. In a low-trust system, the same signals are discounted or ignored.
 
-A mediator may **block** a mechanism — preventing displacement from reaching a contour, shielding a buffer from exhaustion signals, or interrupting a feedback loop. Power structures, for instance, may block feedback that would threaten the current allocation pattern — protecting the positions of actors who benefit from the existing distribution.
+A mediator may **block** a mechanism — preventing displacement from reaching a contour, shielding a buffer from exhaustion signals, or interrupting a feedback loop. Power structures, for instance, may block feedback that would threaten the current allocation pattern — protecting the positions of actors who benefit from the existing distribution. A mediator may also raise the threshold for Endogenous Phase Transition — institutional resilience, for instance, may allow higher internal accumulation before the allocation regime becomes unstable.
 
 A mediator may **redirect** a mechanism — changing which contour is displaced, which buffer absorbs distortion, or which feedback signal reaches the allocation logic. Governance, for instance, may redirect displacement from one contour to another by imposing allocation rules that override what the system's actors would choose under pressure.
 
