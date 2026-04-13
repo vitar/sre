@@ -1,12 +1,12 @@
-# Tri-Contour Dynamics of Limited Resource Allocation
+# The Model
 
-## The Model
+## Overview
 
 **Tri-Contour Dynamics of Limited Resource Allocation** describes how systems allocate limited resources across three competing functional demands: **Survival**, **Reproduction**, and **Evolution**. System behavior — its posture, trajectory, and eventual fate — is treated as an outcome of this allocation under environmental pressure, shaped by cross-cutting mediators and constrained by scarcity.
 
 The model's primary application domain is human systems where practices, frameworks, or diagnostics are built: personal effectiveness, project delivery, team dynamics, organizational design. It provides a structural foundation that can operate independently or integrate with other models and frameworks.
 
-The model is theoretically general — its structural logic holds across biological, technical, and socio-economic systems where scarcity, competing demands, and non-static behavior are present. However, its development originates from the practice of understanding and improving human dynamics in software delivery, and its applied focus remains there.
+The model is theoretically general — its structural logic holds across biological, technical, socio-economic, and cosmological systems where scarcity, competing demands, and non-static behavior are present. However, its development originates from the practice of understanding and improving human dynamics in software delivery, and its applied focus remains there.
 
 ---
 
