@@ -164,6 +164,24 @@ Structural dynamics describe mechanisms that change the system itself — its Co
 
 Structural change is distinct from allocation change. A system that shifts resources from Survival to Evolution has changed its allocation. A system that rewrites its Code to redefine what constitutes Survival has changed its structure. The first produces a different posture within the same system. The second produces a different system.
 
+### Code Genesis
+
+Code Genesis is the origination of operating logic where none previously existed within a declared boundary. It is the mechanism by which a substrate that does not yet constitute a system acquires Code — and, through Code, the capacity to configure Boundary, Gate, Signal, and Receiver, and to allocate resources among competing contour demands.
+
+Code Genesis is structurally distinct from Code Rewrite. Rewrite transforms existing Code — it requires a prior operating logic to target, a vector to reach it, suppression of resistance, and expression of the new logic. Genesis has no prior Code to target or resist. The starting condition is not a system with wrong Code but a substrate with no Code — resources, actors, or elements that are present but not yet organized by operating logic into a bounded system with contour allocation.
+
+Code Genesis occurs through three pathways.
+
+**Inheritance** — Code is carried into a new boundary from a predecessor system. The predecessor's deep Code persists through Collapse and Reconstitution (as defined in System Course) and becomes the operating logic of a successor system. The successor's Code is not created from nothing — it is the predecessor's deep Code activated in a new context. The successor is a new system, but its Code has a lineage. In human systems, a successor organization founded by actors from a collapsed predecessor inherits operating logic — assumptions, practices, reflexes — from the system they came from, whether or not this inheritance is deliberate or acknowledged.
+
+**Assembly** — Code is composed from fragments carried by the system's founding elements, none of which individually constitutes complete operating logic. Each founding element — actor, resource, practice, institutional fragment — carries partial Code from its own prior context. When these elements combine within a new boundary, their partial Codes interact, conflict, and negotiate until a coherent operating logic emerges that is not identical to any single contributor's prior Code. Assembly is the most common genesis pathway in human systems: a new team, a new venture, a new institution forms from actors who each carry Code from prior systems. The resulting Code is a composite — shaped by what the founders brought but not reducible to any single origin.
+
+**Emergence** — Code arises from a self-sustaining pattern in a substrate that previously had no operating logic. A pattern of resource allocation becomes self-referencing: it begins to configure its own continuation by establishing distinctions (proto-Boundary), selective flows (proto-Gate), and state-sensitive responses (proto-Receiver). When the pattern reaches a threshold of self-maintenance — when it sustains itself through its own structural effects rather than through external imposition or coincidence — it has become Code. The substrate has become a system.
+
+Emergence is the rarest and least understood genesis pathway. It requires a substrate capable of sustaining self-referencing patterns (resources that can configure their own continuation), a threshold event where a pattern shifts from externally sustained to self-maintaining, and sufficient environmental stability for the self-maintaining pattern to persist long enough to begin allocation under competing demands. Emergence is the only genesis pathway that produces genuinely novel Code — operating logic not derived from any predecessor. Inheritance produces Code with lineage. Assembly produces Code from recombination. Emergence produces Code from pattern stabilization in a previously unstructured substrate.
+
+The model does not require that every system's Code origin be identified. Many systems have Code whose origin is lost — the founding conditions are forgotten, the assembly process is undocumented, and the resulting Code is simply present. The model operates on Code as it exists, regardless of its origin pathway. Code Genesis defines how Code can come into being; it does not require that every instance of Code be traced to a specific genesis event.
+
 ### Code Rewrite
 
 Code rewrite is the mechanism by which a system's operating logic changes — deliberately or through emergent drift.
