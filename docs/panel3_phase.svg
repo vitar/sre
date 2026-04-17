@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700" font-family="'Iowan Old Style', 'Palatino', Georgia, serif">
+  <defs>
+    <marker id="arrPhase" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1a1a1a"/>
+    </marker>
+    <marker id="arrReconst" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#4a7c59"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="700" fill="#f4f1ea"/>
+
+  <!-- Title -->
+  <text x="50" y="50" font-size="13" letter-spacing="3" fill="#555">PANEL III</text>
+  <text x="50" y="80" font-size="26" font-weight="500" fill="#1a1a1a">Phase Structure</text>
+  <text x="50" y="105" font-size="14" font-style="italic" fill="#555">Metabolic signatures, saturation boundary, reconstitution reset</text>
+
+  <!-- Axes -->
+  <g transform="translate(110, 180)">
+    <!-- Plot area: 600 wide, 400 tall -->
+    <rect x="0" y="0" width="600" height="400" fill="#ede7d7" fill-opacity="0.3" stroke="#1a1a1a" stroke-width="1.2"/>
+
+    <!-- Axis labels -->
+    <text x="300" y="432" text-anchor="middle" font-size="12" fill="#1a1a1a">
+      contour dominance 
+      <tspan font-style="italic">→</tspan>
+    </text>
+    <text x="100" y="450" text-anchor="middle" font-size="10" font-style="italic" fill="#555">balanced</text>
+    <text x="500" y="450" text-anchor="middle" font-size="10" font-style="italic" fill="#555">saturated</text>
+
+    <g transform="translate(-18, 200) rotate(-90)">
+      <text text-anchor="middle" font-size="12" fill="#1a1a1a">accumulation load <tspan font-style="italic">→</tspan></text>
+    </g>
+    <text x="-35" y="395" text-anchor="middle" font-size="10" font-style="italic" fill="#555">low</text>
+    <text x="-35" y="12" text-anchor="middle" font-size="10" font-style="italic" fill="#555">high</text>
+
+    <!-- Grid -->
+    <g stroke="#c9c0a8" stroke-width="0.5" opacity="0.7">
+      <line x1="150" y1="0" x2="150" y2="400"/>
+      <line x1="300" y1="0" x2="300" y2="400"/>
+      <line x1="450" y1="0" x2="450" y2="400"/>
+      <line x1="0" y1="100" x2="600" y2="100"/>
+      <line x1="0" y1="200" x2="600" y2="200"/>
+      <line x1="0" y1="300" x2="600" y2="300"/>
+    </g>
+
+    <!-- Signature regions as labeled zones -->
+
+    <!-- Flow: balanced, low accumulation (lower left) -->
+    <g transform="translate(75, 330)">
+      <circle r="34" fill="#4a7c59" fill-opacity="0.18" stroke="#4a7c59" stroke-width="1"/>
+      <text y="-2" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">Flow</text>
+      <text y="12" text-anchor="middle" font-size="9" font-style="italic" fill="#555">balanced</text>
+    </g>
+
+    <!-- Fermentation: E-dominant, moderate potential accumulation -->
+    <g transform="translate(225, 200)">
+      <circle r="38" fill="#4a7c59" fill-opacity="0.12" stroke="#4a7c59" stroke-width="1"/>
+      <text y="-2" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">Fermentation</text>
+      <text y="12" text-anchor="middle" font-size="9" font-style="italic" fill="#555">E-loaded, Φ↑</text>
+    </g>
+
+    <!-- Churn: E-dominant, no stable potential -->
+    <g transform="translate(230, 80)">
+      <circle r="34" fill="#7c5a4a" fill-opacity="0.12" stroke="#7c5a4a" stroke-width="1"/>
+      <text y="-2" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">Churn</text>
+      <text y="12" text-anchor="middle" font-size="9" font-style="italic" fill="#555">E-dom., no Φ</text>
+    </g>
+
+    <!-- Borrowed Life: S-dominant, potential-buffered debt -->
+    <g transform="translate(355, 230)">
+      <circle r="40" fill="#c8410b" fill-opacity="0.12" stroke="#c8410b" stroke-width="1"/>
+      <text y="-2" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">Borrowed</text>
+      <text y="12" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">Life</text>
+      <text y="26" text-anchor="middle" font-size="9" font-style="italic" fill="#555">D masked by Φ</text>
+    </g>
+
+    <!-- Proliferation: R-dominant, dual debt -->
+    <g transform="translate(355, 90)">
+      <circle r="40" fill="#c8410b" fill-opacity="0.15" stroke="#c8410b" stroke-width="1"/>
+      <text y="-2" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">Proliferation</text>
+      <text y="12" text-anchor="middle" font-size="9" font-style="italic" fill="#555">R-dom., D_S + D_E</text>
+    </g>
+
+    <!-- Starvation: S-dominant, E-debt unmasked -->
+    <g transform="translate(450, 160)">
+      <circle r="38" fill="#8b0000" fill-opacity="0.15" stroke="#8b0000" stroke-width="1"/>
+      <text y="-2" text-anchor="middle" font-size="12" font-weight="500" fill="#1a1a1a">Starvation</text>
+      <text y="12" text-anchor="middle" font-size="9" font-style="italic" fill="#555">D_E unmasked</text>
+    </g>
+
+    <!-- Saturation boundary — right edge, heavy line -->
+    <line x1="560" y1="0" x2="560" y2="400" stroke="#8b0000" stroke-width="2" stroke-dasharray="6 3"/>
+    <g transform="translate(595, 200) rotate(-90)">
+      <text text-anchor="middle" font-size="11" font-weight="500" fill="#8b0000">
+        SATURATION BOUNDARY
+      </text>
+      <text text-anchor="middle" font-size="10" font-style="italic" fill="#8b0000" y="14">
+        dim(feasible α) = 0
+      </text>
+    </g>
+
+    <!-- Degradation trajectory through phase space -->
+    <path d="M 75,330 
+             C 150,320 280,240 355,230 
+             C 420,210 480,180 555,160" 
+          fill="none" stroke="#c8410b" stroke-width="1.8" 
+          stroke-dasharray="2 2" marker-end="url(#arrPhase)" opacity="0.75"/>
+    <text x="170" y="315" font-size="10" font-style="italic" fill="#c8410b">degradation trajectory</text>
+
+    <!-- Reconstitution arrow — loops from saturation boundary back to Flow region -->
+    <path d="M 560,40 
+             C 620,0 620,370 100,360" 
+          fill="none" stroke="#4a7c59" stroke-width="1.8" 
+          stroke-dasharray="5 3" marker-end="url(#arrReconst)" opacity="0.85"/>
+    <text x="580" y="28" font-size="10" font-style="italic" fill="#4a7c59">reconstitution</text>
+    <text x="580" y="41" font-size="10" font-style="italic" fill="#4a7c59">(Code persists,</text>
+    <text x="580" y="53" font-size="10" font-style="italic" fill="#4a7c59">α resets)</text>
+
+    <!-- Collapse marker at saturation -->
+    <g transform="translate(560, 40)">
+      <circle r="5" fill="#8b0000"/>
+      <circle r="9" fill="none" stroke="#8b0000" stroke-width="0.8" opacity="0.5"/>
+      <text x="-12" y="4" text-anchor="end" font-size="10" font-style="italic" fill="#8b0000">collapse</text>
+    </g>
+  </g>
+
+  <!-- Key question banner at bottom -->
+  <g transform="translate(50, 625)">
+    <line x1="0" y1="0" x2="700" y2="0" stroke="#1a1a1a" stroke-width="0.5"/>
+    <text x="0" y="22" font-size="12" fill="#1a1a1a" font-weight="500">Open question:</text>
+    <text x="100" y="22" font-size="12" font-style="italic" fill="#1a1a1a">
+      Does the saturation boundary map to a proper non-equilibrium phase transition?
+    </text>
+    <text x="0" y="42" font-size="11" fill="#555" font-style="italic">
+      Allocation-space collapse · order parameter candidate: dim(feasible α) · hysteresis present via overhead ratchet
+    </text>
+  </g>
+</svg>
