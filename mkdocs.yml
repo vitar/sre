@@ -35,11 +35,11 @@ theme:
 plugins:
   - search
   - glightbox
-  - to-pdf:
-      output_path: "pdf/tc.pdf"
-      cover_subtitle: "A system model that describes how systems allocate limited resources across three competing functional demands: Survival, Reproduction, and Evolution."
-      toc_level: 3
-      ordered_chapter_level: 3
+#  - to-pdf:
+#      output_path: "pdf/tc.pdf"
+#      cover_subtitle: "A system model that describes how systems allocate limited resources across three competing functional demands: Survival, Reproduction, and Evolution."
+#      toc_level: 3
+#      ordered_chapter_level: 3
 
 nav:
 - INTRODUCTION:
