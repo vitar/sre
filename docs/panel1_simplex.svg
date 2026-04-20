@@ -1,108 +1,395 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700" font-family="'Iowan Old Style', 'Palatino', Georgia, serif">
-  <defs>
-    <marker id="arrow1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L9,3 z" fill="#c8410b"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 800 700"
+   font-family="'Iowan Old Style', 'Palatino', Georgia, serif"
+   version="1.1"
+   id="svg32"
+   sodipodi:docname="panel1_simplex.svg"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview32"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.3898669"
+     inkscape:cx="374.07941"
+     inkscape:cy="378.05453"
+     inkscape:window-width="3008"
+     inkscape:window-height="1692"
+     inkscape:window-x="1512"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg32" />
+  <defs
+     id="defs2">
+    <marker
+       id="arrow1"
+       markerWidth="10"
+       markerHeight="10"
+       refX="8"
+       refY="3"
+       orient="auto"
+       markerUnits="strokeWidth">
+      <path
+         d="M0,0 L0,6 L9,3 z"
+         fill="#c8410b"
+         id="path1" />
     </marker>
-    <marker id="arrowSat" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L9,3 z" fill="#8b0000"/>
+    <marker
+       id="arrowSat"
+       markerWidth="10"
+       markerHeight="10"
+       refX="8"
+       refY="3"
+       orient="auto"
+       markerUnits="strokeWidth">
+      <path
+         d="M0,0 L0,6 L9,3 z"
+         fill="#8b0000"
+         id="path2" />
     </marker>
   </defs>
-
-  <rect width="800" height="700" fill="#f4f1ea"/>
-
+  <rect
+     width="800"
+     height="700"
+     fill="#f4f1ea"
+     id="rect2" />
   <!-- Title block -->
-  <text x="50" y="50" font-size="13" letter-spacing="3" fill="#555">PANEL I</text>
-  <text x="50" y="80" font-size="26" font-weight="500" fill="#1a1a1a">The Allocation Simplex</text>
-  <text x="50" y="105" font-size="14" font-style="italic" fill="#555">State space of bounded systems under three-way scarcity</text>
-
+  <text
+     x="50"
+     y="50"
+     font-size="13"
+     letter-spacing="3"
+     fill="#555"
+     id="text2">PANEL I</text>
+  <text
+     x="50"
+     y="80"
+     font-size="26"
+     font-weight="500"
+     fill="#1a1a1a"
+     id="text3">The Allocation Simplex</text>
+  <text
+     x="50"
+     y="105"
+     font-size="14"
+     font-style="italic"
+     fill="#555"
+     id="text4">State space of bounded systems under three-way scarcity</text>
   <!-- Simplex triangle -->
-  <g transform="translate(400, 380)">
+  <g
+     transform="translate(400, 380)"
+     id="g24">
     <!-- Triangle vertices: S top-left, R top-right, E bottom -->
     <!-- Equilateral-ish: S=(-200,-115), R=(200,-115), E=(0,230) -->
-    
     <!-- Background interior shading -->
-    <polygon points="-200,-115 200,-115 0,230" fill="#e8e2d3" fill-opacity="0.4" stroke="none"/>
-
+    <polygon
+       points="-200,-115 200,-115 0,230"
+       fill="#e8e2d3"
+       fill-opacity="0.4"
+       stroke="none"
+       id="polygon4" />
     <!-- Gridlines inside simplex (iso-allocation contours) -->
-    <g stroke="#c9c0a8" stroke-width="0.6" fill="none" opacity="0.7">
+    <g
+       stroke="#c9c0a8"
+       stroke-width="0.6"
+       fill="none"
+       opacity="0.7"
+       id="g12">
       <!-- Lines parallel to R-E edge (constant S) -->
-      <line x1="-150" y1="-28.75" x2="150" y2="-28.75"/>
-      <line x1="-100" y1="57.5" x2="100" y2="57.5"/>
-      <line x1="-50" y1="143.75" x2="50" y2="143.75"/>
+      <line
+         x1="-150"
+         y1="-28.75"
+         x2="150"
+         y2="-28.75"
+         id="line4" />
+      <line
+         x1="-100"
+         y1="57.5"
+         x2="100"
+         y2="57.5"
+         id="line5" />
+      <line
+         x1="-50"
+         y1="143.75"
+         x2="50"
+         y2="143.75"
+         id="line6" />
       <!-- Lines parallel to S-E edge (constant R) -->
-      <line x1="-100" y1="-115" x2="50" y2="143.75"/>
-      <line x1="0" y1="-115" x2="100" y2="57.5"/>
-      <line x1="100" y1="-115" x2="150" y2="-28.75"/>
+      <line
+         x1="-100"
+         y1="-115"
+         x2="50"
+         y2="143.75"
+         id="line7" />
+      <line
+         x1="0"
+         y1="-115"
+         x2="100"
+         y2="57.5"
+         id="line8" />
+      <line
+         x1="100"
+         y1="-115"
+         x2="150"
+         y2="-28.75"
+         id="line9" />
       <!-- Lines parallel to S-R edge (constant E) -->
-      <line x1="-150" y1="-28.75" x2="100" y2="-115"/>
-      <line x1="-100" y1="57.5" x2="0" y2="-115"/>
-      <line x1="-50" y1="143.75" x2="-100" y2="-115"/>
+      <line
+         x1="-150"
+         y1="-28.75"
+         x2="100"
+         y2="-115"
+         id="line10" />
+      <line
+         x1="-100"
+         y1="57.5"
+         x2="0"
+         y2="-115"
+         id="line11" />
+      <line
+         x1="-50"
+         y1="143.75"
+         x2="-100"
+         y2="-115"
+         id="line12" />
     </g>
-
     <!-- Main triangle edges -->
-    <polygon points="-200,-115 200,-115 0,230" 
-             fill="none" stroke="#1a1a1a" stroke-width="1.6"/>
-
+    <polygon
+       points="-200,-115 200,-115 0,230"
+       fill="none"
+       stroke="#1a1a1a"
+       stroke-width="1.6"
+       id="polygon12" />
     <!-- Centroid marker (balanced allocation — "Flow") -->
-    <circle cx="0" cy="0" r="4" fill="#1a1a1a"/>
-    <text x="10" y="4" font-size="11" font-style="italic" fill="#1a1a1a">Flow</text>
-
+    <circle
+       cx="0"
+       cy="0"
+       r="4"
+       fill="#1a1a1a"
+       id="circle12" />
+    <text
+       x="10"
+       y="4"
+       font-size="11"
+       font-style="italic"
+       fill="#1a1a1a"
+       id="text12">Flow</text>
     <!-- Example trajectory: from Flow → Evolution displacement toward Starvation -->
-    <path d="M 0,0 Q -50,-30 -100,-55 T -160,-85" 
-          fill="none" stroke="#c8410b" stroke-width="2" 
-          marker-end="url(#arrow1)" opacity="0.9"/>
-    
+    <path
+       d="M 0,0 Q -50,-30 -100,-55 T -160,-85"
+       fill="none"
+       stroke="#c8410b"
+       stroke-width="2"
+       marker-end="url(#arrow1)"
+       opacity="0.9"
+       id="path12" />
     <!-- Trajectory label -->
-    <text x="-20" y="-30" font-size="11" font-style="italic" fill="#c8410b">distortion</text>
-    <text x="-90" y="-60" font-size="11" font-style="italic" fill="#c8410b">degradation</text>
-
+    <text
+       x="-20"
+       y="-30"
+       font-size="11"
+       font-style="italic"
+       fill="#c8410b"
+       id="text13">distortion</text>
+    <text
+       x="-90"
+       y="-60"
+       font-size="11"
+       font-style="italic"
+       fill="#c8410b"
+       id="text14">degradation</text>
     <!-- Saturation approach (dotted — heading to vertex, reallocation impossible) -->
-    <path d="M -160,-85 L -195,-113" 
-          fill="none" stroke="#8b0000" stroke-width="1.8" 
-          stroke-dasharray="3 3" marker-end="url(#arrowSat)"/>
-
+    <path
+       d="M -160,-85 L -195,-113"
+       fill="none"
+       stroke="#8b0000"
+       stroke-width="1.8"
+       stroke-dasharray="3 3"
+       marker-end="url(#arrowSat)"
+       id="path14" />
     <!-- Vertex labels -->
-    <text x="-215" y="-125" text-anchor="end" font-size="18" font-weight="500" fill="#1a1a1a">Survival</text>
-    <text x="-215" y="-108" text-anchor="end" font-size="10" font-style="italic" fill="#666">non-deferrable</text>
-
-    <text x="215" y="-125" text-anchor="start" font-size="18" font-weight="500" fill="#1a1a1a">Reproduction</text>
-    <text x="215" y="-108" text-anchor="start" font-size="10" font-style="italic" fill="#666">cyclic</text>
-
-    <text x="0" y="260" text-anchor="middle" font-size="18" font-weight="500" fill="#1a1a1a">Evolution</text>
-    <text x="0" y="277" text-anchor="middle" font-size="10" font-style="italic" fill="#666">stochastic latency</text>
-
+    <text
+       x="-215"
+       y="-125"
+       text-anchor="end"
+       font-size="18"
+       font-weight="500"
+       fill="#1a1a1a"
+       id="text15">Survival</text>
+    <text
+       x="-215"
+       y="-108"
+       text-anchor="end"
+       font-size="10"
+       font-style="italic"
+       fill="#666"
+       id="text16">non-deferrable</text>
+    <text
+       x="215"
+       y="-125"
+       text-anchor="start"
+       font-size="18"
+       font-weight="500"
+       fill="#1a1a1a"
+       id="text17">Reproduction</text>
+    <text
+       x="215"
+       y="-108"
+       text-anchor="start"
+       font-size="10"
+       font-style="italic"
+       fill="#666"
+       id="text18">cyclic</text>
+    <text
+       x="0"
+       y="260"
+       text-anchor="middle"
+       font-size="18"
+       font-weight="500"
+       fill="#1a1a1a"
+       id="text19">Evolution</text>
+    <text
+       x="0"
+       y="277"
+       text-anchor="middle"
+       font-size="10"
+       font-style="italic"
+       fill="#666"
+       id="text20">stochastic latency</text>
     <!-- Vertex dots -->
-    <circle cx="-200" cy="-115" r="3" fill="#1a1a1a"/>
-    <circle cx="200" cy="-115" r="3" fill="#1a1a1a"/>
-    <circle cx="0" cy="230" r="3" fill="#1a1a1a"/>
-
+    <circle
+       cx="-200"
+       cy="-115"
+       r="3"
+       fill="#1a1a1a"
+       id="circle20" />
+    <circle
+       cx="200"
+       cy="-115"
+       r="3"
+       fill="#1a1a1a"
+       id="circle21" />
+    <circle
+       cx="0"
+       cy="230"
+       r="3"
+       fill="#1a1a1a"
+       id="circle22" />
     <!-- Saturation boundary annotation -->
-    <g>
-      <text x="-310" y="-175" font-size="10" font-style="italic" fill="#8b0000">saturation boundary:</text>
-      <text x="-310" y="-160" font-size="10" font-style="italic" fill="#8b0000">dim(feasible α) → 0</text>
-      <line x1="-220" y1="-155" x2="-200" y2="-120" stroke="#8b0000" stroke-width="0.7"/>
+    <g
+       id="g23">
+      <text
+         x="-310"
+         y="-175"
+         font-size="10"
+         font-style="italic"
+         fill="#8b0000"
+         id="text22">saturation boundary:</text>
+      <text
+         x="-310"
+         y="-160"
+         font-size="10"
+         font-style="italic"
+         fill="#8b0000"
+         id="text23">dim(feasible α) → 0</text>
+      <line
+         x1="-220"
+         y1="-155"
+         x2="-200"
+         y2="-120"
+         stroke="#8b0000"
+         stroke-width="0.7"
+         id="line23" />
     </g>
   </g>
-
   <!-- Conservation constraint annotation -->
-  <g transform="translate(50, 610)">
-    <text x="0" y="0" font-size="12" fill="#333">Constraint:</text>
-    <text x="70" y="0" font-size="14" font-style="italic" fill="#1a1a1a">
-      α<tspan baseline-shift="sub" font-size="10">S</tspan> + 
-      α<tspan baseline-shift="sub" font-size="10">R</tspan> + 
-      α<tspan baseline-shift="sub" font-size="10">E</tspan> = 1,
-      <tspan dx="8">α</tspan><tspan baseline-shift="sub" font-size="10">i</tspan> ≥ 0
-    </text>
-    <text x="0" y="22" font-size="11" font-style="italic" fill="#555">Scarcity = non-trivial simplex. No applicability when α is unconstrained.</text>
+  <g
+     transform="translate(36.610133,581.54653)"
+     id="g29">
+    <text
+       x="0"
+       y="0"
+       font-size="12px"
+       fill="#333333"
+       id="text24">Constraint:</text>
+    <text
+       x="70"
+       y="0"
+       font-size="14px"
+       font-style="italic"
+       fill="#1a1a1a"
+       id="text28">α<tspan
+   baseline-shift="sub"
+   font-size="10px"
+   id="tspan24">S</tspan> + α<tspan
+   baseline-shift="sub"
+   font-size="10px"
+   id="tspan25">R</tspan> + α<tspan
+   baseline-shift="sub"
+   font-size="10px"
+   id="tspan26">E</tspan> = 1, <tspan
+   dx="8"
+   id="tspan27">α</tspan><tspan
+   baseline-shift="sub"
+   font-size="10px"
+   id="tspan28">i</tspan> ≥ 0</text>
+    <text
+       x="0"
+       y="22"
+       font-size="11px"
+       font-style="italic"
+       fill="#555555"
+       id="text29">Scarcity = non-trivial simplex. No applicability when α is unconstrained.</text>
   </g>
-
   <!-- Legend -->
-  <g transform="translate(560, 590)" font-size="10" fill="#333">
-    <line x1="0" y1="0" x2="20" y2="0" stroke="#c8410b" stroke-width="2"/>
-    <text x="26" y="3">trajectory (displacement)</text>
-    <line x1="0" y1="18" x2="20" y2="18" stroke="#8b0000" stroke-width="1.8" stroke-dasharray="3 3"/>
-    <text x="26" y="21">saturation approach</text>
-    <circle cx="10" cy="36" r="3" fill="#1a1a1a"/>
-    <text x="26" y="39">allocation state</text>
+  <g
+     transform="translate(560, 590)"
+     font-size="10"
+     fill="#333"
+     id="g32">
+    <line
+       x1="0"
+       y1="0"
+       x2="20"
+       y2="0"
+       stroke="#c8410b"
+       stroke-width="2"
+       id="line29" />
+    <text
+       x="26"
+       y="3"
+       id="text30">trajectory (displacement)</text>
+    <line
+       x1="0"
+       y1="18"
+       x2="20"
+       y2="18"
+       stroke="#8b0000"
+       stroke-width="1.8"
+       stroke-dasharray="3 3"
+       id="line30" />
+    <text
+       x="26"
+       y="21"
+       id="text31">saturation approach</text>
+    <circle
+       cx="10"
+       cy="36"
+       r="3"
+       fill="#1a1a1a"
+       id="circle31" />
+    <text
+       x="26"
+       y="39"
+       id="text32">allocation state</text>
   </g>
 </svg>
