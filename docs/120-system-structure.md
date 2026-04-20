@@ -14,7 +14,8 @@ Code is foundational — it is not at the same level as the other four elements.
 
 These five elements are the infrastructure of contour allocation. Without them, the model can name contours and state that resources are allocated — but cannot explain how allocation is structurally enacted, how information about contour state travels, or why the same pressure produces different responses in different systems.
 
-<img src="./panel4_structure.png">
+![panel4_structure.png](./panel4_structure.png)
+
 
 ---
 

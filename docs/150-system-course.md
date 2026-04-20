@@ -6,7 +6,7 @@ System course is not predetermined. A system under stress may correct and return
 
 The degradation sequence defined in this chapter is a diagnostic tool, not a prophecy. It names the stages a system passes through under sustained distortion, and at each stage identifies the structural choices available — correction, adaptation, transformation, or continued deterioration. System Metabolism provides the accumulation dynamics that drive progression through these stages — what is building beneath the surface at each point, and what determines how rapidly the system moves from one stage to the next.
 
-<img src="./panel3_phase.png">
+![panel3_phase.png](./panel3_phase.png)
 
 ---
 
