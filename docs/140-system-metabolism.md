@@ -94,6 +94,8 @@ The central claim of this chapter is that contour allocation over time produces 
 
 Three types of accumulation are defined. They follow different dynamics, are measured in different units, and interact with each other in ways that produce compound effects.
 
+<img src="./panel2_accumulation.svg">
+
 ### Debt
 
 Debt is the accumulation produced by sustained under-allocation to a contour. When a contour receives less than what is required to maintain its functional capacity, debt accumulates — the gap between what the system can do and what its environment requires grows over time.

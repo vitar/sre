@@ -8,6 +8,8 @@ The model's primary application domain is human systems where practices, framewo
 
 The model is theoretically general — its structural logic holds across biological, technical, socio-economic, and cosmological systems where scarcity, competing demands, and non-static behavior are present. However, its development originates from the practice of understanding and improving human dynamics in software delivery, and its applied focus remains there.
 
+<img src="./panel1_simplex.svg">
+
 ---
 
 ## The Three Functional Contours
