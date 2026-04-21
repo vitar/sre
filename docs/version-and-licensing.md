@@ -46,7 +46,7 @@ You are free to:
 
 To attribute this work, please use the following reference:
 
-> *Tri-Contour Dynamics of Limited Resource Allocation (TC) by 3in3.dev — licensed under CC BY 4.0 via [3in3.dev](https://3in3.dev).*
+> Jevdokimov, V. (2026). Tri-Contour Dynamics of Limited Resource Allocation (v1.0-rc2). Zenodo. https://doi.org/10.5281/zenodo.19681875
 
 ## Versioning Policy
 
