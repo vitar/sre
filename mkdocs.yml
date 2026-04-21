@@ -54,6 +54,7 @@ nav:
   - 170-application.md
 - REFERENCE:
   - origin.md
+  - glossary.md
   - author.md
 
 markdown_extensions:
