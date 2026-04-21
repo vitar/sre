@@ -39,6 +39,8 @@ extra:
       link: https://github.com/vitar/sre
     - icon: fontawesome/solid/graduation-cap
       link: https://orcid.org/0009-0008-9428-3975
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/viktor-jevdokimov/
       
 plugins:
   - search
