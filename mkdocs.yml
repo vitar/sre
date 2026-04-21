@@ -40,12 +40,13 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
-  extra:
-    social:
-      - icon: fontawesome/brands/github
-        [cite_start]link: https://github.com/vitar/sre [cite: 1, 2]
-      - icon: fontawesome/solid/graduation-cap
-        [cite_start]link: https://orcid.org/0009-0008-9428-3975 [cite: 2]
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/vitar/sre
+    - icon: fontawesome/solid/graduation-cap
+      link: https://orcid.org/0009-0008-9428-3975
 
 plugins:
   - search
