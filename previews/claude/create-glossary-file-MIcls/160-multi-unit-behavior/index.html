@@ -1,0 +1,1683 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Tri-Contour Dynamics of Limited Resource Allocation describes how systems allocate limited resources across three competing functional demands: Survival, Reproduction, and Evolution.">
+      
+      
+        <meta name="author" content="Viktor Jevdokimov, Vilnius, Lithuania">
+      
+      
+      
+        <link rel="prev" href="../150-system-course/">
+      
+      
+        <link rel="next" href="../170-application/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Multi-Unit Behavior - Tri-Contour Dynamics of Limited Resource Allocation (TC)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+<!--
+  <script>
+    // Move the button into the actual header container on every page
+    document.addEventListener('DOMContentLoaded', function () {
+      var btn = document.getElementById('pdf-download');
+      var target = document.querySelector('.md-header .md-header__inner');
+      if (btn && target && !target.contains(btn)) target.appendChild(btn);
+    });
+  </script>
+-->
+
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#multi-unit-behavior" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Tri-Contour Dynamics of Limited Resource Allocation (TC)" class="md-header__button md-logo" aria-label="Tri-Contour Dynamics of Limited Resource Allocation (TC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tri-Contour Dynamics of Limited Resource Allocation (TC)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Multi-Unit Behavior
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+<!--
+  <a id="pdf-download"
+     class="md-header__button md-icon"
+     href="../pdf/tc.pdf"
+     title="Download PDF"
+     aria-label="Download PDF">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg>
+  </a>
+-->
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Tri-Contour Dynamics of Limited Resource Allocation (TC)" class="md-nav__button md-logo" aria-label="Tri-Contour Dynamics of Limited Resource Allocation (TC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Tri-Contour Dynamics of Limited Resource Allocation (TC)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1">
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INTRODUCTION
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    INTRODUCTION
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Is Tri-Contour?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    THEORY
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    THEORY
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../110-the-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../120-system-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../130-system-dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Dynamics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../140-system-metabolism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Metabolism
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../150-system-course/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Course
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Unit Behavior
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Unit Behavior
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#unit-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unit Composition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inter-unit-relations-and-shared-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inter-Unit Relations and Shared State
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inter-Unit Relations and Shared State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coupling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coupling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#synchronization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synchronization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared State
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-unit-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Unit Dynamics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Unit Dynamics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-unit-displacement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Unit Displacement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-unit-compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Unit Compensation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-unit-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Unit Feedback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mediators-across-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mediators Across Units
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-unit-metabolism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Unit Metabolism
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Unit Metabolism">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#desynchronization-debt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desynchronization Debt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimum-viable-resynchronization-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimum Viable Resynchronization Frequency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metabolic-equilibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metabolic Equilibration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#irreversibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Irreversibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrested-equilibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arrested Equilibration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measurement-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measurement Artifact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signature-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signature Interaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-boundary-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Boundary Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-unit-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Unit Course
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Unit Course">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-viability-with-system-level-incoherence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Viability with System-Level Incoherence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failure-cascade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure Cascade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-unit-compensation-masking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Unit Compensation Masking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recovery-rebalancing-and-transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recovery, Rebalancing, and Transformation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../170-application/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REFERENCE
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    REFERENCE
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../origin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Origin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../author/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About the Author
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#unit-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unit Composition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inter-unit-relations-and-shared-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inter-Unit Relations and Shared State
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inter-Unit Relations and Shared State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coupling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coupling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#synchronization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synchronization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shared State
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-unit-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Unit Dynamics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Unit Dynamics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-unit-displacement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Unit Displacement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-unit-compensation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Unit Compensation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-unit-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Unit Feedback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mediators-across-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mediators Across Units
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-unit-metabolism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Unit Metabolism
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Unit Metabolism">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#desynchronization-debt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desynchronization Debt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimum-viable-resynchronization-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimum Viable Resynchronization Frequency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metabolic-equilibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metabolic Equilibration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#irreversibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Irreversibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrested-equilibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arrested Equilibration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measurement-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measurement Artifact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signature-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Signature Interaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-boundary-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Boundary Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-unit-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Unit Course
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Unit Course">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-viability-with-system-level-incoherence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Viability with System-Level Incoherence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failure-cascade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Failure Cascade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-unit-compensation-masking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Unit Compensation Masking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recovery-rebalancing-and-transformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recovery, Rebalancing, and Transformation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="multi-unit-behavior">Multi-Unit Behavior<a class="headerlink" href="#multi-unit-behavior" title="Permanent link">¶</a></h1>
+<p>The previous chapters defined the model for a single unit — its structure, dynamics, metabolism, and course. This chapter extends the same logic to systems composed of multiple units operating within a shared boundary.</p>
+<p>The model applies to single units of any size. A person, a team, an organization, a country — each can be analyzed as a single unit with its own contour allocation, element infrastructure, and system course. Multi-unit analysis becomes necessary when the analyst needs to understand the relationships between units, not just the units themselves.</p>
+<p>This chapter follows the same progression as the single-unit theory:</p>
+<ul>
+<li><strong>Unit Composition</strong> extends The Model — defining how units nest and compose.</li>
+<li><strong>Inter-Unit Relations and Shared State</strong> extends System Structure — defining how units connect and what the enclosing system looks like.</li>
+<li><strong>Multi-Unit Dynamics</strong> extends System Dynamics — defining how allocation mechanisms operate across unit boundaries.</li>
+<li><strong>Multi-Unit Metabolism</strong> extends System Metabolism — defining how accumulation dynamics operate across unit boundaries and how metabolic signatures interact between units.</li>
+<li><strong>Multi-Unit Course</strong> extends System Course — defining how composed systems degrade, recover, and transform.</li>
+</ul>
+<p>The model itself does not change at the multi-unit level. The contours are the same. The elements are the same. The dynamics are the same. What changes is that the system under analysis contains internal boundaries — and what happens at those boundaries determines whether the composed system is coherent, strained, or failing.</p>
+<hr>
+<h2 id="unit-composition">Unit Composition<a class="headerlink" href="#unit-composition" title="Permanent link">¶</a></h2>
+<p>Any unit can be decomposed into sub-units or composed with other units into an enclosing system. A family is composed of individual members. An organization is composed of teams. A country is composed of institutions, communities, and individual citizens. Each level of composition is a valid unit of analysis under the model.</p>
+<p>The choice of unit boundary is analytical — it is made by the observer for a specific diagnostic purpose, not discovered as a property of the system. The same system can be analyzed as a single unit (what is its overall contour posture?) or as a multi-unit composition (how do its sub-units relate to each other?). Both analyses are valid. They answer different questions.</p>
+<p>One unit's environment may be another unit's interior. When a team is the unit of analysis, the organization is its environment. When the organization is the unit of analysis, the same team is an internal sub-unit. This is not a contradiction — it is a consequence of boundary choice. The model's definitions (environment, boundary, gate) apply relative to the declared unit boundary, not in absolute terms.</p>
+<p>Scale transitions — the point at which individual unit tracking yields to aggregate treatment — are driven by analytical purpose, not by a fixed threshold. An analyst tracking a three-person team may treat each member as a unit. An analyst tracking a thousand-person organization will not. The decision to aggregate is a judgment about what level of decomposition serves the diagnostic question. The model does not prescribe a correct level — it requires that the chosen level be declared explicitly.</p>
+<hr>
+<h2 id="inter-unit-relations-and-shared-state">Inter-Unit Relations and Shared State<a class="headerlink" href="#inter-unit-relations-and-shared-state" title="Permanent link">¶</a></h2>
+<h3 id="coupling">Coupling<a class="headerlink" href="#coupling" title="Permanent link">¶</a></h3>
+<p>Units within a shared boundary may be coupled — dependent on each other's contour output for their own viability. Coupling describes the degree and nature of this dependency.</p>
+<p><strong>Tight coupling</strong> means one unit's contour output is a direct input to another unit's allocation. A team that depends on another team's deliverables for its own Reproduction is tightly coupled to that team. Disruption in one unit propagates directly to the other.</p>
+<p><strong>Loose coupling</strong> means units share a boundary but do not depend directly on each other's contour output. They draw from the same resource pool and operate under the same environmental conditions, but one unit's allocation does not directly constrain the other's. Disruption in one unit affects the other indirectly — through shared resource availability or environmental change — not through direct dependency.</p>
+<p>Coupling is not uniform across contours. Two units may be tightly coupled on Reproduction (dependent on each other's output) but loosely coupled on Evolution (pursuing independent adaptation paths). The coupling profile — which contours are coupled and how tightly — shapes how dynamics propagate between units.</p>
+<h3 id="synchronization">Synchronization<a class="headerlink" href="#synchronization" title="Permanent link">¶</a></h3>
+<p>Synchronization describes whether units' contour postures are compatible within the shared boundary.</p>
+<p><strong>Synchronized units</strong> have contour postures that are mutually sustainable. Their respective allocations to Survival, Reproduction, and Evolution do not create structural conflict. This does not require identical postures — it requires compatibility. One unit may emphasize Reproduction while another emphasizes Survival, and the pairing may be viable if their outputs complement each other.</p>
+<p><strong>Desynchronized units</strong> have contour postures that create structural conflict. Their respective allocations work against each other. One unit's Reproduction emphasis may consume resources that another unit requires for Survival. One unit's Evolution efforts may destabilize conditions that another unit depends on for continuity.</p>
+<p>Synchronization is not a binary state. Units may be synchronized on some contours and desynchronized on others. The degree and pattern of synchronization determines the enclosing system's structural viability.</p>
+<p>Synchronization also has a temporal dimension. Units do not maintain static contour postures — their allocations shift over time in response to local pressures, environmental change, and internal dynamics. Synchronization is therefore not a one-time achievement but a process that requires periodic recalibration. The temporal dynamics of synchronization — how desynchronization accumulates between recalibration events, and what determines the minimum viable resynchronization frequency — are defined in Multi-Unit Metabolism.</p>
+<h3 id="shared-state">Shared State<a class="headerlink" href="#shared-state" title="Permanent link">¶</a></h3>
+<p>The enclosing system — the composed whole — has a state that is not an average of its units' states. Shared state is emergent. It is produced by the interaction of local contour postures, synchronization quality, mediator conditions, and compensation patterns operating across units.</p>
+<p>A shared system state can be characterized as:</p>
+<p><strong>Coherent</strong> — local states are synchronized, mediators are functional, and the enclosing system operates as an integrated whole. Contour allocation at the shared level reflects the combined postures of its units without significant internal friction.</p>
+<p><strong>Tense but viable</strong> — local states contain tensions or partial desynchronization, but the system sustains viability through explicit trade-offs that are acknowledged and periodically renegotiated. The tension is managed, not hidden.</p>
+<p><strong>Compensated</strong> — local states conflict, but one or more units absorb the resulting friction through buffer expenditure. The enclosing system appears viable, but viability depends on hidden compensation. This state is structurally identical to single-unit compensation — finite, dependent on margin, and subject to exhaustion.</p>
+<p><strong>Distorted</strong> — local states are desynchronized and the enclosing system's allocation has deviated from viable balance. Compensation may be active but insufficient to mask the distortion. The enclosing system's contour output does not match what its combined resources should produce.</p>
+<p><strong>Degrading</strong> — the enclosing system is losing functional capacity. Desynchronization and distortion are consuming the system's resources faster than they are being replenished. Compensation margin is shrinking. Inter-unit relations are deteriorating.</p>
+<p><strong>Failing</strong> — the enclosing system can no longer sustain viability across its contour functions. Local units may still be individually viable, but the composed whole is not. The system's inter-unit relations have broken down to the point where the shared boundary no longer contains a functioning system.</p>
+<p>Shared state is not determined by any single unit, no matter how dominant. A common diagnostic error is to treat the most visible, powerful, or vocal unit's state as the shared state. Shared state assessment requires examining the full composition — all participating units, their coupling, their synchronization, and the mediators operating across them.</p>
+<hr>
+<h2 id="multi-unit-dynamics">Multi-Unit Dynamics<a class="headerlink" href="#multi-unit-dynamics" title="Permanent link">¶</a></h2>
+<p>The allocation dynamics defined in System Dynamics — displacement, compensation, feedback, mediator dynamics — operate across unit boundaries within a composed system.</p>
+<h3 id="cross-unit-displacement">Cross-Unit Displacement<a class="headerlink" href="#cross-unit-displacement" title="Permanent link">¶</a></h3>
+<p>Displacement within a composed system can propagate across units. When the enclosing system faces resource pressure, displacement may not be distributed evenly — some units absorb more displacement than others, depending on their coupling, their position in the power structure, and the mediators operating across units.</p>
+<p>A unit with less structural power may be displaced on behalf of a unit with more — its contour allocation reduced to sustain another unit's balance. This cross-unit displacement follows the same logic as single-unit displacement (context-dependent order, triggered by gap between available and required) but the context now includes inter-unit power relations and coupling.</p>
+<h3 id="cross-unit-compensation">Cross-Unit Compensation<a class="headerlink" href="#cross-unit-compensation" title="Permanent link">¶</a></h3>
+<p>One unit may compensate for another — absorbing a contour gap that originates in a different unit. The compensating unit expends its own buffer to sustain the enclosing system's observable viability.</p>
+<p>Cross-unit compensation is structurally identical to single-unit compensation: it has a trigger (gap in one unit's contour output), a buffer (the compensating unit's resources or capacity), and a signal (evidence of buffer expenditure in the compensating unit). The difference is that the trigger and the buffer are in different units.</p>
+<p>This creates a diagnostic challenge. The unit generating the distortion may show no signs of stress — its gap is being absorbed elsewhere. The unit providing compensation may show stress signals that appear disproportionate to its own allocation posture — because it is carrying load that originates outside its boundary. Without multi-unit analysis, the compensating unit appears to have an internal problem. With multi-unit analysis, the structural source of the distortion becomes visible.</p>
+<h3 id="cross-unit-feedback">Cross-Unit Feedback<a class="headerlink" href="#cross-unit-feedback" title="Permanent link">¶</a></h3>
+<p>Feedback signals generated by one unit may reach another unit's Receivers — crossing internal boundaries within the composed system. Whether these signals reach their destination depends on the same element infrastructure defined for single units: Gates must admit them, Receivers must have the Legibility Range to parse them, and Code must define them as relevant.</p>
+<p>Cross-unit feedback can be reinforcing or balancing, following the same logic as single-unit feedback. A unit that displaces Evolution and produces short-term output gains may generate reinforcing signals that reach other units' Receivers, encouraging them to follow the same displacement pattern. Conversely, a unit that experiences degradation may generate balancing signals that reach other units, prompting them to adjust their own allocation to compensate or correct.</p>
+<p>The effectiveness of cross-unit feedback depends on the inter-unit Gate configuration. In composed systems with open inter-unit signal paths, feedback propagates and the system can self-correct at the multi-unit level. In composed systems where inter-unit Gates are closed or narrowly configured, feedback does not propagate — each unit operates on local information only, and system-level distortion accumulates without triggering a system-level response.</p>
+<h3 id="mediators-across-units">Mediators Across Units<a class="headerlink" href="#mediators-across-units" title="Permanent link">¶</a></h3>
+<p>Mediators operating at the enclosing system level shape inter-unit dynamics in the same ways they shape single-unit dynamics: amplifying, blocking, or redirecting displacement, compensation, and feedback across unit boundaries.</p>
+<p>Governance structures determine which units receive priority in resource allocation. Trust between units determines whether cross-unit signals are received as credible or dismissed. Power structures determine which unit's displacement is absorbed by which other unit. Legitimacy determines whether cross-unit compensation is sustained voluntarily or enforced.</p>
+<p>Mediator alignment at the multi-unit level has the same structural consequence as at the single-unit level: aligned mediators produce coherent inter-unit behavior; conflicting mediators produce erratic or contradictory dynamics across units.</p>
+<hr>
+<h2 id="multi-unit-metabolism">Multi-Unit Metabolism<a class="headerlink" href="#multi-unit-metabolism" title="Permanent link">¶</a></h2>
+<p>System Metabolism defines how allocation over time produces accumulation — debt, potential, overhead — within a single unit. At the multi-unit level, the same accumulation types operate, but two additional dynamics emerge: accumulation across unit boundaries, and the interaction of metabolic signatures between units.</p>
+<p>The metabolic dynamics of multi-unit systems differ structurally depending on the relationship between units. Two types of relationship produce distinct metabolic behavior:</p>
+<p><strong>Parallel units</strong> occupy the same level within a shared boundary — two teams in an organization, two departments in a company, two siblings in a family. Their metabolic relationship is symmetric: neither unit has structural authority over the other's allocation. They compete for shared resources and may synchronize or desynchronize, but neither can impose its metabolism on the other.</p>
+<p><strong>Serial units</strong> occupy different levels in an enclosure relationship — a team inside an organization, an acquired company inside a parent, an individual inside a team. Their metabolic relationship is asymmetric: the containing unit has structural authority over the embedded unit's allocation parameters. The container sets resource envelopes, imposes regulatory mechanisms, and defines Gate configurations that constrain the embedded unit's metabolic range.</p>
+<p>This distinction matters because the primary metabolic dynamic differs by relationship type. Parallel units' central metabolic dynamic is desynchronization. Serial units' central metabolic dynamic is equilibration.</p>
+<h3 id="desynchronization-debt">Desynchronization Debt<a class="headerlink" href="#desynchronization-debt" title="Permanent link">¶</a></h3>
+<p>Desynchronization debt is the accumulation produced by sustained divergence between parallel units' contour postures without recalibration. It manifests as increasing coordination cost — the additional effort required to produce joint output from units whose allocation logics have diverged.</p>
+<p>When parallel units are synchronized, their respective contour postures complement each other. Handoffs are smooth, expectations align, and trade-off decisions are mutually legible. When they desynchronize, each interaction requires additional translation, negotiation, and friction absorption.</p>
+<p>Desynchronization debt compounds rather than accumulating linearly. Three mechanisms drive the compounding:</p>
+<p>Mutual legibility degrades. As units' contour postures diverge, their Codes drift apart. Each unit progressively loses the ability to interpret the other's signals. Urgency signals from a Survival-dominant unit are read as overreaction by a balanced unit. Evolution investment by one unit is read as self-indulgence by a Starvation-signature unit. Each misreading further narrows the Receiver Legibility Range each unit maintains for the other's signal format, reducing the probability that the next signal will be received accurately.</p>
+<p>Shared practices erode. Parallel units that were once synchronized typically share practices, tools, conventions, and coordination rituals. As their metabolic postures diverge, these shared practices become friction points rather than coordination mechanisms. A shared cadence that works when both units have compatible Reproduction rhythms serves neither when one unit shifts to Survival-dominant urgency and the other to Evolution-dominant exploration. Each abandoned shared practice removes a resynchronization mechanism, making the next recalibration harder.</p>
+<p>Mediator alignment weakens. Trust, governance, and legitimacy between parallel units depend on mutual predictability. As postures diverge, predictability decreases. Trust erodes through incomprehension rather than betrayal. Governance mechanisms that assumed compatible postures produce inconsistent outcomes. Weakened mediators reduce the system's capacity to coordinate resynchronization, which extends the interval between recalibrations, which increases debt further.</p>
+<p>The unit of desynchronization debt is coordination cost — the additional effort required to produce joint output compared to the effort required when units were synchronized. This is observable through alignment time in meetings, handoff failure rate, rework from mismatched assumptions, escalation frequency, and the reported experience of increasing difficulty in inter-unit collaboration.</p>
+<h3 id="minimum-viable-resynchronization-frequency">Minimum Viable Resynchronization Frequency<a class="headerlink" href="#minimum-viable-resynchronization-frequency" title="Permanent link">¶</a></h3>
+<p>Parallel units must recalibrate their contour postures periodically to prevent desynchronization debt from exceeding recovery capacity. The minimum viable frequency is determined by three variables:</p>
+<p>Coupling tightness — how much joint output depends on coordination. Tightly coupled units accumulate desynchronization debt faster because every interaction exposes the divergence. Loosely coupled units can tolerate longer intervals because fewer interactions surface the divergence.</p>
+<p>Divergence rate — how fast units' postures are moving apart. Units under similar environmental pressure with similar Code diverge slowly. Units under different pressures or with different Code diverge rapidly. Divergence rate is not a constant — it can accelerate when environmental conditions push units in opposite directions simultaneously.</p>
+<p>Buffer capacity — how much desynchronization can be absorbed before it surfaces as friction. Coordinator roles, shared rituals with tolerance for variation, and actors who are fluent in both units' metabolic languages all function as buffers. These buffers are finite, following the same compensation logic as single-unit buffers.</p>
+<p>The structural relationship is: minimum frequency must increase with coupling tightness and divergence rate, and can decrease with buffer capacity.</p>
+<p>Desynchronization debt becomes unrecoverable when the coordination cost of resynchronization exceeds the benefit of remaining within the shared boundary. At this point, selective decoupling — defined in Multi-Unit Course — becomes more viable than resynchronization. The practical signal of this threshold: actors in both units begin reporting that independent operation would be easier than continued coordination.</p>
+<p>Desynchronization debt exhibits a ratchet effect parallel to single-unit Survival overhead. Each desynchronization episode leaves residual coordination overhead — shared practices that were abandoned are not automatically rebuilt, trust that eroded through incomprehension does not instantly restore. This means each episode leaves the system slightly less resilient to the next divergence event.</p>
+<h3 id="metabolic-equilibration">Metabolic Equilibration<a class="headerlink" href="#metabolic-equilibration" title="Permanent link">¶</a></h3>
+<p>Metabolic equilibration is the process by which an embedded unit's metabolic signature converges toward its containing unit's metabolic baseline under sustained asymmetric metabolic authority. It is the defining metabolic dynamic of serial relationships.</p>
+<p>The embedded unit's metabolic state follows an approximately exponential decay toward the container's baseline. The convergence operates through four concurrent processes:</p>
+<p>Regulatory imposition. The containing unit's governance mechanisms — process standardization, reporting requirements, approval chains — impose the container's operating model on the embedded unit. This directly shifts allocation: Survival overhead increases as the embedded unit spends more time on compliance and process adherence. The container's Gate configurations restrict the embedded unit's allocation discretion.</p>
+<p>Resource envelope constraint. The container determines the embedded unit's resource allocation — budgets, headcount, tool access, time. The container's own metabolic logic shapes what it considers reasonable allocation. Evolution-contour investment that the embedded unit's original metabolism would have funded becomes unjustified under the container's allocation logic.</p>
+<p>Selective attrition. Actors whose personal metabolic needs do not match the new regime depart. The departure is selective — Evolution-oriented actors leave first because they have the highest sensitivity to contour mismatch and the most external alternatives. Each departure removes a carrier of the original metabolic signature and shifts the remaining population's aggregate metabolic expectation closer to the container's baseline. Attrition is not a side effect of equilibration — it is the equilibration mechanism operating at the population level.</p>
+<p>Code drift. The embedded unit's Code gradually shifts through accumulated small departures. New actors are socialized into the container's norms. Decisions are made using the container's criteria. Practices that distinguished the embedded unit are replaced with container-standard alternatives. This is the Code drift mechanism defined in System Dynamics, operating specifically in the direction of the container's Code.</p>
+<p>The convergence rate is modulated by drag forces that slow equilibration:</p>
+<p>Legacy relationships — clients, partners, or external commitments formed under the embedded unit's original metabolism that explicitly demand the original metabolic signature. These create external pressure to maintain the original allocation pattern and attenuate as relationships end or are reassigned.</p>
+<p>Residual Code strength — if the embedded unit's original Code is deeply held and institutionally embedded, it resists drift and regulatory imposition. Code strength decays over time through attrition and drift, but strong Code can significantly slow convergence in early phases.</p>
+<p>Container's integration attention — if the container does not actively impose its model, convergence slows. Regulatory imposition and resource envelope constraint are weak under benign neglect. Convergence still occurs through attrition and drift, but at a lower rate. When the container turns attention to integration, the convergence rate increases abruptly.</p>
+<p>Evolution floor — the container's own Evolution allocation level sets the asymptote. If the container permits some Evolution investment, the embedded unit converges to a state that includes some Evolution — not at the original level, but above zero. A higher floor means less total metabolic distance to travel.</p>
+<h3 id="irreversibility">Irreversibility<a class="headerlink" href="#irreversibility" title="Permanent link">¶</a></h3>
+<p>Equilibration becomes irreversible when the embedded unit can no longer recover its original metabolic signature even under restored allocation autonomy. Three mechanisms drive irreversibility in sequence:</p>
+<p>Population thinning is the leading process. The actors who carried the original metabolic signature depart through selective attrition. At some point, the remaining original-metabolism actors are too few to sustain the original Code. The threshold depends on how distributed or concentrated the original Code was — a system where the original metabolism was carried by the entire culture needs a larger surviving population than one where it was concentrated in a few founders.</p>
+<p>Code rewrite completion lags behind population thinning. As carriers depart and container-standard practices accumulate, the infrastructure that supported the original metabolism is replaced. Gate configurations, Receiver orientations, and allocation decision criteria all operate on the container's Code.</p>
+<p>Potential exhaustion is the terminal process. All accumulated potential from the original metabolism has been consumed as buffer or has decayed through half-life. No stored capability from the original investment remains to seed recovery.</p>
+<p>Effective irreversibility occurs at the population threshold — the earliest of the three. Once the carrier population drops below the minimum needed to sustain the original Code, recovery requires not just reallocation but recruitment of new actors who carry compatible metabolic expectations. This is building a new system, not recovering the old one — the distinction between recovery and transformation defined in System Course.</p>
+<p>The diagnostic test for irreversibility proximity: if the container's regulatory imposition were removed and the embedded unit were given full allocation autonomy, could it re-express its original metabolic signature with its current population? If yes — equilibration is reversible. If partially — the system is in a critical zone where some aspects can be recovered and others are lost. If no — irreversibility has been crossed.</p>
+<h3 id="arrested-equilibration">Arrested Equilibration<a class="headerlink" href="#arrested-equilibration" title="Permanent link">¶</a></h3>
+<p>Equilibration can arrest — stabilizing at a point between the embedded unit's original metabolism and the container's baseline — under specific conditions:</p>
+<p>Persistent external demand for the original signature. If legacy clients or external relationships continuously require the embedded unit's original metabolic output, and the container values these relationships enough to protect them, the drag force does not attenuate. The embedded unit must maintain some degree of its original metabolism to serve these relationships.</p>
+<p>Structural separation within the container. If the embedded unit retains a degree of operational autonomy — its own Gate configurations, some independent allocation discretion — the container's regulatory imposition is attenuated. This is a deliberate architectural choice by the container.</p>
+<p>Metabolic complementarity encoded in Code. If the container's Code includes a commitment to maintaining the embedded unit's distinct metabolism — because the container recognizes that the distinct metabolism produces something the container's own metabolism cannot — then the container actively limits its own convergence pressure.</p>
+<p>The first two conditions are circumstantial and inherently fragile. Legacy clients eventually churn. Operational autonomy erodes through organizational inertia and alignment initiatives. These conditions slow equilibration but do not stop it permanently.</p>
+<p>The third condition is the only potentially durable arrest mechanism — because it is encoded in the container's Code rather than dependent on external circumstances. But it requires the container's Code to simultaneously hold standardization as a value and exception as a policy. This is a Code complexity that most Survival-dominant containers eventually resolve by eliminating the exception, because the exception creates management overhead, reporting inconsistency, and perceived unfairness — all Survival-contour costs.</p>
+<p>Arrested equilibration is therefore typically a metastable state — real and potentially long-lasting, but vulnerable to perturbation. Any disruption to the sustaining conditions can restart convergence from the arrested point.</p>
+<h3 id="measurement-artifact">Measurement Artifact<a class="headerlink" href="#measurement-artifact" title="Permanent link">¶</a></h3>
+<p>Metabolic equilibration produces a characteristic measurement artifact: lagging indicators improve as the system converges toward its new baseline. Retention rates stabilize because the remaining population is metabolically compatible with the new regime. Delivery predictability improves because the system operates within the container's standard patterns. Satisfaction metrics may rise because the actors who would report dissatisfaction have departed.</p>
+<p>These improving indicators do not reflect system health in the original sense. They reflect metabolic homogeneity — the system has shed the variation that produced the dissatisfaction signals. The system is stable. It is not the system that was acquired.</p>
+<p>The leading indicator of equilibration is contour mismatch — the divergence between what the system's actors expect in terms of contour allocation and what the system actually delivers. Contour mismatch signals precede population change. Population change precedes lagging indicator stabilization. The measurement sequence is: mismatch → attrition → metric normalization.</p>
+<h3 id="signature-interaction">Signature Interaction<a class="headerlink" href="#signature-interaction" title="Permanent link">¶</a></h3>
+<p>When units with different metabolic signatures are coupled, the interaction produces structurally specific dynamics that depend on the relationship type, coupling tightness, and inter-unit Gate configuration.</p>
+<p>In serial relationships, signature interaction follows the equilibration dynamic defined above — the containing unit's signature subsumes the embedded unit's. This process is named <strong>Digestion</strong>: the metabolic process by which a containing unit's metabolism subsumes an embedded unit's distinct metabolic signature, converging the embedded unit toward the container's metabolic baseline.</p>
+<p>In parallel relationships, four interaction patterns are identified. These are not exhaustive — other pairings may produce additional patterns. They are the most common configurations arising from the model's dynamics.</p>
+<p><strong>Metabolic parasitism.</strong> One unit's metabolic deficit is partially offset by extracting value from a coupled unit's surplus. The surplus unit bears the cost — its own overhead increases from supporting a unit that cannot match its metabolic rhythm. The deficit unit's debt growth slows but does not stop, because it is consuming the other unit's potential rather than building its own. The surplus unit's metabolic signature degrades over time through the additional load.</p>
+<p><strong>Failed complementarity.</strong> Units hold complementary metabolic resources — one has the need, the other has the supply — but inter-unit Gate configuration prevents transfer. Both units degrade independently despite the combined system holding the resources to address both deficits. The structural waste is that the system contains both the problem and the solution but cannot connect them.</p>
+<p><strong>Metabolic entrenchment.</strong> Parallel units with the same pathological signature reinforce each other through cross-unit feedback. The shared metabolic state creates a norm. Actors in either unit who exhibit contour behavior inconsistent with the shared signature are perceived as deviating, and the system's cross-unit feedback mechanisms suppress the deviation. The enclosing system's metabolic state becomes more rigid than the sum of its parts — degradation accelerates beyond what either unit's individual signature would predict, because mutual reinforcement suppresses the balancing feedback that might otherwise trigger correction.</p>
+<p><strong>Metabolic disruption.</strong> One unit's metabolic instability imposes Survival-contour costs on a coupled unit without any corresponding benefit. The stable unit's overhead increases from adapting to the unstable unit's volatility. The stable unit's signature degrades — typically toward Starvation — not through its own allocation choices but through externally imposed coordination costs. The unstable unit is often unaware of the impact because its own activity-level metrics appear healthy.</p>
+<p>Three variables determine which pattern emerges: coupling tightness (how much each unit's output depends on the other's), signature complementarity (whether the units' metabolic states could theoretically benefit from exchange), and inter-unit Gate configuration (whether resources, signals, and potential can actually flow between units).</p>
+<h3 id="cross-boundary-detection">Cross-Boundary Detection<a class="headerlink" href="#cross-boundary-detection" title="Permanent link">¶</a></h3>
+<p>When one unit's metabolic state shifts, coupled units detect the shift through a four-stage chain, each stage introducing latency:</p>
+<p>Internal-to-output latency — how long before the shifting unit's metabolic change affects its cross-boundary output. This is determined by the shifting unit's compensation mechanisms. If buffers are strong — experienced actors masking debt, established processes carrying Reproduction momentum — the internal shift produces no output change for an extended period. This latency equals the shifting unit's compensation margin duration.</p>
+<p>Output-to-signal latency — how long before the output change produces a signal strong enough to reach the boundary between units. Some output changes are immediately visible — a deliverable is late, a capability is no longer offered. Others are gradual — average quality drifts, response time increases, innovation declines. The shape of the underlying accumulation curve matters: Evolution debt produces output change that is flat for an extended period then steep, which means the signal, when it arrives, is sudden and large rather than gradual and proportional.</p>
+<p>Signal-to-detection latency — how long before the signal crosses the inter-unit Gate, reaches the detecting unit's Receivers, and exceeds Threshold. This is determined entirely by the detecting unit's element infrastructure: its Gate configuration (which signal types are admitted), its Receiver Threshold (how much change is required to activate), and its Receiver Legibility Range (whether it can parse the specific type of signal the shifting unit's degradation produces).</p>
+<p>Detection-to-recognition latency — how long before the detecting unit interprets the detected signal as evidence of systemic metabolic shift rather than noise or an isolated incident. This is the detecting unit's Code-level processing. Most systems require multiple detections before reclassifying a partner's state.</p>
+<p>The detecting unit's own metabolic state shapes detection speed. A unit in Flow — with balanced allocation, open Receivers, and broad Legibility Range — detects partner degradation early, through quality and capability signals. A unit in Starvation — with narrowed Receivers and Survival-dominant Gate configuration — detects partner degradation late, only when it manifests as delivery failure. A unit in Proliferation — monitoring primarily volume metrics — detects latest of all, only when volumetric output declines.</p>
+<p>Detection latency is therefore a property of the unit pair, not of the shifting unit alone. The same metabolic shift produces different detection timings depending on the detecting unit's metabolic state.</p>
+<p>This has a structural consequence for equilibration dynamics: an embedded unit's highest-quality partners — those most likely to be in Flow, because they chose the embedded unit for quality reasons — detect equilibration earliest and exit first. The remaining partners are progressively less capable of detecting the shift, not because the shift has slowed, but because their own metabolic state renders them insensitive to it. The partner portfolio degrades in parallel with the embedded unit's metabolism.</p>
+<hr>
+<h2 id="multi-unit-course">Multi-Unit Course<a class="headerlink" href="#multi-unit-course" title="Permanent link">¶</a></h2>
+<p>Composed systems follow the same course progression as single units — distortion, stress, degradation, breakdown, failure, collapse — with structural differences arising from the presence of multiple units within the shared boundary.</p>
+<h3 id="local-viability-with-system-level-incoherence">Local Viability with System-Level Incoherence<a class="headerlink" href="#local-viability-with-system-level-incoherence" title="Permanent link">¶</a></h3>
+<p>The defining characteristic of multi-unit failure is that individual units may remain locally viable while the composed system fails. Each unit maintains its own contour allocation, its own element infrastructure, and its own internal coherence — but the inter-unit relations that make the composed system function have broken down.</p>
+<p>This is possible because units can sustain themselves locally as long as they have access to resources and a viable environment — even when the enclosing system is failing. The enclosing system's failure manifests not as unit-level collapse but as loss of inter-unit synchronization, breakdown of shared state, and inability to produce system-level output that depends on inter-unit coordination.</p>
+<h3 id="failure-cascade">Failure Cascade<a class="headerlink" href="#failure-cascade" title="Permanent link">¶</a></h3>
+<p>Failure can propagate across coupled units. When one unit's contour output is an input to another unit's allocation, failure in the first unit disrupts the second. If the second unit is coupled to a third, the disruption propagates further.</p>
+<p>Cascade speed depends on coupling tightness. Tightly coupled units propagate failure rapidly — disruption in one produces immediate pressure on the next. Loosely coupled units propagate failure slowly or not at all — the disrupted unit's failure affects the shared resource pool but does not directly constrain other units.</p>
+<p>Cascade can be arrested by decoupling — reducing the dependency between the failing unit and other units — or by compensation at the inter-unit level, where another unit absorbs the gap. Arrest through compensation is temporary, subject to the same margin constraints as single-unit compensation.</p>
+<h3 id="multi-unit-compensation-masking">Multi-Unit Compensation Masking<a class="headerlink" href="#multi-unit-compensation-masking" title="Permanent link">¶</a></h3>
+<p>Cross-unit compensation can mask system-level distortion in the same way single-unit compensation masks contour-level distortion. When one unit compensates for another, the enclosing system's observable output may appear viable — but viability depends on buffer expenditure in the compensating unit.</p>
+<p>This produces the same observer-detection delay described in System Course: actors within the compensating unit experience the trade-off directly, while observers of the enclosing system see only the sustained output. When the compensating unit's margin is exhausted, the system-level distortion becomes visible — appearing sudden to observers who were not monitoring inter-unit compensation.</p>
+<h3 id="recovery-rebalancing-and-transformation">Recovery, Rebalancing, and Transformation<a class="headerlink" href="#recovery-rebalancing-and-transformation" title="Permanent link">¶</a></h3>
+<p>Composed systems exit the degradation sequence through the same structural choices available to single units, with additional options arising from multi-unit composition.</p>
+<p><strong>Unit-level recovery</strong> — individual units correct their own distortion, and inter-unit synchronization restores itself as local postures realign.</p>
+<p><strong>Inter-unit rebalancing</strong> — the composed system establishes new coupling patterns, synchronization arrangements, or resource-sharing agreements that produce a viable shared state different from the prior one.</p>
+<p><strong>Selective decoupling</strong> — units that cannot synchronize are separated, reducing the composed system's scope but restoring viability within the reduced boundary. The enclosing system becomes smaller but coherent.</p>
+<p><strong>System-level transformation</strong> — the enclosing system's Code is rewritten, producing new inter-unit relations, coupling patterns, and shared state. The composed system that emerges is structurally new — different from its predecessor in how its units relate, not just in how they allocate.</p>
+<p><strong>Unit replacement</strong> — a failing unit is removed and replaced by a new unit, or a unit's internal structure is rebuilt while its position in the composed system is preserved. The enclosing system sustains continuity while individual components change.</p>
+<p>The availability of these options depends on the same factors as single-unit course: stage of degradation, compensation margin remaining, mediator conditions, and whether boundary dissolution has opened a window for structural change.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../150-system-course/" class="md-footer__link md-footer__link--prev" aria-label="Previous: System Course">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                System Course
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../170-application/" class="md-footer__link md-footer__link--next" aria-label="Next: Application">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Application
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2026 3in3.dev
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.footer", "navigation.instant", "navigation.instant.prefetch", "navigation.tracking", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
