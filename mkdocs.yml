@@ -1,7 +1,7 @@
 site_name: "Tri-Contour Dynamics of Limited Resource Allocation (TC)"
 site_description: "Tri-Contour Dynamics of Limited Resource Allocation describes how systems allocate limited resources across three competing functional demands: Survival, Reproduction, and Evolution."
 site_author: "Viktor Jevdokimov, Vilnius, Lithuania"
-copyright: "© 2026 3in3.dev"
+copyright: "© 2026 3in3.dev, Viktor Jevdokimov"
 
 docs_dir: docs
 
@@ -16,6 +16,7 @@ theme:
     - navigation.instant.prefetch
     - navigation.tracking
     - content.code.copy
+    - footer.hyperlinks
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
@@ -32,6 +33,15 @@ theme:
         icon: material/brightness-4
         name: Switch to system preference
 
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/vitar/sre
+    - icon: fontawesome/solid/graduation-cap
+      link: https://orcid.org/0009-0008-9428-3975
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/viktor-jevdokimov/
+      
 plugins:
   - search
 #  - glightbox
