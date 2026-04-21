@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   viewBox="0 0 1100 800"
-   font-family="'Iowan Old Style', 'Palatino', Georgia, serif"
+   viewBox="0 0 4096 2978.9092"
+   font-family="'Iowan Old Style', Palatino, Georgia, serif"
    version="1.1"
    id="svg72"
    sodipodi:docname="panel4_structure.svg"
    inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   width="4096"
+   height="2978.9092"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -19,15 +21,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="1.9265311"
-     inkscape:cx="597.96594"
-     inkscape:cy="388.00307"
+     inkscape:zoom="1.0041359"
+     inkscape:cx="2438.4149"
+     inkscape:cy="1602.8707"
      inkscape:window-width="3008"
      inkscape:window-height="1692"
      inkscape:window-x="1512"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg72" />
+     inkscape:current-layer="svg72"
+     showgrid="false" />
   <defs
      id="defs6">
     <marker
@@ -38,7 +41,7 @@
        refY="3"
        orient="auto">
       <path
-         d="M0,0 L0,6 L9,3 z"
+         d="M 0,0 V 6 L 9,3 Z"
          fill="#1a1a1a"
          id="path1" />
     </marker>
@@ -50,7 +53,7 @@
        refY="3"
        orient="auto">
       <path
-         d="M0,0 L0,6 L9,3 z"
+         d="M 0,0 V 6 L 9,3 Z"
          fill="#2a5d7c"
          id="path2" />
     </marker>
@@ -62,7 +65,7 @@
        refY="3"
        orient="auto">
       <path
-         d="M0,0 L0,6 L9,3 z"
+         d="M 0,0 V 6 L 9,3 Z"
          fill="#b07a2a"
          id="path3" />
     </marker>
@@ -74,7 +77,7 @@
        refY="3"
        orient="auto">
       <path
-         d="M0,0 L0,6 L9,3 z"
+         d="M 0,0 V 6 L 9,3 Z"
          fill="#4a7c59"
          id="path4" />
     </marker>
@@ -86,7 +89,7 @@
        refY="3"
        orient="auto">
       <path
-         d="M0,0 L0,6 L9,3 z"
+         d="M 0,0 V 6 L 9,3 Z"
          fill="#8b0000"
          id="path5" />
     </marker>
@@ -98,8 +101,8 @@
        refY="3"
        orient="auto">
       <path
-         d="M0,0 L0,6 L9,3 z"
-         fill="#555"
+         d="M 0,0 V 6 L 9,3 Z"
+         fill="#555555"
          id="path6" />
     </marker>
     <!-- Pattern: crosshatch for "environment" shading -->
@@ -121,37 +124,43 @@
     </pattern>
   </defs>
   <rect
-     width="1100"
-     height="800"
+     width="4096"
+     height="2978.9092"
      fill="#f4f1ea"
-     id="rect6" />
+     id="rect6"
+     x="0"
+     y="0"
+     style="stroke-width:3.72364" />
   <!-- Title -->
   <text
-     x="50"
-     y="48"
-     font-size="13"
+     x="186.18176"
+     y="178.73462"
+     font-size="48.4073px"
      letter-spacing="3"
-     fill="#555"
-     id="text6">PANEL IV · reference</text>
+     fill="#555555"
+     id="text6"
+     style="stroke-width:3.72364">PANEL IV · reference</text>
   <text
-     x="50"
-     y="78"
-     font-size="26"
+     x="186.18176"
+     y="290.44366"
+     font-size="96.8145px"
      font-weight="500"
      fill="#1a1a1a"
-     id="text7">System Structure</text>
+     id="text7"
+     style="stroke-width:3.72364">System Structure</text>
   <text
-     x="50"
-     y="102"
-     font-size="14"
+     x="186.18176"
+     y="379.81097"
+     font-size="52.1309px"
      font-style="italic"
-     fill="#555"
-     id="text8">Five elements · environment-system interface · contour I/O path</text>
+     fill="#555555"
+     id="text8"
+     style="stroke-width:3.72364">Five elements · environment-system interface · contour I/O path</text>
   <!-- ============================================ -->
   <!-- ENVIRONMENT (left) -->
   <!-- ============================================ -->
   <g
-     transform="translate(0, 130)"
+     transform="matrix(3.7236364,0,0,3.7236364,0,484.07278)"
      id="g19">
     <rect
        x="0"
@@ -165,23 +174,23 @@
        x="90"
        y="30"
        text-anchor="middle"
-       font-size="14"
+       font-size="14px"
        font-weight="500"
-       fill="#555"
+       fill="#555555"
        letter-spacing="2"
        id="text9">ENVIRONMENT</text>
     <text
        x="90"
        y="48"
        text-anchor="middle"
-       font-size="10"
+       font-size="10px"
        font-style="italic"
-       fill="#666"
+       fill="#666666"
        id="text10">external conditions</text>
     <!-- Inputs listed -->
     <g
-       transform="translate(30, 100)"
-       font-size="11"
+       transform="translate(30,100)"
+       font-size="11px"
        fill="#1a1a1a"
        id="g15">
       <text
@@ -241,30 +250,30 @@
     <text
        x="85"
        y="234"
-       font-size="10"
+       font-size="10px"
        font-style="italic"
-       fill="#333"
+       fill="#333333"
        id="text17">resources</text>
     <text
        x="85"
        y="274"
-       font-size="10"
+       font-size="10px"
        font-style="italic"
-       fill="#333"
+       fill="#333333"
        id="text18">pressure</text>
     <text
        x="85"
        y="314"
-       font-size="10"
+       font-size="10px"
        font-style="italic"
-       fill="#333"
+       fill="#333333"
        id="text19">signals</text>
   </g>
   <!-- ============================================ -->
   <!-- SYSTEM (center) — the bounded region -->
   <!-- ============================================ -->
   <g
-     transform="translate(180, 130)"
+     transform="matrix(3.7236364,0,0,3.7236364,670.25457,484.07278)"
      id="g59">
     <!-- Outer Boundary rectangle (double-line to emphasize structural role) -->
     <rect
@@ -288,7 +297,7 @@
     <text
        x="24"
        y="44"
-       font-size="10"
+       font-size="10px"
        letter-spacing="2"
        fill="#1a1a1a"
        font-weight="500"
@@ -296,13 +305,13 @@
     <text
        x="24"
        y="57"
-       font-size="9"
+       font-size="9px"
        font-style="italic"
-       fill="#666"
+       fill="#666666"
        id="text21">inside vs. outside · actively maintained</text>
     <!-- GATE on the left edge (entry) -->
     <g
-       transform="translate(-5, 200)"
+       transform="translate(-5,200)"
        id="g26">
       <rect
          x="0"
@@ -358,7 +367,7 @@
          x="15"
          y="-10"
          text-anchor="middle"
-         font-size="10"
+         font-size="10px"
          font-weight="500"
          fill="#1a1a1a"
          letter-spacing="2"
@@ -367,19 +376,19 @@
          x="15"
          y="200"
          text-anchor="middle"
-         font-size="9"
+         font-size="9px"
          font-style="italic"
-         fill="#666"
+         fill="#666666"
          id="text26">selective</text>
     </g>
     <!-- RECEIVERS — three, oriented toward each contour -->
     <g
-       transform="translate(90, 110)"
+       transform="translate(90,110)"
        id="g32">
       <text
          x="0"
          y="-14"
-         font-size="10"
+         font-size="10px"
          font-weight="500"
          fill="#1a1a1a"
          letter-spacing="2"
@@ -387,13 +396,13 @@
       <text
          x="0"
          y="-2"
-         font-size="9"
+         font-size="9px"
          font-style="italic"
-         fill="#666"
+         fill="#666666"
          id="text28">threshold · legibility · orientation</text>
       <!-- Three receiver "dishes" -->
       <g
-         transform="translate(0, 30)"
+         transform="translate(0,30)"
          id="g29">
         <path
            d="M 0,10 Q 20,-8 40,10"
@@ -419,16 +428,16 @@
            x="20"
            y="48"
            text-anchor="middle"
-           font-size="9"
+           font-size="9px"
            fill="#2a5d7c"
            font-style="italic"
            id="text29">R<tspan
    baseline-shift="sub"
-   font-size="7"
+   font-size="7px"
    id="tspan28">S</tspan></text>
       </g>
       <g
-         transform="translate(60, 30)"
+         transform="translate(60,30)"
          id="g30">
         <path
            d="M 0,10 Q 20,-8 40,10"
@@ -454,16 +463,16 @@
            x="20"
            y="48"
            text-anchor="middle"
-           font-size="9"
+           font-size="9px"
            fill="#b07a2a"
            font-style="italic"
            id="text30">R<tspan
    baseline-shift="sub"
-   font-size="7"
+   font-size="7px"
    id="tspan29">R</tspan></text>
       </g>
       <g
-         transform="translate(120, 30)"
+         transform="translate(120,30)"
          id="g31">
         <path
            d="M 0,10 Q 20,-8 40,10"
@@ -489,12 +498,12 @@
            x="20"
            y="48"
            text-anchor="middle"
-           font-size="9"
+           font-size="9px"
            fill="#4a7c59"
            font-style="italic"
            id="text31">R<tspan
    baseline-shift="sub"
-   font-size="7"
+   font-size="7px"
    id="tspan30">E</tspan></text>
       </g>
     </g>
@@ -504,40 +513,40 @@
        fill="none"
        id="g34">
       <path
-         d="M 25,220 Q 70,180 110,160"
+         d="m 25,220 q 45,-40 85,-60"
          stroke="#2a5d7c"
-         stroke-dasharray="3 2"
+         stroke-dasharray="3, 2"
          opacity="0.85"
          id="path32" />
       <path
          d="M 25,260 Q 90,220 170,160"
          stroke="#b07a2a"
-         stroke-dasharray="3 2"
+         stroke-dasharray="3, 2"
          opacity="0.85"
          id="path33" />
       <path
          d="M 25,300 Q 110,260 230,160"
          stroke="#4a7c59"
-         stroke-dasharray="3 2"
+         stroke-dasharray="3, 2"
          opacity="0.85"
          id="path34" />
     </g>
     <text
        x="50"
        y="150"
-       font-size="9"
-       fill="#555"
+       font-size="9px"
+       fill="#555555"
        font-style="italic"
        id="text34">signals →</text>
     <!-- ALLOCATION ENGINE — the three-contour simplex in the middle -->
     <g
-       transform="translate(360, 235)"
+       transform="translate(360,235)"
        id="g40">
       <text
          x="0"
          y="-95"
          text-anchor="middle"
-         font-size="11"
+         font-size="11px"
          font-weight="500"
          fill="#1a1a1a"
          letter-spacing="2"
@@ -546,13 +555,13 @@
          x="0"
          y="-80"
          text-anchor="middle"
-         font-size="9"
+         font-size="9px"
          font-style="italic"
-         fill="#666"
+         fill="#666666"
          id="text36">S · R · E under scarcity</text>
       <!-- Small simplex -->
       <polygon
-         points="-45,-40 45,-40 0,45"
+         points="45,-40 0,45 -45,-40 "
          fill="#ede7d7"
          fill-opacity="0.5"
          stroke="#1a1a1a"
@@ -580,7 +589,7 @@
          x="-50"
          y="-44"
          text-anchor="end"
-         font-size="10"
+         font-size="10px"
          fill="#2a5d7c"
          font-weight="500"
          id="text38">S</text>
@@ -588,7 +597,7 @@
          x="50"
          y="-44"
          text-anchor="start"
-         font-size="10"
+         font-size="10px"
          fill="#b07a2a"
          font-weight="500"
          id="text39">R</text>
@@ -596,7 +605,7 @@
          x="0"
          y="60"
          text-anchor="middle"
-         font-size="10"
+         font-size="10px"
          fill="#4a7c59"
          font-weight="500"
          id="text40">E</text>
@@ -610,19 +619,19 @@
     </g>
     <!-- Arrow: receivers feed allocation (routed below receivers, bending right) -->
     <path
-       d="M 220,185 Q 260,205 300,215"
-       stroke="#555"
+       d="m 220,185 q 40,20 80,30"
+       stroke="#555555"
        stroke-width="1"
        fill="none"
-       stroke-dasharray="2 2"
+       stroke-dasharray="2, 2"
        marker-end="url(#arrInt)"
        id="path40" />
     <text
        x="238"
        y="202"
-       font-size="9"
+       font-size="9px"
        font-style="italic"
-       fill="#555"
+       fill="#555555"
        id="text41">parsed state</text>
     <!-- Arrows: allocation produces contour output (going right, toward right-edge boundary) -->
     <g
@@ -631,19 +640,19 @@
        id="g43">
       <!-- S output -->
       <path
-         d="M 425,200 Q 520,180 640,180"
+         d="m 425,200 q 95,-20 215,-20"
          stroke="#2a5d7c"
          marker-end="url(#arrS)"
          id="path41" />
       <!-- R output -->
       <path
-         d="M 425,240 Q 520,280 640,290"
+         d="m 425,240 q 95,40 215,50"
          stroke="#b07a2a"
          marker-end="url(#arrR)"
          id="path42" />
       <!-- E output -->
       <path
-         d="M 425,275 Q 520,360 640,395"
+         d="m 425,275 q 95,85 215,120"
          stroke="#4a7c59"
          marker-end="url(#arrE)"
          id="path43" />
@@ -671,7 +680,7 @@
        id="text45">Evolution output</text>
     <!-- CODE — substrate layer at the bottom -->
     <g
-       transform="translate(40, 430)"
+       transform="translate(40,430)"
        id="g58">
       <rect
          x="0"
@@ -682,12 +691,12 @@
          fill-opacity="0.06"
          stroke="#1a1a1a"
          stroke-width="1"
-         stroke-dasharray="3 2"
+         stroke-dasharray="3, 2"
          id="rect45" />
       <text
          x="20"
          y="22"
-         font-size="11"
+         font-size="11px"
          font-weight="500"
          fill="#1a1a1a"
          letter-spacing="2"
@@ -695,16 +704,16 @@
       <text
          x="20"
          y="38"
-         font-size="9"
+         font-size="9px"
          font-style="italic"
-         fill="#333"
+         fill="#333333"
          id="text47">substrate · operating logic · not at same level as the other four</text>
       <!-- Four vertical lines connecting Code to each dependent element -->
       <g
          stroke="#1a1a1a"
          stroke-width="0.8"
          opacity="0.4"
-         stroke-dasharray="1 2"
+         stroke-dasharray="1, 2"
          id="g50">
         <line
            x1="40"
@@ -789,7 +798,7 @@
   <!-- ENVIRONMENT (right) — where outputs land -->
   <!-- ============================================ -->
   <g
-     transform="translate(920, 130)"
+     transform="matrix(3.7236364,0,0,3.7236364,3425.7455,484.07278)"
      id="g67">
     <rect
        x="0"
@@ -803,22 +812,22 @@
        x="90"
        y="30"
        text-anchor="middle"
-       font-size="14"
+       font-size="14px"
        font-weight="500"
-       fill="#555"
+       fill="#555555"
        letter-spacing="2"
        id="text59">ENVIRONMENT</text>
     <text
        x="90"
        y="48"
        text-anchor="middle"
-       font-size="10"
+       font-size="10px"
        font-style="italic"
-       fill="#666"
+       fill="#666666"
        id="text60">same environment · different effect</text>
     <!-- Output labels -->
     <g
-       transform="translate(20, 135)"
+       transform="translate(20,135)"
        id="g62">
       <circle
          cx="0"
@@ -829,20 +838,20 @@
       <text
          x="14"
          y="4"
-         font-size="12"
+         font-size="12px"
          fill="#1a1a1a"
          font-weight="500"
          id="text61">Survival output</text>
       <text
          x="14"
          y="19"
-         font-size="9"
+         font-size="9px"
          font-style="italic"
-         fill="#555"
+         fill="#555555"
          id="text62">continuity · integrity</text>
     </g>
     <g
-       transform="translate(20, 245)"
+       transform="translate(20,245)"
        id="g64">
       <circle
          cx="0"
@@ -853,20 +862,20 @@
       <text
          x="14"
          y="4"
-         font-size="12"
+         font-size="12px"
          fill="#1a1a1a"
          font-weight="500"
          id="text63">Reproduction output</text>
       <text
          x="14"
          y="19"
-         font-size="9"
+         font-size="9px"
          font-style="italic"
-         fill="#555"
+         fill="#555555"
          id="text64">copies · scale · reach</text>
     </g>
     <g
-       transform="translate(20, 365)"
+       transform="translate(20,365)"
        id="g66">
       <circle
          cx="0"
@@ -877,16 +886,16 @@
       <text
          x="14"
          y="4"
-         font-size="12"
+         font-size="12px"
          fill="#1a1a1a"
          font-weight="500"
          id="text65">Evolution output</text>
       <text
          x="14"
          y="19"
-         font-size="9"
+         font-size="9px"
          font-style="italic"
-         fill="#555"
+         fill="#555555"
          id="text66">new capability · adaptation</text>
     </g>
   </g>
@@ -894,7 +903,7 @@
   <!-- LEGIBILITY FAILURE MODES — bottom annotation -->
   <!-- ============================================ -->
   <g
-     transform="translate(189.83654,726.98628)"
+     transform="matrix(3.7236364,0,0,3.7236364,706.88226,2707.0326)"
      id="g72">
     <text
        x="0"
