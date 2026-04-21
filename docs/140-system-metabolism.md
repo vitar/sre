@@ -94,7 +94,7 @@ The central claim of this chapter is that contour allocation over time produces 
 
 Three types of accumulation are defined. They follow different dynamics, are measured in different units, and interact with each other in ways that produce compound effects.
 
-![panel2_accumulation.png](./panel2_accumulation.svg)
+![Panel II – Accumulation](./panel2_accumulation.svg)
 
 ### Debt
 
