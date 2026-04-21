@@ -1,12 +1,12 @@
 # Tri-Contour Dynamics of Limited Resource Allocation (TC)
 
+[![DOI](https://zenodo.org/badge/1193438082.svg)](https://doi.org/10.5281/zenodo.19681874)
+
 **TC** is a theoretical framework that describes how systems allocate limited resources across three competing functional demands: **Survival**, **Reproduction**, and **Evolution**.
 
 The theory applies across biological, organizational, software, and sociotechnical systems — any system that must balance continuity, growth, and change under resource constraints.
 
 > The living, latest version of this documentation is always available at **[tc.3in3.dev](https://tc.3in3.dev)**.
-
----
 
 ## Contents
 
@@ -20,15 +20,15 @@ The theory applies across biological, organizational, software, and sociotechnic
 | [Multi-Unit Behavior](docs/160-multi-unit-behavior.md) | Emergent behavior in systems of systems |
 | [Application](docs/170-application.md) | Practical application of the TC framework |
 
----
+## How to Cite
+
+Citation: Jevdokimov, V. (2026). Tri-Contour Dynamics of Limited Resource Allocation (v1.0-rc1). Zenodo. https://doi.org/10.5281/zenodo.19681875.
 
 ## Author
 
 **Viktor Jevdokimov**, Vilnius, Lithuania — creator of [3in3.dev](https://3in3.dev), HCS, CDS, and 3SF.
 
 Connect on [LinkedIn](https://www.linkedin.com/in/viktor-jevdokimov/) · Visit [3in3.dev](https://3in3.dev)
-
----
 
 ## License
 
