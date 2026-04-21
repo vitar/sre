@@ -17,6 +17,8 @@ Tri-Contour Dynamics says those trade-offs always fall across the same three com
 
 These three are not departments, phases, or priorities. They are structural demands that compete for the same finite resource pool. Allocating more to one means less for the others. This competition is permanent — it cannot be resolved, only managed.
 
+Each contour has a recognizable temporal signature. Survival activities are urgent and non-deferrable — they can't wait without immediate consequence. Reproduction activities are cyclical and rhythmic — they follow a recognizable cadence. Evolution activities are slow and uncertain — their returns are delayed, unpredictable, and disproportionate when they arrive. You can identify which contour an activity actually serves by observing its temporal behavior, regardless of what it is called. A "learning initiative" that runs on tight deadlines with predictable deliverables is Reproduction wearing an Evolution label. A code review that explores unfamiliar territory without time pressure is Evolution, whether or not anyone planned it that way.
+
 ---
 
 ## What Happens When You Watch the Trade-Offs
