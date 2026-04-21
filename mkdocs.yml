@@ -55,6 +55,7 @@ nav:
 - REFERENCE:
   - origin.md
   - glossary.md
+  - version-and-licensing.md
   - author.md
 
 markdown_extensions:
