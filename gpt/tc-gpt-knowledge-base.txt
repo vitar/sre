@@ -8,7 +8,7 @@ The model's primary application domain is human systems where practices, framewo
 
 The model is theoretically general — its structural logic holds across biological, technical, socio-economic, and cosmological systems where scarcity, competing demands, and non-static behavior are present. However, its development originates from the practice of understanding and improving human dynamics in software delivery, and its applied focus remains there.
 
-![panel1_simplex.png](./panel1_simplex.svg)
+![Panel I – Simplex](./panel1_simplex.svg)
 
 ---
 
@@ -104,7 +104,7 @@ Code is foundational — it is not at the same level as the other four elements.
 
 These five elements are the infrastructure of contour allocation. Without them, the model can name contours and state that resources are allocated — but cannot explain how allocation is structurally enacted, how information about contour state travels, or why the same pressure produces different responses in different systems.
 
-![panel4_structure.png](./panel4_structure.svg)
+![Panel IV – Structure](./panel4_structure.svg)
 
 
 ---
@@ -593,7 +593,7 @@ The central claim of this chapter is that contour allocation over time produces 
 
 Three types of accumulation are defined. They follow different dynamics, are measured in different units, and interact with each other in ways that produce compound effects.
 
-![panel2_accumulation.png](./panel2_accumulation.svg)
+![Panel II – Accumulation](./panel2_accumulation.svg)
 
 ### Debt
 
@@ -789,7 +789,7 @@ System course is not predetermined. A system under stress may correct and return
 
 The degradation sequence defined in this chapter is a diagnostic tool, not a prophecy. It names the stages a system passes through under sustained distortion, and at each stage identifies the structural choices available — correction, adaptation, transformation, or continued deterioration. System Metabolism provides the accumulation dynamics that drive progression through these stages — what is building beneath the surface at each point, and what determines how rapidly the system moves from one stage to the next.
 
-![panel3_phase.png](./panel3_phase.svg)
+![Panel III – Phase](./panel3_phase.svg)
 
 ---
 
