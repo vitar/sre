@@ -1,0 +1,34 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Tri-Contour Dynamics of Limited Resource Allocation
+message: >-
+  If you use this model in your research, please cite it as
+  follows.
+type: software
+authors:
+  - given-names: Viktor
+    family-names: Jevdokimov
+    email: vjevdokimov@gmail.com
+    orcid: 'https://orcid.org/0009-0008-9428-3975'
+keywords:
+  - resource allocation
+  - systems theory
+  - biological systems
+  - organizational dynamics
+  - evolutionary theory
+repository-code: 'https://github.com/vitar/sre'
+url: 'https://tc.3in3.dev'
+abstract: >-
+  Tri-Contour Dynamics of Limited Resource Allocation is a
+  theoretical framework that describes how systems allocate
+  limited resources across three competing functional
+  demands: Survival, Reproduction, and Evolution.
+
+  The theory applies across biological, organizational,
+  software, and sociotechnical systems — any system that
+  must balance continuity, growth, and change under resource
+  constraints.
+license: CC-BY-4.0
+date-released: '2026-04-21'
