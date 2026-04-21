@@ -22,27 +22,6 @@ The theory applies across biological, organizational, software, and sociotechnic
 
 ---
 
-## Building the Documentation Locally
-
-The documentation is built with [MkDocs](https://www.mkdocs.org/) and the [Material theme](https://squidfunk.github.io/mkdocs-material/).
-
-**Prerequisites:** Python 3.8+
-
-```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Serve locally with live reload
-mkdocs serve
-
-# Build static site
-mkdocs build
-```
-
-The local site will be available at `http://127.0.0.1:8000`.
-
----
-
 ## Author
 
 **Viktor Jevdokimov**, Vilnius, Lithuania — creator of [3in3.dev](https://3in3.dev), HCS, CDS, and 3SF.
