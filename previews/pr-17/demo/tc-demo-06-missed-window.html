@@ -654,6 +654,26 @@
 
   </div>
 
+  <!-- Side panel -->
+  <div class="side-panel">
+    <div class="event-log">
+      <div class="event-log-title">Events</div>
+      <div class="event-entry visible" id="ev0"><span class="event-time">T0</span><span class="event-text">System in balanced allocation. Identical starting conditions to Scenario 05.</span></div>
+      <div class="event-entry" id="ev1"><span class="event-time">T1</span><span class="event-text highlight">Same displacement as S05. Evolution erodes. Debt begins accumulating. Signal is generated at the distortion node.</span></div>
+      <div class="event-entry" id="ev2"><span class="event-time">T2</span><span class="event-text comp">Compensation active. A buffer absorbs the output gap — the signal does not cross the Gate. From inside the allocation logic: nothing to act on. The window is open but invisible.</span></div>
+      <div class="event-entry" id="ev3"><span class="event-time">T3</span><span class="event-text warn">Compensation buffer depleting. Debt continues to compound beneath the mask. The window narrows — but no detection has occurred. Reinforcing loop threshold approaches.</span></div>
+      <div class="event-entry" id="ev4"><span class="event-time">T4</span><span class="event-text warn">Buffer exhausted. Signal now crosses the Gate — but the debt level has crossed the reinforcing loop threshold. The window has closed. Detection arrives too late.</span></div>
+      <div class="event-entry" id="ev5"><span class="event-time">T5</span><span class="event-text critical">Reallocation attempted. But the loop is active: rising overhead structurally prevents sufficient E-reallocation. The same action that worked in S05 at T4 cannot work here. Structural intervention required.</span></div>
+      <div class="event-entry" id="ev6"><span class="event-time">T6</span><span class="event-text critical">Degradation. The cost of correction has scaled with the stage. What required reallocation at distortion now requires restructuring. The delay — caused entirely by compensation masking — is the structural difference between S05 and S06.</span></div>
+    </div>
+
+    <div class="mechanism" id="mechanismBox">
+      <div class="mechanism-label">Active mechanism</div>
+      <div class="mechanism-name" id="mechName">—</div>
+      <div class="mechanism-desc" id="mechDesc">Waiting for system event.</div>
+    </div>
+  </div>
+
   <div class="controls">
     <div class="progress-track">
       <div class="progress-fill" id="progressFill"></div>
@@ -674,27 +694,6 @@
         </label>
       </div>
     </div>
-  </div>
-
-  <!-- Side panel -->
-  <div class="side-panel">
-    <div class="event-log">
-      <div class="event-log-title">Events</div>
-      <div class="event-entry visible" id="ev0"><span class="event-time">T0</span><span class="event-text">System in balanced allocation. Identical starting conditions to Scenario 05.</span></div>
-      <div class="event-entry" id="ev1"><span class="event-time">T1</span><span class="event-text highlight">Same displacement as S05. Evolution erodes. Debt begins accumulating. Signal is generated at the distortion node.</span></div>
-      <div class="event-entry" id="ev2"><span class="event-time">T2</span><span class="event-text comp">Compensation active. A buffer absorbs the output gap — the signal does not cross the Gate. From inside the allocation logic: nothing to act on. The window is open but invisible.</span></div>
-      <div class="event-entry" id="ev3"><span class="event-time">T3</span><span class="event-text warn">Compensation buffer depleting. Debt continues to compound beneath the mask. The window narrows — but no detection has occurred. Reinforcing loop threshold approaches.</span></div>
-      <div class="event-entry" id="ev4"><span class="event-time">T4</span><span class="event-text warn">Buffer exhausted. Signal now crosses the Gate — but the debt level has crossed the reinforcing loop threshold. The window has closed. Detection arrives too late.</span></div>
-      <div class="event-entry" id="ev5"><span class="event-time">T5</span><span class="event-text critical">Reallocation attempted. But the loop is active: rising overhead structurally prevents sufficient E-reallocation. The same action that worked in S05 at T4 cannot work here. Structural intervention required.</span></div>
-      <div class="event-entry" id="ev6"><span class="event-time">T6</span><span class="event-text critical">Degradation. The cost of correction has scaled with the stage. What required reallocation at distortion now requires restructuring. The delay — caused entirely by compensation masking — is the structural difference between S05 and S06.</span></div>
-    </div>
-
-    <div class="mechanism" id="mechanismBox">
-      <div class="mechanism-label">Active mechanism</div>
-      <div class="mechanism-name" id="mechName">—</div>
-      <div class="mechanism-desc" id="mechDesc">Waiting for system event.</div>
-    </div>
-
   </div>
 </div>
 
