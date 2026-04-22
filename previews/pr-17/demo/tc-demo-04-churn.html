@@ -118,6 +118,11 @@
     gap: 24px;
     align-items: start;
   }
+  .chart-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 
   /* ── Chart panel ── */
   .chart-panel {
@@ -433,6 +438,7 @@
 </div>
 
 <div class="main">
+  <div class="chart-col">
   <!-- Chart panel -->
   <div class="chart-panel">
     <div class="chart-title">Resource Allocation — Contours</div>
@@ -510,26 +516,6 @@
 
   </div>
 
-  <!-- Side panel -->
-  <div class="side-panel">
-    <div class="event-log">
-      <div class="event-log-title">Events</div>
-      <div class="event-entry visible" id="ev0"><span class="event-time">T0</span><span class="event-text">System in balanced allocation. Stable output. No dominant pressure on any contour.</span></div>
-      <div class="event-entry" id="ev1"><span class="event-time">T1</span><span class="event-text highlight">Evolution allocation increases. A new initiative launches — architecture change, methodology shift, technology replacement. Resources committed.</span></div>
-      <div class="event-entry" id="ev2"><span class="event-time">T2</span><span class="event-text highlight">Potential begins to build. Investment is real. But before it matures into usable capability — the initiative is replaced. Reset.</span></div>
-      <div class="event-entry" id="ev3"><span class="event-time">T3</span><span class="event-text warn">Second cycle. Each new initiative is justified by compelling reasoning. None is sustained long enough to prove or disprove its value. Institutional knowledge does not accumulate.</span></div>
-      <div class="event-entry" id="ev4"><span class="event-time">T4</span><span class="event-text warn">Third cycle. Actors describe fatigue — not excitement. The temporal signature: intense activity, no rhythm, no latency. Nothing converts.</span></div>
-      <div class="event-entry" id="ev5"><span class="event-time">T5</span><span class="event-text warn">Opportunity cost compounds. What sustained investment would have produced diverges from what constant reset yields. The gap is real — but invisible in any single cycle metric.</span></div>
-      <div class="event-entry" id="ev6"><span class="event-time">T6</span><span class="event-text note">No acute failure. No collapse. The system can sustain Churn indefinitely — Survival is adequate, the system does not break. What it accumulates is only the gap between what it could have been.</span></div>
-    </div>
-
-    <div class="mechanism" id="mechanismBox">
-      <div class="mechanism-label">Active mechanism</div>
-      <div class="mechanism-name" id="mechName">—</div>
-      <div class="mechanism-desc" id="mechDesc">Waiting for system event.</div>
-    </div>
-  </div>
-
   <div class="controls">
     <div class="progress-track">
       <div class="progress-fill" id="progressFill"></div>
@@ -549,6 +535,27 @@
           <div class="toggle-thumb"></div>
         </label>
       </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Side panel -->
+  <div class="side-panel">
+    <div class="event-log">
+      <div class="event-log-title">Events</div>
+      <div class="event-entry visible" id="ev0"><span class="event-time">T0</span><span class="event-text">System in balanced allocation. Stable output. No dominant pressure on any contour.</span></div>
+      <div class="event-entry" id="ev1"><span class="event-time">T1</span><span class="event-text highlight">Evolution allocation increases. A new initiative launches — architecture change, methodology shift, technology replacement. Resources committed.</span></div>
+      <div class="event-entry" id="ev2"><span class="event-time">T2</span><span class="event-text highlight">Potential begins to build. Investment is real. But before it matures into usable capability — the initiative is replaced. Reset.</span></div>
+      <div class="event-entry" id="ev3"><span class="event-time">T3</span><span class="event-text warn">Second cycle. Each new initiative is justified by compelling reasoning. None is sustained long enough to prove or disprove its value. Institutional knowledge does not accumulate.</span></div>
+      <div class="event-entry" id="ev4"><span class="event-time">T4</span><span class="event-text warn">Third cycle. Actors describe fatigue — not excitement. The temporal signature: intense activity, no rhythm, no latency. Nothing converts.</span></div>
+      <div class="event-entry" id="ev5"><span class="event-time">T5</span><span class="event-text warn">Opportunity cost compounds. What sustained investment would have produced diverges from what constant reset yields. The gap is real — but invisible in any single cycle metric.</span></div>
+      <div class="event-entry" id="ev6"><span class="event-time">T6</span><span class="event-text note">No acute failure. No collapse. The system can sustain Churn indefinitely — Survival is adequate, the system does not break. What it accumulates is only the gap between what it could have been.</span></div>
+    </div>
+
+    <div class="mechanism" id="mechanismBox">
+      <div class="mechanism-label">Active mechanism</div>
+      <div class="mechanism-name" id="mechName">—</div>
+      <div class="mechanism-desc" id="mechDesc">Waiting for system event.</div>
     </div>
   </div>
 </div>
