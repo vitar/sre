@@ -120,6 +120,11 @@
     gap: 24px;
     align-items: start;
   }
+  .chart-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 
   /* ── Chart panel ── */
   .chart-panel {
@@ -521,6 +526,7 @@
 </div>
 
 <div class="main">
+  <div class="chart-col">
   <!-- Chart panel -->
   <div class="chart-panel">
     <div class="chart-title">Resource Allocation — Contours</div>
@@ -586,26 +592,6 @@
 
   </div>
 
-  <!-- Side panel -->
-  <div class="side-panel">
-    <div class="event-log">
-      <div class="event-log-title">Events</div>
-      <div class="event-entry visible" id="ev0"><span class="event-time">T0</span><span class="event-text">System in balanced allocation. Experienced actors carry substantial accumulated potential from prior Evolution investment.</span></div>
-      <div class="event-entry" id="ev1"><span class="event-time">T1</span><span class="event-text highlight">Gradual resource pressure. Evolution allocation begins to erode. Displacement is below detection threshold.</span></div>
-      <div class="event-entry" id="ev2"><span class="event-time">T2</span><span class="event-text highlight">Output quality holds — buffer actors absorb the gap. From outside, the system appears healthy. Debt accumulates invisibly.</span></div>
-      <div class="event-entry" id="ev3"><span class="event-time">T3</span><span class="event-text warn">Potential depletes as actors apply stored capability to compensate. No reinvestment is occurring. Buffer margin shrinks.</span></div>
-      <div class="event-entry" id="ev4"><span class="event-time">T4</span><span class="event-text warn">Key carriers begin exiting — mismatch between their metabolic needs and the system's actual allocation. Knowledge concentrates in fewer actors.</span></div>
-      <div class="event-entry" id="ev5"><span class="event-time">T5</span><span class="event-text critical">Buffer exhausted. Debt that was always present becomes visible simultaneously. System transitions directly into degradation.</span></div>
-      <div class="event-entry" id="ev6"><span class="event-time">T6</span><span class="event-text critical">Starvation — no buffer remains. Overhead ratchets. The system's actual metabolic state is now indistinguishable from Scenario 01 at its worst.</span></div>
-    </div>
-
-    <div class="mechanism" id="mechanismBox">
-      <div class="mechanism-label">Active mechanism</div>
-      <div class="mechanism-name" id="mechName">—</div>
-      <div class="mechanism-desc" id="mechDesc">Waiting for system event.</div>
-    </div>
-  </div>
-
   <div class="controls">
     <div class="progress-track">
       <div class="progress-fill" id="progressFill"></div>
@@ -625,6 +611,27 @@
           <div class="toggle-thumb"></div>
         </label>
       </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Side panel -->
+  <div class="side-panel">
+    <div class="event-log">
+      <div class="event-log-title">Events</div>
+      <div class="event-entry visible" id="ev0"><span class="event-time">T0</span><span class="event-text">System in balanced allocation. Experienced actors carry substantial accumulated potential from prior Evolution investment.</span></div>
+      <div class="event-entry" id="ev1"><span class="event-time">T1</span><span class="event-text highlight">Gradual resource pressure. Evolution allocation begins to erode. Displacement is below detection threshold.</span></div>
+      <div class="event-entry" id="ev2"><span class="event-time">T2</span><span class="event-text highlight">Output quality holds — buffer actors absorb the gap. From outside, the system appears healthy. Debt accumulates invisibly.</span></div>
+      <div class="event-entry" id="ev3"><span class="event-time">T3</span><span class="event-text warn">Potential depletes as actors apply stored capability to compensate. No reinvestment is occurring. Buffer margin shrinks.</span></div>
+      <div class="event-entry" id="ev4"><span class="event-time">T4</span><span class="event-text warn">Key carriers begin exiting — mismatch between their metabolic needs and the system's actual allocation. Knowledge concentrates in fewer actors.</span></div>
+      <div class="event-entry" id="ev5"><span class="event-time">T5</span><span class="event-text critical">Buffer exhausted. Debt that was always present becomes visible simultaneously. System transitions directly into degradation.</span></div>
+      <div class="event-entry" id="ev6"><span class="event-time">T6</span><span class="event-text critical">Starvation — no buffer remains. Overhead ratchets. The system's actual metabolic state is now indistinguishable from Scenario 01 at its worst.</span></div>
+    </div>
+
+    <div class="mechanism" id="mechanismBox">
+      <div class="mechanism-label">Active mechanism</div>
+      <div class="mechanism-name" id="mechName">—</div>
+      <div class="mechanism-desc" id="mechDesc">Waiting for system event.</div>
     </div>
   </div>
 </div>
