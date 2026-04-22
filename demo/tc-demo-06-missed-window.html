@@ -120,6 +120,11 @@
     gap: 24px;
     align-items: start;
   }
+  .chart-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 
   /* ── Chart panel ── */
   .chart-panel {
@@ -543,6 +548,7 @@
 </div>
 
 <div class="main">
+  <div class="chart-col">
   <!-- Chart panel -->
   <div class="chart-panel">
     <div class="chart-title">Resource Allocation — Contours</div>
@@ -651,6 +657,30 @@
         Reallocation attempted — but loop is active. Insufficient degrees of freedom. Structural intervention now required.
       </div>
     </div>
+
+  </div>
+
+  <div class="controls">
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="controls-meta">
+      <div class="controls-left">
+        <button class="play-btn" id="playBtn" title="Play / Pause">
+          <svg id="playIcon" viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+        </button>
+        <span class="timer" id="timerLabel">0.0s</span>
+      </div>
+      <div class="controls-right">
+        <span class="replay-label">auto-repeat</span>
+        <label class="toggle">
+          <input type="checkbox" id="repeatToggle" checked>
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+    </div>
+  </div>
   </div>
 
   <!-- Side panel -->
@@ -670,28 +700,6 @@
       <div class="mechanism-label">Active mechanism</div>
       <div class="mechanism-name" id="mechName">—</div>
       <div class="mechanism-desc" id="mechDesc">Waiting for system event.</div>
-    </div>
-
-    <div class="controls">
-      <div class="progress-track">
-        <div class="progress-fill" id="progressFill"></div>
-      </div>
-      <div class="controls-meta">
-        <div class="controls-left">
-          <button class="play-btn" id="playBtn" title="Play / Pause">
-            <svg id="playIcon" viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
-          </button>
-          <span class="timer" id="timerLabel">0.0s</span>
-        </div>
-        <div class="controls-right">
-          <span class="replay-label">auto-repeat</span>
-          <label class="toggle">
-            <input type="checkbox" id="repeatToggle" checked>
-            <div class="toggle-track"></div>
-            <div class="toggle-thumb"></div>
-          </label>
-        </div>
-      </div>
     </div>
   </div>
 </div>
