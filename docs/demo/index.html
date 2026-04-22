@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC Dynamics Demo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --bg: #0d0f0e;
+    --surface: #131614;
+    --border: #1e2320;
+    --muted: #3a3f3c;
+    --text-dim: #5c6460;
+    --text: #b8c4be;
+    --text-bright: #dce8e0;
+
+    --s: #4a9eff;
+    --s-dim: #1a3a5c;
+    --r: #a8e06a;
+    --r-dim: #2d3e1a;
+    --e: #f0a030;
+    --e-dim: #3d2a0a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 24px 64px;
+    overflow-x: hidden;
+  }
+
+  /* ── Header ── */
+  .header {
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-left: 2px solid var(--e);
+    padding-left: 20px;
+  }
+  .header-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--text-bright);
+    letter-spacing: -0.02em;
+  }
+  .header p {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+    max-width: 520px;
+    margin-top: 4px;
+  }
+
+  /* ── Card grid ── */
+  .card-grid {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .card {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 260px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .card:hover,
+  .card:focus {
+    border-color: var(--muted);
+    background: #161a17;
+    outline: none;
+  }
+
+  .card:active {
+    background: #1a1f1c;
+  }
+
+  .card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  .card h2 {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-bright);
+    letter-spacing: -0.01em;
+  }
+
+  .card p {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-top: 4px;
+  }
+
+  @media (max-width: 600px) {
+    .card {
+      flex: 1 1 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">TC Dynamics</div>
+  <h1>Demo</h1>
+  <p>Scenario catalog — select a scenario to explore the dynamics.</p>
+</div>
+
+<div class="card-grid">
+
+  <a class="card" href="tc-demo-01-starvation.html">
+    <div class="card-label">TC Dynamics — Scenario 01</div>
+    <h2>Starvation</h2>
+    <p>A balanced system absorbs an environmental shock. Evolution is displaced first. Debt accumulates, overhead rises — the reinforcing loop initiates and drives the system toward degradation.</p>
+  </a>
+
+  <a class="card" href="tc-demo-02-borrowed-life.html">
+    <div class="card-label">TC Dynamics — Scenario 02</div>
+    <h2>Borrowed Life</h2>
+    <p>The system is Survival-dominant — but it doesn't look that way. Accumulated potential in experienced actors absorbs the growing E-debt, masking decline. Output appears stable until the buffer exhausts. Then the debt becomes visible all at once.</p>
+  </a>
+
+  <a class="card" href="tc-demo-03-proliferation.html">
+    <div class="card-label">TC Dynamics — Scenario 03</div>
+    <h2>Proliferation</h2>
+    <p>The system scales aggressively. Growth metrics climb, reinforcing feedback locks in Reproduction dominance. Survival and Evolution debt accumulate in parallel — invisibly. Both thresholds cross simultaneously, producing rapid degradation from apparent health.</p>
+  </a>
+
+  <a class="card" href="tc-demo-04-churn.html">
+    <div class="card-label">TC Dynamics — Scenario 04</div>
+    <h2>Churn</h2>
+    <p>The system invests heavily in Evolution — but no investment persists long enough to mature. Each initiative is replaced before it converts to output. Potential never accumulates. There is no debt crisis, no collapse. Only permanent opportunity cost: the growing gap between what sustained investment could have produced and what constant reset actually yields.</p>
+  </a>
+
+  <a class="card" href="tc-demo-05-recovery.html">
+    <div class="card-label">TC Dynamics — Scenario 05</div>
+    <h2>Successful Recovery</h2>
+    <p>Displacement begins. E-debt starts accumulating. But balancing feedback is generated, crosses the Gate, reaches a Receiver above threshold — and is parsed in time. Reallocation corrects the distortion before debt compounds. The recovery window stays open. The system returns to balance.</p>
+  </a>
+
+  <a class="card" href="tc-demo-06-missed-window.html">
+    <div class="card-label">TC Dynamics — Scenario 06</div>
+    <h2>Missed Recovery Window</h2>
+    <p>Identical initial conditions to Scenario 05. Same displacement, same signal generated. But compensation masks the signal long enough that detection arrives late. By the time reallocation is attempted, the reinforcing loop is already active. The window has closed. The same action that would have worked earlier now cannot.</p>
+  </a>
+
+</div>
+
+</body>
+</html>
