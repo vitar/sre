@@ -690,6 +690,10 @@ const scenarioData = {
       {t:30, year:'2030',s:35,r:32,e:31,debt:18,pot:58,oh:12,car:56,stage:6,evIds:['ev6a'],
        mech:'Flow — New Labor Market Equilibrium',
        md:'System reaches a new viable balance. Adaptation costs high and unevenly distributed. E-debt closing. Human capital replenishing. The AI industry continues its R-dominant Code — but the mediator now structurally redirects its output toward adaptation investment.',
+       sig:'Flow',sc:'#34d399',proj:true,pc:'#34d399',pt:'Projection — Branch A: Arrested Equilibration',crit:false},
+      {t:37, year:'2030',s:35,r:32,e:31,debt:18,pot:58,oh:12,car:56,stage:6,evIds:[],
+       mech:'Flow — New Labor Market Equilibrium',
+       md:'System reaches a new viable balance. Adaptation costs high and unevenly distributed. E-debt closing. Human capital replenishing. The AI industry continues its R-dominant Code — but the mediator now structurally redirects its output toward adaptation investment.',
        sig:'Flow',sc:'#34d399',proj:true,pc:'#34d399',pt:'Projection — Branch A: Arrested Equilibration',crit:false}
     ]
   },
@@ -721,6 +725,10 @@ const scenarioData = {
        md:'Carrier population drops below minimum viable density. Actors who carried adaptation capability have exited or exhausted their potential. Rebuilding now requires new actors, not reallocation. Regulatory mediator still mismatched — too little, too late.',
        sig:'Starvation',sc:'#f87171',proj:true,pc:'#f87171',pt:'Projection — Branch B: Degradation',crit:true},
       {t:30, year:'2030',s:68,r:22,e:6, debt:86,pot:6, oh:74,car:30,stage:6,evIds:['ev6b'],flash:'loop',
+       mech:'Reinforcing Loop — Starvation',
+       md:'Adaptation gap grows → more protection overhead demanded → less E-allocation → faster gap growth. Self-sustaining. No AI entity Code has changed. Code-level intervention required: credential reform, institutional redesign, forced decoupling of protection from adaptation investment.',
+       sig:'Starvation',sc:'#f87171',proj:true,pc:'#f87171',pt:'Projection — Branch B: Degradation',crit:true},
+      {t:37, year:'2030',s:68,r:22,e:6, debt:86,pot:6, oh:74,car:30,stage:6,evIds:[],
        mech:'Reinforcing Loop — Starvation',
        md:'Adaptation gap grows → more protection overhead demanded → less E-allocation → faster gap growth. Self-sustaining. No AI entity Code has changed. Code-level intervention required: credential reform, institutional redesign, forced decoupling of protection from adaptation investment.',
        sig:'Starvation',sc:'#f87171',proj:true,pc:'#f87171',pt:'Projection — Branch B: Degradation',crit:true}
@@ -824,7 +832,7 @@ function fullReset(){ startTime=null; pausedAt=0; resetVisuals(); }
 function renderAt(t){
   const dt=Math.min(t,TOTAL);
   document.getElementById('progressFill').style.width=(dt/TOTAL*100)+'%';
-  let ki=0; for(let i=0;i<keyframes.length-1;i++){ if(dt>=keyframes[i].t) ki=i; }
+  let ki=0; for(let i=0;i<keyframes.length;i++){ if(dt>=keyframes[i].t) ki=i; }
   const kA=keyframes[ki], kB=keyframes[Math.min(ki+1,keyframes.length-1)];
   const v=interp(kA,kB,dt);
   setBar('barS','valS',v.s,false); setBar('barR','valR',v.r,false); setBar('barE','valE',v.e,true);
