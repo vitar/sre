@@ -194,8 +194,10 @@
   .sim-sig   { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-dim); transition:color 0.5s; }
 
   .stage-bar { width:100%; display:flex; gap:2px; margin-bottom:28px; }
-  .stage-item { flex:1; height:3px; background:var(--border); border-radius:1px; transition:background 0.4s; position:relative; }
+  .stage-item { flex:1; height:3px; background:var(--border); border-radius:1px; transition:background 0.4s; position:relative; cursor:pointer; }
+  .stage-item:hover { background:var(--muted); }
   .stage-item.active { background:var(--accent-current); }
+  .stage-item.active:hover { background:var(--accent-current); }
   .stage-item.passed { background:var(--muted); }
   .stage-label { position:absolute; top:10px; left:0; font-family:'DM Mono',monospace; font-size:8px; letter-spacing:0.1em; color:var(--text-dim); text-transform:uppercase; white-space:nowrap; transition:color 0.4s; line-height:1.3; }
   .stage-year  { display:block; font-size:10px; color:var(--text); letter-spacing:0.05em; }
@@ -250,8 +252,33 @@
 
   /* Controls */
   .controls { background:var(--surface); border:1px solid var(--border2); border-radius:4px; padding:14px 18px; display:flex; flex-direction:column; gap:9px; }
-  .progress-track { width:100%; height:2px; background:var(--border); border-radius:1px; overflow:hidden; }
-  .progress-fill  { height:100%; border-radius:1px; transition:width 0.3s linear; width:0%; }
+  .progress-track {
+    width:100%; height:12px;
+    display:flex; align-items:center;
+    cursor:pointer; position:relative;
+    background:transparent;
+  }
+  .progress-track-inner {
+    position:absolute; bottom:0; left:0; right:0; height:2px;
+    background:var(--border2); border-radius:1px; pointer-events:none;
+  }
+  .progress-fill {
+    position:absolute; bottom:0; left:0;
+    height:2px; border-radius:1px;
+    transition:width 0.3s linear; width:0%;
+    pointer-events:none;
+  }
+  /* Scrub thumb — shows on hover/drag */
+  .progress-track::after {
+    content:'';
+    position:absolute; bottom:-2px;
+    width:8px; height:8px; border-radius:50%;
+    background:var(--accent-current);
+    left:calc(var(--pct,0) * 1% - 4px);
+    opacity:0; transition:opacity 0.2s;
+    pointer-events:none;
+  }
+  .progress-track:hover::after { opacity:1; }
   .controls-meta  { display:flex; justify-content:space-between; align-items:center; gap:8px; }
   .controls-left  { display:flex; align-items:center; gap:10px; }
   .timer { font-family:'DM Mono',monospace; font-size:10px; color:var(--text-dim); width:40px; flex-shrink:0; }
@@ -571,7 +598,7 @@
       </div>
 
       <div class="controls">
-        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-track" id="progressTrack"><div class="progress-track-inner"></div><div class="progress-fill" id="progressFill"></div></div>
         <div class="controls-meta">
           <div class="controls-left">
             <button class="play-btn" id="playBtn">
@@ -817,8 +844,20 @@ const ICON_PLAY='<polygon points="2,1 9,5 2,9"/>';
 const ICON_PAUSE='<rect x="2" y="1" width="2.5" height="8"/><rect x="5.5" y="1" width="2.5" height="8"/>';
 function updatePlayBtn(){ document.getElementById('playIcon').innerHTML=isPlaying?ICON_PAUSE:ICON_PLAY; }
 
-function resetVisuals(){
+function resetVisuals(instant){
   lastKfIdx=-1; firedFlashes=new Set(); endReached=false;
+  // Disable transitions for instant snap-back
+  if(instant){
+    document.querySelectorAll('.bar-fill,.accum-fill,.carrier-fill,.progress-fill').forEach(el=>{
+      el.style.transition='none';
+    });
+    // Re-enable after one frame
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      document.querySelectorAll('.bar-fill,.accum-fill,.carrier-fill,.progress-fill').forEach(el=>{
+        el.style.transition='';
+      });
+    }));
+  }
   document.querySelectorAll('.event-entry').forEach(el=>el.classList.remove('visible'));
   ['ev5a','ev5b','ev6a','ev6b'].forEach(id=>{const el=document.getElementById(id);if(el){el.style.display='none';el.classList.remove('visible');}});
   setBar('barS','valS',34,false); setBar('barR','valR',33,false); setBar('barE','valE',33,true);
@@ -827,11 +866,27 @@ function resetVisuals(){
   document.getElementById('timerLabel').textContent='2012';
   document.getElementById('progressFill').style.width='0%';
 }
-function fullReset(){ startTime=null; pausedAt=0; resetVisuals(); }
+function fullReset(instant){ startTime=null; pausedAt=0; resetVisuals(instant); }
+
+// ── Scrub to a specific time t (0..TOTAL) ─────────────────────────────────
+function scrubTo(t){
+  const clamped = Math.max(0, Math.min(TOTAL, t));
+  pausedAt = clamped;
+  startTime = null;  // will be recalculated on next tick
+  endReached = (clamped >= TOTAL);
+  // Re-show all events up to this point cleanly
+  lastKfIdx = -1;
+  document.querySelectorAll('.event-entry').forEach(el=>el.classList.remove('visible'));
+  ['ev5a','ev5b','ev6a','ev6b'].forEach(id=>{const el=document.getElementById(id);if(el){el.style.display='none';el.classList.remove('visible');}});
+  renderAt(clamped);
+  updatePlayBtn();
+}
 
 function renderAt(t){
   const dt=Math.min(t,TOTAL);
-  document.getElementById('progressFill').style.width=(dt/TOTAL*100)+'%';
+  const pct = (dt/TOTAL*100);
+  document.getElementById('progressFill').style.width=pct+'%';
+  document.getElementById('progressTrack').style.setProperty('--pct', pct);
   let ki=0; for(let i=0;i<keyframes.length;i++){ if(dt>=keyframes[i].t) ki=i; }
   const kA=keyframes[ki], kB=keyframes[Math.min(ki+1,keyframes.length-1)];
   const v=interp(kA,kB,dt);
@@ -858,21 +913,81 @@ function tick(ts){
   if(el<=TOTAL){ renderAt(el); rafId=requestAnimationFrame(tick); return; }
   renderAt(TOTAL); if(!endReached) endReached=true;
   if(autoRepeat){
-    if(el>=TOTAL+END_PAUSE){ fullReset(); startTime=ts; }
+    if(el>=TOTAL+END_PAUSE){ fullReset(true); startTime=ts; }
     rafId=requestAnimationFrame(tick);
   } else { isPlaying=false; pausedAt=TOTAL; updatePlayBtn(); rafId=requestAnimationFrame(tick); }
 }
 
+// ── Play/pause button ──────────────────────────────────────────────────────
 document.getElementById('playBtn').addEventListener('click',()=>{
-  if(endReached&&!isPlaying){ fullReset(); isPlaying=true; startTime=null; }
+  if(endReached&&!isPlaying){ fullReset(true); isPlaying=true; startTime=null; }
   else{ isPlaying=!isPlaying; if(isPlaying) startTime=null; }
   updatePlayBtn();
 });
+
+// ── Auto-repeat toggle ─────────────────────────────────────────────────────
 document.getElementById('repeatToggle').addEventListener('change',function(){
   autoRepeat=this.checked;
-  if(autoRepeat&&endReached&&!isPlaying){ fullReset(); isPlaying=true; startTime=null; }
+  if(autoRepeat&&endReached&&!isPlaying){ fullReset(true); isPlaying=true; startTime=null; }
   updatePlayBtn();
 });
+
+// ── Progress bar scrubbing ─────────────────────────────────────────────────
+(function(){
+  const track = document.getElementById('progressTrack');
+  let dragging = false;
+
+  function posToTime(e){
+    const rect = track.getBoundingClientRect();
+    const x = (e.touches ? e.touches[0].clientX : e.clientX);
+    const ratio = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
+    return ratio * TOTAL;
+  }
+
+  function startDrag(e){
+    dragging = true;
+    const wasPlaying = isPlaying;
+    isPlaying = false;
+    track._wasPlaying = wasPlaying;
+    scrubTo(posToTime(e));
+    e.preventDefault();
+  }
+  function moveDrag(e){
+    if(!dragging) return;
+    scrubTo(posToTime(e));
+    e.preventDefault();
+  }
+  function endDrag(){
+    if(!dragging) return;
+    dragging = false;
+    if(track._wasPlaying){ isPlaying=true; startTime=null; }
+    updatePlayBtn();
+  }
+
+  track.addEventListener('mousedown',  startDrag);
+  track.addEventListener('touchstart', startDrag, {passive:false});
+  window.addEventListener('mousemove', moveDrag);
+  window.addEventListener('touchmove',  moveDrag, {passive:false});
+  window.addEventListener('mouseup',   endDrag);
+  window.addEventListener('touchend',  endDrag);
+})();
+
+// ── Stage bar clicks ───────────────────────────────────────────────────────
+document.querySelectorAll('.stage-item').forEach((el, i)=>{
+  el.addEventListener('click', ()=>{
+    if(!keyframes.length) return;
+    // Find the keyframe whose stage === i, take its t
+    const kf = keyframes.find(k=>k.stage===i);
+    if(!kf) return;
+    const wasPlaying = isPlaying;
+    isPlaying = false;
+    scrubTo(kf.t);
+    // Resume if was playing
+    if(wasPlaying){ isPlaying=true; startTime=null; updatePlayBtn(); }
+  });
+});
+
+// ── Track pausedAt while playing ──────────────────────────────────────────
 (function trackPause(){
   function t(ts){ if(isPlaying&&startTime!==null) pausedAt=(ts-startTime)/1000; requestAnimationFrame(t); }
   requestAnimationFrame(t);
