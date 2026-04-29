@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC Dynamics — Starvation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --bg: #0d0f0e;
+    --surface: #131614;
+    --border: #1e2320;
+    --muted: #3a3f3c;
+    --text-dim: #5c6460;
+    --text: #b8c4be;
+    --text-bright: #dce8e0;
+
+    --s: #4a9eff;
+    --s-dim: #1a3a5c;
+    --r: #a8e06a;
+    --r-dim: #2d3e1a;
+    --e: #f0a030;
+    --e-dim: #3d2a0a;
+
+    --debt: #e05050;
+    --overhead: #c060c0;
+
+    --stage-color: #dce8e0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 24px 64px;
+    overflow-x: hidden;
+  }
+
+  /* ── Header ── */
+  .header {
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-left: 2px solid var(--e);
+    padding-left: 20px;
+  }
+  .header-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--text-bright);
+    letter-spacing: -0.02em;
+  }
+  .header p {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+    max-width: 520px;
+    margin-top: 4px;
+  }
+
+  /* ── Stage indicator ── */
+  .stage-bar {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    gap: 2px;
+    margin-bottom: 32px;
+  }
+  .stage-item {
+    flex: 1;
+    height: 3px;
+    background: var(--border);
+    border-radius: 1px;
+    transition: background 0.4s ease;
+    position: relative;
+  }
+  .stage-item.active { background: var(--e); }
+  .stage-item.passed { background: var(--muted); }
+  .stage-label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color 0.4s;
+  }
+  .stage-item.active .stage-label { color: var(--e); }
+  .stage-item.passed .stage-label { color: var(--muted); }
+
+  /* ── Main layout ── */
+  .main {
+    width: 100%;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 24px;
+    align-items: start;
+  }
+  .chart-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* ── Chart panel ── */
+  .chart-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .chart-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  /* Contour bars */
+  .contours {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .contour-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .contour-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    width: 14px;
+    flex-shrink: 0;
+    letter-spacing: 0.05em;
+  }
+  .contour-label.s { color: var(--s); }
+  .contour-label.r { color: var(--r); }
+  .contour-label.e { color: var(--e); }
+
+  .bar-track {
+    flex: 1;
+    height: 22px;
+    background: var(--bg);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+  .bar-fill.s { background: var(--s); }
+  .bar-fill.r { background: var(--r); }
+  .bar-fill.e { background: var(--e); }
+  .bar-fill.depleted {
+    background: repeating-linear-gradient(
+      45deg,
+      var(--e-dim),
+      var(--e-dim) 3px,
+      transparent 3px,
+      transparent 7px
+    );
+  }
+
+  .bar-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    width: 32px;
+    text-align: right;
+    flex-shrink: 0;
+    color: var(--text-dim);
+    transition: color 0.4s;
+  }
+
+  /* Accumulation section */
+  .accum-section {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .accum-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .accum-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    width: 80px;
+    flex-shrink: 0;
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
+  }
+  .accum-track {
+    flex: 1;
+    height: 10px;
+    background: var(--bg);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+  .accum-fill {
+    height: 100%;
+    border-radius: 1px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .accum-fill.debt { background: var(--debt); }
+  .accum-fill.overhead { background: var(--overhead); }
+  .accum-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    width: 32px;
+    text-align: right;
+    flex-shrink: 0;
+    color: var(--text-dim);
+  }
+
+  /* Loop indicator */
+  .loop-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    opacity: 0;
+    transition: opacity 0.6s, border-color 0.6s;
+  }
+  .loop-indicator.active {
+    opacity: 1;
+    border-color: var(--overhead);
+    color: var(--overhead);
+  }
+  .loop-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--overhead);
+    animation: pulse 1.2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  /* ── Side panel ── */
+  .side-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .event-log {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 280px;
+  }
+  .event-log-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  .event-entry {
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.4s, transform 0.4s;
+  }
+  .event-entry.visible {
+    opacity: 1;
+    transform: none;
+  }
+  .event-time {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--text-dim);
+    padding-top: 2px;
+    flex-shrink: 0;
+    width: 28px;
+  }
+  .event-text {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .event-text.highlight { color: var(--e); }
+  .event-text.warn { color: var(--debt); }
+  .event-text.critical { color: var(--overhead); }
+
+  /* Mechanism callout */
+  .mechanism {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 100px;
+    transition: border-color 0.5s;
+  }
+  .mechanism.active-s { border-color: var(--s-dim); }
+  .mechanism.active-e { border-color: var(--e-dim); }
+  .mechanism.active-debt { border-color: #5c2020; }
+  .mechanism.active-loop { border-color: #4a1060; }
+
+  .mechanism-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  .mechanism-name {
+    font-size: 14px;
+    color: var(--text-bright);
+    font-weight: 400;
+    transition: color 0.4s;
+    min-height: 20px;
+  }
+  .mechanism-desc {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.6;
+    transition: color 0.4s;
+    min-height: 56px;
+  }
+
+  /* Progress / replay */
+  .controls {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .progress-track {
+    width: 100%;
+    height: 2px;
+    background: var(--border);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--e);
+    border-radius: 1px;
+    transition: width 0.3s linear;
+    width: 0%;
+  }
+  .controls-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+  .controls-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .timer {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    width: 36px;
+    flex-shrink: 0;
+  }
+  /* Play/pause button */
+  .play-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--muted);
+    border-radius: 2px;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    transition: border-color 0.2s, opacity 0.2s;
+  }
+  .play-btn:hover { border-color: var(--text); }
+  .play-btn.visible { display: flex; }
+  .play-btn svg { width: 10px; height: 10px; fill: var(--text-dim); }
+
+  /* Auto-repeat toggle row */
+  .controls-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .replay-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    user-select: none;
+    cursor: pointer;
+  }
+  /* Toggle switch */
+  .toggle {
+    position: relative;
+    width: 28px;
+    height: 16px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
+  .toggle-track {
+    position: absolute;
+    inset: 0;
+    background: var(--border);
+    border-radius: 8px;
+    transition: background 0.25s;
+  }
+  .toggle input:checked ~ .toggle-track { background: var(--e); }
+  .toggle-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--text-dim);
+    transition: transform 0.25s, background 0.25s;
+  }
+  .toggle input:checked ~ .toggle-thumb {
+    transform: translateX(12px);
+    background: var(--bg);
+  }
+
+  /* Shock flash overlay */
+  .shock-flash {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 80, 30, 0.06);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 100;
+  }
+  .shock-flash.active { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="shock-flash" id="shockFlash"></div>
+
+<div class="header">
+  <div class="header-label">TC Dynamics — Scenario 01</div>
+  <h1>Starvation</h1>
+  <p>A balanced system absorbs an environmental shock. Evolution is displaced first. Debt accumulates, overhead rises — the reinforcing loop initiates and drives the system toward degradation.</p>
+</div>
+
+<div class="stage-bar" id="stageBar">
+  <div class="stage-item" data-idx="0"><span class="stage-label">Balance</span></div>
+  <div class="stage-item" data-idx="1"><span class="stage-label">Shock</span></div>
+  <div class="stage-item" data-idx="2"><span class="stage-label">Distortion</span></div>
+  <div class="stage-item" data-idx="3"><span class="stage-label">Stress</span></div>
+  <div class="stage-item" data-idx="4"><span class="stage-label">Degradation</span></div>
+</div>
+
+<div class="main">
+  <div class="chart-col">
+  <!-- Chart panel -->
+  <div class="chart-panel">
+    <div class="chart-title">Resource Allocation — Contours</div>
+
+    <div class="contours">
+      <div class="contour-row">
+        <span class="contour-label s">S</span>
+        <div class="bar-track">
+          <div class="bar-fill s" id="barS" style="width:33%"></div>
+        </div>
+        <span class="bar-value" id="valS">33%</span>
+      </div>
+      <div class="contour-row">
+        <span class="contour-label r">R</span>
+        <div class="bar-track">
+          <div class="bar-fill r" id="barR" style="width:33%"></div>
+        </div>
+        <span class="bar-value" id="valR">33%</span>
+      </div>
+      <div class="contour-row">
+        <span class="contour-label e">E</span>
+        <div class="bar-track">
+          <div class="bar-fill e" id="barE" style="width:34%"></div>
+        </div>
+        <span class="bar-value" id="valE">34%</span>
+      </div>
+    </div>
+
+    <div class="accum-section">
+      <div class="chart-title">Accumulation</div>
+
+      <div class="accum-row">
+        <span class="accum-label">E-debt</span>
+        <div class="accum-track">
+          <div class="accum-fill debt" id="fillDebt" style="width:0%"></div>
+        </div>
+        <span class="accum-value" id="valDebt">0%</span>
+      </div>
+      <div class="accum-row">
+        <span class="accum-label">S-overhead</span>
+        <div class="accum-track">
+          <div class="accum-fill overhead" id="fillOverhead" style="width:0%"></div>
+        </div>
+        <span class="accum-value" id="valOverhead">0%</span>
+      </div>
+    </div>
+
+    <div class="loop-indicator" id="loopIndicator">
+      <div class="loop-dot"></div>
+      DEBT → OVERHEAD → LESS E → MORE DEBT
+    </div>
+
+  </div>
+
+  <div class="controls">
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="controls-meta">
+      <div class="controls-left">
+        <button class="play-btn" id="playBtn" title="Play / Pause">
+          <svg id="playIcon" viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+        </button>
+        <span class="timer" id="timerLabel">0.0s</span>
+      </div>
+      <div class="controls-right">
+        <span class="replay-label">auto-repeat</span>
+        <label class="toggle" title="Toggle auto-repeat">
+          <input type="checkbox" id="repeatToggle" checked>
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Side panel -->
+  <div class="side-panel">
+    <div class="event-log">
+      <div class="event-log-title">Events</div>
+      <div class="event-entry" id="ev0"><span class="event-time">T0</span><span class="event-text">System in balanced allocation. All three contours funded.</span></div>
+      <div class="event-entry" id="ev1"><span class="event-time">T1</span><span class="event-text highlight">Environmental shock. Resource availability drops sharply.</span></div>
+      <div class="event-entry" id="ev2"><span class="event-time">T2</span><span class="event-text">Displacement initiates. Evolution displaced first — returns are distant, absence has no immediate consequence.</span></div>
+      <div class="event-entry" id="ev3"><span class="event-time">T3</span><span class="event-text warn">E-debt accumulating. Capability gap widens. Sensing capacity begins to degrade.</span></div>
+      <div class="event-entry" id="ev4"><span class="event-time">T4</span><span class="event-text warn">Reproduction partially displaced. Survival consumes available pool.</span></div>
+      <div class="event-entry" id="ev5"><span class="event-time">T5</span><span class="event-text critical">Maintaining commitments with degraded capability requires more effort. S-overhead ratchets up.</span></div>
+      <div class="event-entry" id="ev6"><span class="event-time">T6</span><span class="event-text critical">Reinforcing loop active. Rising overhead crowds out E further. Debt accelerates. Degradation.</span></div>
+    </div>
+
+    <div class="mechanism" id="mechanismBox">
+      <div class="mechanism-label">Active mechanism</div>
+      <div class="mechanism-name" id="mechName">—</div>
+      <div class="mechanism-desc" id="mechDesc">Waiting for system event.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Keyframes ──────────────────────────────────────────────────────────────
+const TOTAL = 22;   // animation duration (s)
+const END_PAUSE = 5; // pause at end before repeat (s)
+
+const keyframes = [
+  {
+    t: 0,
+    s: 33, r: 33, e: 34,
+    debt: 0, overhead: 0,
+    stage: 0,
+    evIds: ['ev0'],
+    mech: '—',
+    mechDesc: 'System in equilibrium. Resources distributed across all three contours without significant pressure.',
+    mechClass: '',
+    loop: false, depleted: false
+  },
+  {
+    t: 3,
+    s: 33, r: 33, e: 34,
+    debt: 0, overhead: 0,
+    stage: 1,
+    evIds: ['ev1'],
+    shock: true,
+    mech: 'Environmental Pressure',
+    mechDesc: 'External conditions change. Resource availability contracts. The gap between demand and supply forces a reallocation decision.',
+    mechClass: 'active-s',
+    loop: false, depleted: false
+  },
+  {
+    t: 6,
+    s: 48, r: 33, e: 19,
+    debt: 8, overhead: 0,
+    stage: 2,
+    evIds: ['ev2'],
+    mech: 'Displacement',
+    mechDesc: 'One contour\'s allocation is reduced to serve another under pressure. Evolution is displaced first — its returns are distant and uncertain; its absence produces no immediate consequence.',
+    mechClass: 'active-e',
+    loop: false, depleted: false
+  },
+  {
+    t: 9.5,
+    s: 52, r: 31, e: 9,
+    debt: 22, overhead: 5,
+    stage: 3,
+    evIds: ['ev3', 'ev4'],
+    mech: 'Debt Accumulation',
+    mechDesc: 'Sustained under-allocation to Evolution produces debt. Capability gap widens. Environmental change compounds — the distance to close grows faster than linearly.',
+    mechClass: 'active-debt',
+    loop: false, depleted: false
+  },
+  {
+    t: 13.5,
+    s: 60, r: 27, e: 5,
+    debt: 48, overhead: 22,
+    stage: 3,
+    evIds: ['ev5'],
+    mech: 'Overhead Ratchet',
+    mechDesc: 'Maintaining existing commitments with degraded capability requires more effort. Survival overhead increases — and unlike the original pressure, it does not recede when the stressor diminishes.',
+    mechClass: 'active-loop',
+    loop: false, depleted: true
+  },
+  {
+    t: 17,
+    s: 70, r: 22, e: 0,
+    debt: 78, overhead: 52,
+    stage: 4,
+    evIds: ['ev6'],
+    mech: 'Reinforcing Loop',
+    mechDesc: 'E-debt → higher S-overhead → less allocation available for E → more debt. The loop accelerates itself. Recovery cost now exceeds what simple reallocation can address.',
+    mechClass: 'active-loop',
+    loop: true, depleted: true
+  },
+  {
+    t: 22,
+    s: 70, r: 22, e: 0,
+    debt: 78, overhead: 52,
+    stage: 4,
+    evIds: [],
+    mech: 'Reinforcing Loop',
+    mechDesc: 'E-debt → higher S-overhead → less allocation available for E → more debt. The loop accelerates itself. Recovery cost now exceeds what simple reallocation can address.',
+    mechClass: 'active-loop',
+    loop: true, depleted: true
+  }
+];
+
+// ── State ──────────────────────────────────────────────────────────────────
+let startTime    = null;
+let lastKfIdx    = -1;
+let shockFired   = false;
+let rafId        = null;
+
+// Playback state
+let isPlaying    = true;   // true = running, false = paused
+let pausedAt     = 0;      // elapsed seconds when paused
+let autoRepeat   = true;
+let endReached   = false;  // true once animation hits TOTAL
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+function lerp(a, b, t) { return a + (b - a) * t; }
+function easeInOut(t)  { return t < 0.5 ? 2*t*t : -1+(4-2*t)*t; }
+
+function setBar(id, valId, pct) {
+  const bar = document.getElementById(id);
+  const val = document.getElementById(valId);
+  bar.style.width = pct + '%';
+  val.textContent = Math.round(pct) + '%';
+  val.style.color = pct < 8 ? 'var(--debt)' : 'var(--text-dim)';
+  if (id === 'barE') {
+    bar.classList.toggle('depleted', pct < 6);
+    bar.classList.toggle('e', pct >= 6);
+  }
+}
+
+function setAccum(fillId, valId, pct) {
+  document.getElementById(fillId).style.width = Math.min(100, pct) + '%';
+  document.getElementById(valId).textContent = Math.round(pct) + '%';
+}
+
+function setStage(idx) {
+  document.querySelectorAll('.stage-item').forEach((el, i) => {
+    el.classList.toggle('active', i === idx);
+    el.classList.toggle('passed', i < idx);
+  });
+}
+
+function showEvents(ids) {
+  document.querySelectorAll('.event-entry').forEach(el => {
+    if (ids.includes(el.id)) el.classList.add('visible');
+  });
+}
+
+function setMechanism(name, desc, cls) {
+  const box = document.getElementById('mechanismBox');
+  document.getElementById('mechName').textContent = name;
+  document.getElementById('mechDesc').textContent = desc;
+  box.className = 'mechanism ' + (cls || '');
+}
+
+let shockTimeout = null;
+function triggerShock() {
+  const flash = document.getElementById('shockFlash');
+  flash.classList.add('active');
+  clearTimeout(shockTimeout);
+  shockTimeout = setTimeout(() => flash.classList.remove('active'), 300);
+}
+
+function interpolate(kA, kB, t) {
+  const span = kB.t - kA.t;
+  const raw  = span === 0 ? 1 : (t - kA.t) / span;
+  const p    = easeInOut(Math.max(0, Math.min(1, raw)));
+  return {
+    s:        lerp(kA.s,        kB.s,        p),
+    r:        lerp(kA.r,        kB.r,        p),
+    e:        lerp(kA.e,        kB.e,        p),
+    debt:     lerp(kA.debt,     kB.debt,     p),
+    overhead: lerp(kA.overhead, kB.overhead, p),
+  };
+}
+
+// ── Play / Pause button icon ───────────────────────────────────────────────
+const ICON_PLAY  = '<polygon points="2,1 9,5 2,9"/>';
+const ICON_PAUSE = '<rect x="2" y="1" width="2.5" height="8"/><rect x="5.5" y="1" width="2.5" height="8"/>';
+
+function updatePlayBtn() {
+  const btn = document.getElementById('playBtn');
+  const svg = document.getElementById('playIcon');
+  // Show button only when auto-repeat is OFF
+  btn.classList.toggle('visible', !autoRepeat);
+  svg.innerHTML = isPlaying ? ICON_PAUSE : ICON_PLAY;
+}
+
+// ── Reset visual state ─────────────────────────────────────────────────────
+function resetVisuals() {
+  lastKfIdx  = -1;
+  shockFired = false;
+  endReached = false;
+
+  document.querySelectorAll('.event-entry').forEach(el => el.classList.remove('visible'));
+  showEvents(['ev0']);
+  setBar('barS', 'valS', 33);
+  setBar('barR', 'valR', 33);
+  setBar('barE', 'valE', 34);
+  setAccum('fillDebt',     'valDebt',     0);
+  setAccum('fillOverhead', 'valOverhead', 0);
+  setStage(0);
+  setMechanism('—', 'Waiting for system event.', '');
+  document.getElementById('loopIndicator').classList.remove('active');
+  document.getElementById('progressFill').style.width = '0%';
+  document.getElementById('timerLabel').textContent = '0.0s';
+}
+
+// ── Full reset (also resets timing) ───────────────────────────────────────
+function fullReset() {
+  startTime = null;
+  pausedAt  = 0;
+  resetVisuals();
+}
+
+// ── Render a given elapsed time ────────────────────────────────────────────
+function renderAt(t) {
+  const displayT = Math.min(t, TOTAL);
+
+  document.getElementById('progressFill').style.width = (displayT / TOTAL * 100) + '%';
+  document.getElementById('timerLabel').textContent    = displayT.toFixed(1) + 's';
+
+  // Keyframe segment
+  let kfIdx = 0;
+  for (let i = 0; i < keyframes.length - 1; i++) {
+    if (displayT >= keyframes[i].t) kfIdx = i;
+  }
+
+  const kA = keyframes[kfIdx];
+  const kB = keyframes[Math.min(kfIdx + 1, keyframes.length - 1)];
+  const v  = interpolate(kA, kB, displayT);
+
+  setBar('barS', 'valS', v.s);
+  setBar('barR', 'valR', v.r);
+  setBar('barE', 'valE', v.e);
+  setAccum('fillDebt',     'valDebt',     v.debt);
+  setAccum('fillOverhead', 'valOverhead', v.overhead);
+
+  if (kfIdx !== lastKfIdx) {
+    lastKfIdx = kfIdx;
+    setStage(kA.stage);
+
+    const allEvIds = [];
+    for (let i = 0; i <= kfIdx; i++) keyframes[i].evIds.forEach(id => allEvIds.push(id));
+    showEvents(allEvIds);
+
+    setMechanism(kA.mech, kA.mechDesc, kA.mechClass);
+    document.getElementById('loopIndicator').classList.toggle('active', !!kA.loop);
+
+    if (kA.shock && !shockFired) { triggerShock(); shockFired = true; }
+  }
+}
+
+// ── Main RAF loop ──────────────────────────────────────────────────────────
+function tick(ts) {
+  if (!isPlaying) { rafId = requestAnimationFrame(tick); return; }
+
+  if (!startTime) startTime = ts - pausedAt * 1000;
+  const elapsed = (ts - startTime) / 1000;
+
+  // Still in animation
+  if (elapsed <= TOTAL) {
+    renderAt(elapsed);
+    rafId = requestAnimationFrame(tick);
+    return;
+  }
+
+  // Past TOTAL — hold at end
+  renderAt(TOTAL);
+
+  if (!endReached) endReached = true;
+
+  if (autoRepeat) {
+    // Wait END_PAUSE seconds after TOTAL before restarting
+    if (elapsed >= TOTAL + END_PAUSE) {
+      fullReset();
+      startTime = ts; // immediate restart
+    }
+    rafId = requestAnimationFrame(tick);
+  } else {
+    // No repeat: stop. Player stays at end frame.
+    isPlaying = false;
+    pausedAt  = TOTAL;
+    updatePlayBtn();
+    rafId = requestAnimationFrame(tick); // keep RAF alive for future play
+  }
+}
+
+// ── Controls wiring ────────────────────────────────────────────────────────
+document.getElementById('playBtn').addEventListener('click', () => {
+  if (endReached && !isPlaying) {
+    // Restart from beginning
+    fullReset();
+    isPlaying = true;
+    startTime = null;
+  } else {
+    isPlaying = !isPlaying;
+    if (isPlaying) {
+      // Resume: recalc startTime so elapsed picks up from pausedAt
+      startTime = null;
+    } else {
+      // Pause: record where we are
+      pausedAt = pausedAt; // already tracked below in tick... update here
+    }
+  }
+  updatePlayBtn();
+});
+
+document.getElementById('repeatToggle').addEventListener('change', function() {
+  autoRepeat = this.checked;
+  updatePlayBtn();
+
+  // If we re-enable repeat while stopped at end, restart immediately
+  if (autoRepeat && endReached && !isPlaying) {
+    fullReset();
+    isPlaying  = true;
+    startTime  = null;
+  }
+});
+
+// Track pausedAt continuously while playing
+(function trackPause() {
+  let lastTs = 0;
+  function track(ts) {
+    if (isPlaying && startTime !== null) {
+      pausedAt = (ts - startTime) / 1000;
+    }
+    lastTs = ts;
+    requestAnimationFrame(track);
+  }
+  requestAnimationFrame(track);
+})();
+
+// ── Boot ───────────────────────────────────────────────────────────────────
+fullReset();
+updatePlayBtn();
+rafId = requestAnimationFrame(tick);
+</script>
+</body>
+</html>

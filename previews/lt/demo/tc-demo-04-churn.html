@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC Dynamics — Churn</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --bg: #0d0f0e;
+    --surface: #131614;
+    --border: #1e2320;
+    --muted: #3a3f3c;
+    --text-dim: #5c6460;
+    --text: #b8c4be;
+    --text-bright: #dce8e0;
+
+    --s: #4a9eff;
+    --s-dim: #1a3a5c;
+    --r: #a8e06a;
+    --r-dim: #2d3e1a;
+    --e: #f0a030;
+    --e-dim: #3d2a0a;
+
+    --accent: #c084fc;        /* violet — E-dominant, distinct from all prior */
+    --accent-dim: #2d1a4a;
+
+    --potential: #c084fc;
+    --opportunity: #e05050;
+    --reset-color: #f0a030;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 24px 64px;
+    overflow-x: hidden;
+  }
+
+  /* ── Header ── */
+  .header {
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-left: 2px solid var(--accent);
+    padding-left: 20px;
+  }
+  .header-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--text-bright);
+    letter-spacing: -0.02em;
+  }
+  .header p {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+    max-width: 520px;
+    margin-top: 4px;
+  }
+
+  /* ── Stage bar ── */
+  .stage-bar {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    gap: 2px;
+    margin-bottom: 32px;
+  }
+  .stage-item {
+    flex: 1; height: 3px;
+    background: var(--border);
+    border-radius: 1px;
+    transition: background 0.4s ease;
+    position: relative;
+  }
+  .stage-item.active { background: var(--accent); }
+  .stage-item.passed { background: var(--muted); }
+  .stage-label {
+    position: absolute;
+    top: 10px; left: 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color 0.4s;
+  }
+  .stage-item.active .stage-label { color: var(--accent); }
+  .stage-item.passed .stage-label { color: var(--muted); }
+
+  /* ── Main layout ── */
+  .main {
+    width: 100%;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 24px;
+    align-items: start;
+  }
+  .chart-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* ── Chart panel ── */
+  .chart-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .chart-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  /* Contour bars */
+  .contours { display: flex; flex-direction: column; gap: 14px; }
+  .contour-row { display: flex; align-items: center; gap: 12px; }
+  .contour-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; width: 14px;
+    flex-shrink: 0; letter-spacing: 0.05em;
+  }
+  .contour-label.s { color: var(--s); }
+  .contour-label.r { color: var(--r); }
+  .contour-label.e { color: var(--accent); }  /* violet for E in churn */
+
+  .bar-track {
+    flex: 1; height: 22px;
+    background: var(--bg);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .bar-fill.s { background: var(--s); }
+  .bar-fill.r { background: var(--r); }
+  .bar-fill.e { background: var(--accent); }
+
+  .bar-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; width: 32px;
+    text-align: right; flex-shrink: 0;
+    color: var(--text-dim);
+    transition: color 0.4s;
+  }
+
+  /* ── Cycle visualiser ── */
+  /* Shows repeated initiative waves: build → reset → build → reset */
+  .cycle-section {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cycle-track {
+    display: flex;
+    gap: 4px;
+    align-items: flex-end;
+    height: 48px;
+  }
+
+  .cycle-bar {
+    flex: 1;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    transition: height 0.4s cubic-bezier(0.4,0,0.2,1), background 0.4s;
+    min-height: 3px;
+  }
+
+  /* Potential build = violet fill */
+  .cycle-bar.build   { background: var(--potential); opacity: 0.85; }
+  /* Reset moment = orange flash then empty */
+  .cycle-bar.reset   { background: var(--reset-color); opacity: 0.6; }
+  /* Past / dead */
+  .cycle-bar.dead    { background: var(--border); opacity: 1; }
+  /* Future */
+  .cycle-bar.future  { background: var(--border); opacity: 0.4; }
+
+  .reset-label {
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    color: var(--reset-color);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .cycle-bar.reset .reset-label { opacity: 1; }
+
+  .cycle-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .cycle-legend {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .legend-dot {
+    width: 8px; height: 8px;
+    border-radius: 1px;
+    flex-shrink: 0;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── Opportunity cost meter ── */
+  .accum-section {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .accum-row { display: flex; align-items: center; gap: 12px; }
+  .accum-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; width: 80px;
+    flex-shrink: 0; letter-spacing: 0.05em;
+    color: var(--text-dim);
+  }
+  .accum-track {
+    flex: 1; height: 10px;
+    background: var(--bg);
+    border-radius: 1px; overflow: hidden;
+  }
+  .accum-fill {
+    height: 100%; border-radius: 1px;
+    transition: width 0.9s cubic-bezier(0.4,0,0.2,1);
+  }
+  .accum-fill.opp  { background: var(--opportunity); }
+  .accum-fill.prod {
+    /* actual output — stays low */
+    background: var(--r);
+    opacity: 0.7;
+  }
+  .accum-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; width: 32px;
+    text-align: right; flex-shrink: 0;
+    color: var(--text-dim);
+  }
+
+  /* Reset counter badge */
+  .reset-counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border: 1px solid var(--accent-dim);
+    border-radius: 2px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    transition: border-color 0.4s;
+  }
+  .reset-counter.warn { border-color: var(--opportunity); }
+  .reset-count-value {
+    font-size: 18px;
+    color: var(--accent);
+    transition: color 0.4s;
+    font-weight: 500;
+  }
+  .reset-count-value.warn { color: var(--opportunity); }
+
+  /* ── Side panel ── */
+  .side-panel { display: flex; flex-direction: column; gap: 16px; }
+  .event-log {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+    display: flex; flex-direction: column;
+    gap: 12px;
+    min-height: 280px;
+  }
+  .event-log-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 0.15em;
+    color: var(--text-dim); text-transform: uppercase;
+  }
+  .event-entry {
+    display: flex; gap: 10px;
+    opacity: 0; transform: translateY(4px);
+    transition: opacity 0.4s, transform 0.4s;
+  }
+  .event-entry.visible { opacity: 1; transform: none; }
+  .event-time {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px; color: var(--text-dim);
+    padding-top: 2px; flex-shrink: 0; width: 28px;
+  }
+  .event-text { font-size: 12px; line-height: 1.5; color: var(--text); }
+  .event-text.highlight { color: var(--accent); }
+  .event-text.warn      { color: var(--opportunity); }
+  .event-text.note      { color: var(--text-dim); font-style: italic; }
+
+  /* Mechanism box */
+  .mechanism {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+    display: flex; flex-direction: column; gap: 8px;
+    min-height: 100px;
+    transition: border-color 0.5s;
+  }
+  .mechanism.active-e    { border-color: var(--accent-dim); }
+  .mechanism.active-opp  { border-color: #3d1a1a; }
+  .mechanism.active-lock { border-color: #2d1a4a; }
+
+  .mechanism-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px; letter-spacing: 0.15em;
+    color: var(--text-dim); text-transform: uppercase;
+  }
+  .mechanism-name  { font-size: 14px; color: var(--text-bright); font-weight: 400; min-height: 20px; }
+  .mechanism-desc  { font-size: 12px; color: var(--text-dim); line-height: 1.6; min-height: 56px; }
+
+  /* Controls */
+  .controls {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 20px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .progress-track { width: 100%; height: 2px; background: var(--border); border-radius: 1px; overflow: hidden; }
+  .progress-fill  { height: 100%; background: var(--accent); border-radius: 1px; transition: width 0.3s linear; width: 0%; }
+  .controls-meta  { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .controls-left  { display: flex; align-items: center; gap: 10px; }
+  .timer { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-dim); width: 36px; flex-shrink: 0; }
+  .play-btn {
+    display: none; align-items: center; justify-content: center;
+    width: 22px; height: 22px;
+    border: 1px solid var(--muted); border-radius: 2px;
+    background: transparent; cursor: pointer; padding: 0; flex-shrink: 0;
+    transition: border-color 0.2s;
+  }
+  .play-btn:hover { border-color: var(--text); }
+  .play-btn.visible { display: flex; }
+  .play-btn svg { width: 10px; height: 10px; fill: var(--text-dim); }
+  .controls-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .replay-label {
+    font-family: 'DM Mono', monospace; font-size: 9px;
+    letter-spacing: 0.1em; color: var(--text-dim);
+    text-transform: uppercase; user-select: none;
+  }
+  .toggle { position: relative; width: 28px; height: 16px; flex-shrink: 0; cursor: pointer; }
+  .toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
+  .toggle-track  { position: absolute; inset: 0; background: var(--border); border-radius: 8px; transition: background 0.25s; }
+  .toggle input:checked ~ .toggle-track { background: var(--accent); }
+  .toggle-thumb  {
+    position: absolute; top: 3px; left: 3px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--text-dim);
+    transition: transform 0.25s, background 0.25s;
+  }
+  .toggle input:checked ~ .toggle-thumb { transform: translateX(12px); background: var(--bg); }
+
+  /* Reset flash — orange, not red */
+  .shock-flash {
+    position: fixed; inset: 0;
+    background: rgba(240,160,48,0.07);
+    pointer-events: none; opacity: 0;
+    transition: opacity 0.12s; z-index: 100;
+  }
+  .shock-flash.active { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="shock-flash" id="shockFlash"></div>
+
+<div class="header">
+  <div class="header-label">TC Dynamics — Scenario 04</div>
+  <h1>Churn</h1>
+  <p>The system invests heavily in Evolution — but no investment persists long enough to mature. Each initiative is replaced before it converts to output. Potential never accumulates. There is no debt crisis, no collapse. Only permanent opportunity cost: the growing gap between what sustained investment could have produced and what constant reset actually yields.</p>
+</div>
+
+<div class="stage-bar" id="stageBar">
+  <div class="stage-item"><span class="stage-label">Balance</span></div>
+  <div class="stage-item"><span class="stage-label">E-Shift</span></div>
+  <div class="stage-item"><span class="stage-label">Cycle 1</span></div>
+  <div class="stage-item"><span class="stage-label">Cycle 2</span></div>
+  <div class="stage-item"><span class="stage-label">Cycle 3</span></div>
+  <div class="stage-item"><span class="stage-label">Entrench</span></div>
+</div>
+
+<div class="main">
+  <div class="chart-col">
+  <!-- Chart panel -->
+  <div class="chart-panel">
+    <div class="chart-title">Resource Allocation — Contours</div>
+
+    <div class="contours">
+      <div class="contour-row">
+        <span class="contour-label s">S</span>
+        <div class="bar-track">
+          <div class="bar-fill s" id="barS" style="width:33%"></div>
+        </div>
+        <span class="bar-value" id="valS">33%</span>
+      </div>
+      <div class="contour-row">
+        <span class="contour-label r">R</span>
+        <div class="bar-track">
+          <div class="bar-fill r" id="barR" style="width:33%"></div>
+        </div>
+        <span class="bar-value" id="valR">33%</span>
+      </div>
+      <div class="contour-row">
+        <span class="contour-label e">E</span>
+        <div class="bar-track">
+          <div class="bar-fill e" id="barE" style="width:34%"></div>
+        </div>
+        <span class="bar-value" id="valE">34%</span>
+      </div>
+    </div>
+
+    <!-- Initiative cycle visualiser -->
+    <div class="cycle-section">
+      <div class="chart-title">Initiative Cycles — Potential Build &amp; Reset</div>
+      <div class="cycle-track" id="cycleTrack">
+        <!-- 12 bars, populated by JS -->
+      </div>
+      <div class="cycle-meta">
+        <div class="cycle-legend">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--potential);"></div>
+            Building
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--reset-color);"></div>
+            Reset
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--border);"></div>
+            Lost
+          </div>
+        </div>
+        <div class="reset-counter" id="resetCounter">
+          <span style="letter-spacing:0.1em;">RESETS</span>
+          <span class="reset-count-value" id="resetCount">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Opportunity cost vs actual output -->
+    <div class="accum-section">
+      <div class="chart-title">Cumulative Output</div>
+      <div class="accum-row">
+        <span class="accum-label" style="color:var(--opportunity);">Opp. cost</span>
+        <div class="accum-track">
+          <div class="accum-fill opp" id="fillOpp" style="width:0%"></div>
+        </div>
+        <span class="accum-value" id="valOpp">0%</span>
+      </div>
+      <div class="accum-row">
+        <span class="accum-label" style="color:var(--r);">Actual out.</span>
+        <div class="accum-track">
+          <div class="accum-fill prod" id="fillProd" style="width:0%"></div>
+        </div>
+        <span class="accum-value" id="valProd">0%</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="controls">
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="controls-meta">
+      <div class="controls-left">
+        <button class="play-btn" id="playBtn" title="Play / Pause">
+          <svg id="playIcon" viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg>
+        </button>
+        <span class="timer" id="timerLabel">0.0s</span>
+      </div>
+      <div class="controls-right">
+        <span class="replay-label">auto-repeat</span>
+        <label class="toggle">
+          <input type="checkbox" id="repeatToggle" checked>
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Side panel -->
+  <div class="side-panel">
+    <div class="event-log">
+      <div class="event-log-title">Events</div>
+      <div class="event-entry visible" id="ev0"><span class="event-time">T0</span><span class="event-text">System in balanced allocation. Stable output. No dominant pressure on any contour.</span></div>
+      <div class="event-entry" id="ev1"><span class="event-time">T1</span><span class="event-text highlight">Evolution allocation increases. A new initiative launches — architecture change, methodology shift, technology replacement. Resources committed.</span></div>
+      <div class="event-entry" id="ev2"><span class="event-time">T2</span><span class="event-text highlight">Potential begins to build. Investment is real. But before it matures into usable capability — the initiative is replaced. Reset.</span></div>
+      <div class="event-entry" id="ev3"><span class="event-time">T3</span><span class="event-text warn">Second cycle. Each new initiative is justified by compelling reasoning. None is sustained long enough to prove or disprove its value. Institutional knowledge does not accumulate.</span></div>
+      <div class="event-entry" id="ev4"><span class="event-time">T4</span><span class="event-text warn">Third cycle. Actors describe fatigue — not excitement. The temporal signature: intense activity, no rhythm, no latency. Nothing converts.</span></div>
+      <div class="event-entry" id="ev5"><span class="event-time">T5</span><span class="event-text warn">Opportunity cost compounds. What sustained investment would have produced diverges from what constant reset yields. The gap is real — but invisible in any single cycle metric.</span></div>
+      <div class="event-entry" id="ev6"><span class="event-time">T6</span><span class="event-text note">No acute failure. No collapse. The system can sustain Churn indefinitely — Survival is adequate, the system does not break. What it accumulates is only the gap between what it could have been.</span></div>
+    </div>
+
+    <div class="mechanism" id="mechanismBox">
+      <div class="mechanism-label">Active mechanism</div>
+      <div class="mechanism-name" id="mechName">—</div>
+      <div class="mechanism-desc" id="mechDesc">Waiting for system event.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const TOTAL     = 28;
+const END_PAUSE = 5;
+const NUM_BARS  = 12;
+
+// ── Build cycle bar DOM ────────────────────────────────────────────────────
+const track = document.getElementById('cycleTrack');
+for (let i = 0; i < NUM_BARS; i++) {
+  const bar = document.createElement('div');
+  bar.className = 'cycle-bar future';
+  bar.id = 'cb' + i;
+  bar.style.height = '4px';
+  const lbl = document.createElement('span');
+  lbl.className = 'reset-label';
+  lbl.textContent = 'RESET';
+  bar.appendChild(lbl);
+  track.appendChild(bar);
+}
+
+// ── Keyframes ──────────────────────────────────────────────────────────────
+// cycleState: array of 12 states per keyframe — 'future'|'build'|'reset'|'dead'
+// barHeights: height % (of 48px) for each bar
+// resets: count of completed resets so far
+// opp: opportunity cost accumulation %
+// prod: actual output %
+
+function buildCycleState(phase) {
+  // phase 0: all future
+  // phase 1-3: cycle 1 building (bars 0-2 building, rest future)
+  // phase 4: cycle 1 reset (bar 3 = reset, bars 0-2 = dead, rest future)
+  // phase 5-7: cycle 2 building (bars 4-6 building, rest as before)
+  // phase 8: cycle 2 reset
+  // phase 9-11: cycle 3 building
+  // phase 12: cycle 3 reset
+  // phase 13: sustained churn pattern
+  const states = Array(NUM_BARS).fill('future');
+  const heights = Array(NUM_BARS).fill(4);
+
+  if (phase === 0) return { states, heights };
+
+  // Cycle 1
+  if (phase >= 1) { states[0]='build'; heights[0]=22; }
+  if (phase >= 2) { states[1]='build'; heights[1]=36; }
+  if (phase >= 3) { states[2]='build'; heights[2]=46; }
+  if (phase >= 4) {
+    states[0]='dead'; heights[0]=4;
+    states[1]='dead'; heights[1]=4;
+    states[2]='dead'; heights[2]=4;
+    states[3]='reset'; heights[3]=48;
+  }
+  // Cycle 2
+  if (phase >= 5) { states[3]='dead'; heights[3]=4; states[4]='build'; heights[4]=20; }
+  if (phase >= 6) { states[5]='build'; heights[5]=34; }
+  if (phase >= 7) { states[6]='build'; heights[6]=44; }
+  if (phase >= 8) {
+    states[4]='dead'; heights[4]=4;
+    states[5]='dead'; heights[5]=4;
+    states[6]='dead'; heights[6]=4;
+    states[7]='reset'; heights[7]=48;
+  }
+  // Cycle 3
+  if (phase >= 9)  { states[7]='dead'; heights[7]=4; states[8]='build';  heights[8]=18; }
+  if (phase >= 10) { states[9]='build'; heights[9]=32; }
+  if (phase >= 11) { states[10]='build'; heights[10]=42; }
+  if (phase >= 12) {
+    states[8]='dead';  heights[8]=4;
+    states[9]='dead';  heights[9]=4;
+    states[10]='dead'; heights[10]=4;
+    states[11]='reset'; heights[11]=48;
+  }
+  if (phase >= 13) { states[11]='dead'; heights[11]=4; }
+
+  return { states, heights };
+}
+
+const keyframes = [
+  {
+    t: 0, s: 33, r: 33, e: 34,
+    opp: 0, prod: 0,
+    resets: 0, cyclePhase: 0,
+    stage: 0, evIds: ['ev0'],
+    mech: '—',
+    mechDesc: 'System in equilibrium. All three contours funded. No dominant pressure.',
+    mechClass: ''
+  },
+  {
+    t: 3, s: 28, r: 22, e: 50,
+    opp: 2, prod: 2,
+    resets: 0, cyclePhase: 1,
+    stage: 1, evIds: ['ev1'],
+    mech: 'Evolution Displacement',
+    mechDesc: 'Resources shift toward Evolution. A new initiative launches — architecture change, methodology shift, or technology replacement. Survival and Reproduction are partially displaced to fund it.',
+    mechClass: 'active-e'
+  },
+  {
+    t: 6, s: 26, r: 20, e: 54,
+    opp: 7, prod: 4,
+    resets: 0, cyclePhase: 3,
+    stage: 2, evIds: ['ev2'],
+    mech: 'Potential Building — Not Yet Converted',
+    mechDesc: 'Investment accumulates. Learning occurs. Capability is developing. Conversion requires two conditions: sufficient accumulated potential AND a Reproduction-contour context that activates it. Neither has arrived.',
+    mechClass: 'active-e'
+  },
+  {
+    t: 8, s: 28, r: 24, e: 48,
+    opp: 14, prod: 5,
+    resets: 1, cyclePhase: 4,
+    stage: 2, evIds: [],
+    resetFlash: true,
+    mech: 'Reset — Potential Lost',
+    mechDesc: 'Before conversion occurs, the initiative is replaced. A new direction is chosen — compelling reasoning provided. The accumulated potential does not transfer. It decays without activation.',
+    mechClass: 'active-opp'
+  },
+  {
+    t: 11, s: 27, r: 21, e: 52,
+    opp: 22, prod: 7,
+    resets: 1, cyclePhase: 6,
+    stage: 3, evIds: ['ev3'],
+    mech: 'Cycle 2 — Same Pattern',
+    mechDesc: 'The second initiative builds from zero. No institutional knowledge carries over — the previous cycle\'s learning was discarded with the initiative. Effort is genuine; yield is structurally prevented.',
+    mechClass: 'active-e'
+  },
+  {
+    t: 14, s: 27, r: 21, e: 52,
+    opp: 32, prod: 8,
+    resets: 2, cyclePhase: 8,
+    stage: 3, evIds: [],
+    resetFlash: true,
+    mech: 'Reset — Cycle 2',
+    mechDesc: 'Second reset. Each reset leaves the system at the same starting position as before — but with less time and marginally less actor engagement. Fatigue begins accumulating where potential cannot.',
+    mechClass: 'active-opp'
+  },
+  {
+    t: 17, s: 27, r: 20, e: 53,
+    opp: 44, prod: 10,
+    resets: 2, cyclePhase: 10,
+    stage: 4, evIds: ['ev4'],
+    mech: 'Cycle 3 — Diminishing Engagement',
+    mechDesc: 'Actors recognise the pattern. Engagement with new initiatives is lower — not because the work is uninteresting but because prior cycles produced no visible outcome. Cynicism is a rational response to structural non-conversion.',
+    mechClass: 'active-e'
+  },
+  {
+    t: 20, s: 27, r: 20, e: 53,
+    opp: 58, prod: 11,
+    resets: 3, cyclePhase: 12,
+    stage: 4, evIds: [],
+    resetFlash: true,
+    mech: 'Reset — Cycle 3',
+    mechDesc: 'Third reset. Opportunity cost is now compounding. The gap between what sustained investment would have produced and what repeated reset yields grows with each cycle — invisible in any single-cycle metric.',
+    mechClass: 'active-opp'
+  },
+  {
+    t: 23, s: 27, r: 20, e: 53,
+    opp: 74, prod: 12,
+    resets: 3, cyclePhase: 13,
+    stage: 5, evIds: ['ev5', 'ev6'],
+    mech: 'Entrenchment — Code-Level Pattern',
+    mechDesc: 'Churn is no longer a series of bad decisions. It is the system\'s operating logic. The Code values novelty over consolidation. Actors who would push for sustained investment are treated as resistant to change. Exit intervention requires Code rewrite — reallocation alone cannot resolve it.',
+    mechClass: 'active-lock'
+  },
+  {
+    t: 28, s: 27, r: 20, e: 53,
+    opp: 74, prod: 12,
+    resets: 3, cyclePhase: 13,
+    stage: 5, evIds: [],
+    mech: 'Entrenchment — Code-Level Pattern',
+    mechDesc: 'Churn is no longer a series of bad decisions. It is the system\'s operating logic. The Code values novelty over consolidation. Actors who would push for sustained investment are treated as resistant to change. Exit intervention requires Code rewrite — reallocation alone cannot resolve it.',
+    mechClass: 'active-lock'
+  }
+];
+
+// ── State ──────────────────────────────────────────────────────────────────
+let startTime = null, lastKfIdx = -1, firedResets = new Set();
+let isPlaying = true, pausedAt = 0, autoRepeat = true, endReached = false;
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+function lerp(a,b,t){ return a+(b-a)*t; }
+function easeInOut(t){ return t<0.5?2*t*t:-1+(4-2*t)*t; }
+
+function setBar(id, valId, pct) {
+  document.getElementById(id).style.width = pct+'%';
+  document.getElementById(valId).textContent = Math.round(pct)+'%';
+}
+function setAccum(fillId, valId, pct) {
+  document.getElementById(fillId).style.width = Math.min(100,Math.max(0,pct))+'%';
+  if (valId) document.getElementById(valId).textContent = Math.round(pct)+'%';
+}
+function setStage(idx) {
+  document.querySelectorAll('.stage-item').forEach((el,i)=>{
+    el.classList.toggle('active',i===idx);
+    el.classList.toggle('passed',i<idx);
+  });
+}
+function showEvents(ids) {
+  document.querySelectorAll('.event-entry').forEach(el=>{
+    if(ids.includes(el.id)) el.classList.add('visible');
+  });
+}
+function setMechanism(name, desc, cls) {
+  document.getElementById('mechName').textContent = name;
+  document.getElementById('mechDesc').textContent = desc;
+  document.getElementById('mechanismBox').className = 'mechanism '+(cls||'');
+}
+
+function setCycleBars(phase) {
+  const { states, heights } = buildCycleState(phase);
+  for (let i=0; i<NUM_BARS; i++) {
+    const bar = document.getElementById('cb'+i);
+    bar.className = 'cycle-bar ' + states[i];
+    bar.style.height = heights[i]+'px';
+  }
+}
+
+function setResetCounter(n) {
+  const el   = document.getElementById('resetCount');
+  const ctr  = document.getElementById('resetCounter');
+  el.textContent = n;
+  el.classList.toggle('warn', n >= 2);
+  ctr.classList.toggle('warn', n >= 2);
+}
+
+let shockTout = null;
+function triggerReset() {
+  const flash = document.getElementById('shockFlash');
+  flash.classList.add('active');
+  clearTimeout(shockTout);
+  shockTout = setTimeout(()=>flash.classList.remove('active'), 250);
+}
+
+function interpolate(kA, kB, t) {
+  const span = kB.t-kA.t;
+  const raw  = span===0?1:(t-kA.t)/span;
+  const p    = easeInOut(Math.max(0,Math.min(1,raw)));
+  return {
+    s:    lerp(kA.s,    kB.s,    p),
+    r:    lerp(kA.r,    kB.r,    p),
+    e:    lerp(kA.e,    kB.e,    p),
+    opp:  lerp(kA.opp,  kB.opp,  p),
+    prod: lerp(kA.prod, kB.prod, p),
+  };
+}
+
+const ICON_PLAY  = '<polygon points="2,1 9,5 2,9"/>';
+const ICON_PAUSE = '<rect x="2" y="1" width="2.5" height="8"/><rect x="5.5" y="1" width="2.5" height="8"/>';
+
+function updatePlayBtn() {
+  document.getElementById('playBtn').classList.toggle('visible', !autoRepeat);
+  document.getElementById('playIcon').innerHTML = isPlaying ? ICON_PAUSE : ICON_PLAY;
+}
+
+function resetVisuals() {
+  lastKfIdx=-1; firedResets=new Set(); endReached=false;
+  document.querySelectorAll('.event-entry').forEach(el=>el.classList.remove('visible'));
+  showEvents(['ev0']);
+  setBar('barS','valS',33); setBar('barR','valR',33); setBar('barE','valE',34);
+  setAccum('fillOpp','valOpp',0); setAccum('fillProd','valProd',0);
+  setCycleBars(0);
+  setResetCounter(0);
+  document.getElementById('mechanismBox').className = 'mechanism';
+  document.getElementById('mechName').textContent = '—';
+  document.getElementById('mechDesc').textContent = 'Waiting for system event.';
+  document.getElementById('progressFill').style.width = '0%';
+  document.getElementById('timerLabel').textContent   = '0.0s';
+  setStage(0);
+}
+
+function fullReset() { startTime=null; pausedAt=0; resetVisuals(); }
+
+function renderAt(t) {
+  const displayT = Math.min(t, TOTAL);
+  document.getElementById('progressFill').style.width = (displayT/TOTAL*100)+'%';
+  document.getElementById('timerLabel').textContent   = displayT.toFixed(1)+'s';
+
+  let kfIdx=0;
+  for(let i=0;i<keyframes.length-1;i++){ if(displayT>=keyframes[i].t) kfIdx=i; }
+  const kA=keyframes[kfIdx];
+  const kB=keyframes[Math.min(kfIdx+1,keyframes.length-1)];
+  const v=interpolate(kA,kB,displayT);
+
+  setBar('barS','valS',v.s);
+  setBar('barR','valR',v.r);
+  setBar('barE','valE',v.e);
+  setAccum('fillOpp','valOpp',v.opp);
+  setAccum('fillProd','valProd',v.prod);
+
+  if (kfIdx!==lastKfIdx) {
+    lastKfIdx=kfIdx;
+    setStage(kA.stage);
+
+    const allEvIds=[];
+    for(let i=0;i<=kfIdx;i++) keyframes[i].evIds.forEach(id=>allEvIds.push(id));
+    showEvents(allEvIds);
+
+    setMechanism(kA.mech, kA.mechDesc, kA.mechClass);
+    setCycleBars(kA.cyclePhase);
+    setResetCounter(kA.resets);
+
+    if (kA.resetFlash && !firedResets.has(kfIdx)) {
+      triggerReset();
+      firedResets.add(kfIdx);
+    }
+  }
+}
+
+function tick(ts) {
+  if (!isPlaying){ requestAnimationFrame(tick); return; }
+  if (!startTime) startTime=ts-pausedAt*1000;
+  const elapsed=(ts-startTime)/1000;
+
+  if(elapsed<=TOTAL){ renderAt(elapsed); requestAnimationFrame(tick); return; }
+
+  renderAt(TOTAL);
+  if(!endReached) endReached=true;
+
+  if(autoRepeat){
+    if(elapsed>=TOTAL+END_PAUSE){ fullReset(); startTime=ts; }
+    requestAnimationFrame(tick);
+  } else {
+    isPlaying=false; pausedAt=TOTAL; updatePlayBtn();
+    requestAnimationFrame(tick);
+  }
+}
+
+document.getElementById('playBtn').addEventListener('click', ()=>{
+  if(endReached&&!isPlaying){ fullReset(); isPlaying=true; startTime=null; }
+  else { isPlaying=!isPlaying; if(isPlaying) startTime=null; }
+  updatePlayBtn();
+});
+document.getElementById('repeatToggle').addEventListener('change', function(){
+  autoRepeat=this.checked; updatePlayBtn();
+  if(autoRepeat&&endReached&&!isPlaying){ fullReset(); isPlaying=true; startTime=null; }
+});
+(function trackPause(){
+  function track(ts){ if(isPlaying&&startTime!==null) pausedAt=(ts-startTime)/1000; requestAnimationFrame(track); }
+  requestAnimationFrame(track);
+})();
+
+fullReset(); updatePlayBtn(); requestAnimationFrame(tick);
+</script>
+</body>
+</html>
